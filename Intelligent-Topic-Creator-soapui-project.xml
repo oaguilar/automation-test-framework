@@ -594,9 +594,9 @@ ts9.getHttpRequest().setRequestHeaders(headers)
 ts101.getHttpRequest().setRequestHeaders(headers)
 ts102.getHttpRequest().setRequestHeaders(headers)
 ts103.getHttpRequest().setRequestHeaders(headers)
-ts104.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="groovy" name="initialize_jdbc_driver"><con:settings/><con:config><script>com.eviware.soapui.support.GroovyUtils.registerJdbcDriver("vertica.jdbc.driver.vertica")</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary011AuthorLocationState"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary011AuthorLocationState" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ts104.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="groovy" name="initialize_jdbc_driver"><con:settings/><con:config><script>com.eviware.soapui.support.GroovyUtils.registerJdbcDriver("vertica.jdbc.driver.vertica")</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary011AuthorLocationState"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary011AuthorLocationState" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
-  //"limit":"55",
+  "limit":"100",
   "selectedFields":[
         {"field":"content_volume()","sortDirection":"DESCENDING"},
         {"field":"author_state"}
@@ -620,7 +620,34 @@ AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 AND fa.author_country IN ('us')
 GROUP BY fa.author_state
-ORDER BY COUNT(DISTINCT fa.id) DESC, fa.author_state ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary012AuthorLocationCountry"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary012AuthorLocationCountry" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT fa.id) DESC, fa.author_state ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsAuthorLocationState"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryAuthorLocationStateVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary011AuthorLocationState#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_STATE, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_state, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    if (restResponse in jdbcStringList ) assert true
+    else assert null
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary012AuthorLocationCountry"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary012AuthorLocationCountry" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":"20",
   "selectedFields":[
@@ -645,7 +672,34 @@ INNER JOIN (
 AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.author_country
-ORDER BY COUNT(DISTINCT fa.id) DESC, fa.author_country ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary02SentimentArticleLevel"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary02SentimentArticleLevel" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT fa.id) DESC, fa.author_country ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsAuthorLocationCountry"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryAuthorLocationCountryVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary012AuthorLocationCountry#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_COUNTRY, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_country, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary02SentimentArticleLevel"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary02SentimentArticleLevel" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":"20",
   "selectedFields":[
@@ -671,9 +725,36 @@ INNER JOIN (
 AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.sentiment
-ORDER BY fa.sentiment DESC</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary03TopEntities"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary03TopEntities" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT fa.id) DESC</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsSentimentByArticleLevel"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummarySentimentArticleLevelVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary02SentimentArticleLevel#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.SENTIMENT, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:article_sentiment, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary03TopEntities"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary03TopEntities" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
-  "limit":30,
+  "limit":25,
   "selectedFields":[
         {"field":"entity_type","sortDirection":"ASCENDING"},
    		{"field":"content_volume()","sortDirection":"DESCENDING"}
@@ -697,12 +778,39 @@ AND en.type='entity'
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 AND en.account IN (0,${#Global#accountid})
 GROUP BY en.level1
-ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary04TopPeople"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary04TopPeople" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTopEntities"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryTopEntitiesVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary03TopEntities#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.LEVEL1, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_type, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary04TopPeople"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary04TopPeople" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":25,
   "selectedFields":[
-        {"field":"entity_value","sortDirection":"ASCENDING"},
-   		{"field":"content_volume()","sortDirection":"DESCENDING"}
+        {"field":"content_volume()","sortDirection":"DESCENDING"},
+        {"field":"entity_value","sortDirection":"ASCENDING"}
         //{"field":"combined_topics"}
   ],
   "filters":[
@@ -726,12 +834,39 @@ WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 AND en.account IN (0,${#Global#accountid})
 AND en.level1 = 'PERSON'
 GROUP BY en.value
-ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary05TopHashtags"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary05TopHashtags" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTopPeople"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryTopPeopleVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary04TopPeople#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.VALUE, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_value, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary05TopHashtags"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary05TopHashtags" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":25,
   "selectedFields":[
-        {"field":"entity_value","sortDirection":"ASCENDING"},
-   		{"field":"content_volume()","sortDirection":"DESCENDING"}
+   	   {"field":"content_volume()","sortDirection":"DESCENDING"},
+   	   {"field":"entity_value","sortDirection":"ASCENDING"}
         //{"field":"combined_topics"}
   ],
   "filters":[
@@ -755,12 +890,39 @@ WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 AND en.account IN (0,${#Global#accountid})
 AND en.level1 = 'HASHTAG'
 GROUP BY en.value
-ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary06TopStateMentions"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary06TopStateMentions" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTopHashtags"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryTopHashtagsVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary05TopHashtags#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.VALUE, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_value, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary06TopStateMentions"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary06TopStateMentions" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
-  "limit":50,
+  "limit":25,
   "selectedFields":[
-        {"field":"entity_value","sortDirection":"ASCENDING"},
-   		{"field":"content_volume()","sortDirection":"DESCENDING"}
+   	   {"field":"content_volume()","sortDirection":"DESCENDING"},
+        {"field":"entity_value","sortDirection":"ASCENDING"}
         //{"field":"combined_topics"}
   ],
   "filters":[
@@ -784,12 +946,39 @@ WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 AND en.account IN (0,${#Global#accountid})
 AND en.level1 = 'STATE'
 GROUP BY en.value
-ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary071TopCategoriesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary071TopCategoriesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTopStateMentions"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryTopStateMentionsVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary06TopStateMentions#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.VALUE, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_value, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary071TopCategoriesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary071TopCategoriesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
-	    {"field":"category_type"},
 	    {"field":"content_volume()", "sortDirection":"DESCENDING"},
+	    {"field":"category_type"},
    	    {"field":"category_level1"}
         //{"field":"combined_topics"}
   ],
@@ -813,7 +1002,34 @@ AND en.type='category'
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 AND en.account IN (0,${#Global#accountid})
 GROUP BY en.level1
-ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC  limit 20</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary072TopCategoriesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary072TopCategoriesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC  limit 20</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTopCategoriesLevel1"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryTopCategoriesLevel1Vertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary071TopCategoriesLevel1#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.LEVEL1, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:category_level1, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary072TopCategoriesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary072TopCategoriesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -831,7 +1047,7 @@ ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC  limit 20</con:query>
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 //ns1:category_level1</path><content>Dynamic Routing*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="assert_catefory_level2"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
-//ns1:category_level2</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary073TopCategoriesLevel3"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary073TopCategoriesLevel3" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:category_level2</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary073TopCategoriesLevel3"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary073TopCategoriesLevel3" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -853,7 +1069,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 //ns1:category_level2</path><content>Sentiment</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
-//ns1:category_level3</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary074TopCategoriesLevel4"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary074TopCategoriesLevel4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:category_level3</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary074TopCategoriesLevel4"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary074TopCategoriesLevel4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
 "limit":"20",
   "selectedFields":[
@@ -878,7 +1094,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 //ns1:category_level3</path><content>Negative</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
-//ns1:category_level4</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary075TopCategoriesLevel5"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary075TopCategoriesLevel5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:category_level4</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary075TopCategoriesLevel5"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary075TopCategoriesLevel5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -906,7 +1122,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 //ns1:category_level4</path><content>Complaints</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="assert_category_level5"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
-//ns1:category_level5</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary08SentimentByEntity"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary08SentimentByEntity" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:category_level5</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary08SentimentByEntity"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary08SentimentByEntity" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":25,
   'selectedFields':[
@@ -921,12 +1137,12 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
   "dateRange":{"startDate":${#Global#queryepochstart},"endDate":${#Global#queryepochend}}
 }</con:request><con:assertion type="XPath Match" name="assert_enttiy_type"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
-//ns1:entity_type</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary081SentimentByEntityNegative"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary081SentimentByEntityNegative" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:entity_type</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary081SentimentByEntityNegative"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary081SentimentByEntityNegative" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
-  //"limit":25,
+  "limit":25,
   'selectedFields':[
-        {'field':'entity_type'},
         {"field":"content_volume()","sortDirection":"DESCENDING"},
+        {'field':'entity_type'},
         {'field':'entity_sentiment'}
         //{"field":"combined_topics"}
   ],
@@ -951,12 +1167,38 @@ AND en.type='entity' AND en.sentiment = 'NEGATIVE'
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 AND en.account IN (0,${#Global#accountid})
 GROUP BY en.sentiment,en.level1
-ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC,en.sentiment ASC  limit 50</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary082SentimentByEntityPositive"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary082SentimentByEntityPositive" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC,en.sentiment ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsSentimentByEntityNegative"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummarySentimentByEntityNegativeVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary081SentimentByEntityNegative#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.LEVEL1, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_type, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary082SentimentByEntityPositive"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary082SentimentByEntityPositive" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
-  //"limit":25,
-  'selectedFields':[
+  "limit":25,
+  'selectedFields':[{"field":"content_volume()","sortDirection":"DESCENDING"},
         {'field':'entity_type'},
-        {"field":"content_volume()","sortDirection":"DESCENDING"},
         {'field':'entity_sentiment'}
         //{"field":"combined_topics"}
   ],
@@ -981,12 +1223,38 @@ AND en.type='entity' AND en.sentiment = 'POSITIVE'
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 AND en.account IN (0,${#Global#accountid})
 GROUP BY en.sentiment,en.level1
-ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC,en.sentiment ASC  limit 50</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary09TagCloud"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary09TagCloud" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC,en.sentiment ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsSentimentByEntityPositive"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummarySentimentByEntityPositiveVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary082SentimentByEntityPositive#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.LEVEL1, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_type, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary09TagCloud"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary09TagCloud" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":200,
-  "selectedFields":[
-        {"field":"entity_value","sortDirection":"ASCENDING"},
-   		{"field":"content_volume()","sortDirection":"DESCENDING"}
+  "selectedFields":[{"field":"content_volume()","sortDirection":"DESCENDING"},
+   	   {"field":"entity_value","sortDirection":"ASCENDING"}
         //{"field":"combined_topics"}
   ],
   "filters":[
@@ -1007,9 +1275,36 @@ AND en.type='entity'
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 AND en.account IN (0,${#Global#accountid})
 GROUP BY en.value
-ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 200</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary101Followers"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary101Followers" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 200</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTagCloud"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryTagCloudVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary09TagCloud#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.VALUE, //CONTENT_VOLUME' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_value, //ns:results/ns:e/ns:content_volume'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary101Followers"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary101Followers" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
-  "limit":20,
+  "limit":10,
  "selectedFields":[
    {"field":"followers_max()","sortDirection":"DESCENDING"},
    {"field":"klout_max()"},
@@ -1042,9 +1337,36 @@ INNER JOIN (
 AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.author_name
-ORDER BY max(fa.followers) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary102Klout"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary102Klout" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY max(fa.followers) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsFollowers"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryFollowersVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary101Followers#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_NAME, //MAX' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_name, //ns:results/ns:e/ns:followers_max'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary102Klout"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary102Klout" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
-  "limit":20,
+  "limit":10,
  "selectedFields":[
    {"field":"klout_max()","sortDirection":"DESCENDING"},
    {"field":"followers_max()"},
@@ -1077,9 +1399,36 @@ INNER JOIN (
 AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.author_name
-ORDER BY max(fa.klout) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary103Tweets"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary103Tweets" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY max(fa.klout) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsKlout"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryKloutVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary102Klout#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_NAME, //MAX' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_name, //ns:results/ns:e/ns:klout_max'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary103Tweets"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary103Tweets" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
-  "limit":20,
+  "limit":10,
  "selectedFields":[
    {"field":"status_updates_max()","sortDirection":"DESCENDING"},
    {"field":"klout_max()"},
@@ -1112,9 +1461,36 @@ INNER JOIN (
 AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.author_name
-ORDER BY max(fa.status_updates) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Summary104Other"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary104Other" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="5622795509109032938-7470558661876984077-8716442819780682858-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY max(fa.status_updates) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTweets"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryTweetsVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary103Tweets#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_NAME, //MAX' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_name, //ns:results/ns:e/ns:status_updates_max'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary104Other"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary104Other" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
-  "limit":20,
+  "limit":10,
  "selectedFields":[
    {"field":"reach_max()","sortDirection":"DESCENDING"},
    {"field":"reach_max()"},
@@ -1147,7 +1523,34 @@ INNER JOIN (
 AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.author_name
-ORDER BY max(fa.reach) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="timeseries TestCase" searchProperties="true" id="074f6797-cec9-4ced-95e0-18445164ea83"><con:description>TestCase generated for REST Resource [timeseries] located at [/query/timeseries]</con:description><con:settings/><con:testStep type="groovy" name="settime"><con:settings/><con:config><script>Calendar sod = Calendar.instance
+ORDER BY max(fa.reach) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsOther"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def response1 = context.expand( 'SummaryOtherVertica#ResponseAsXml' )
+def response2 = context.expand( '${Summary104Other#ResponseAsXml}' )
+def holder1 = groovyUtils.getXmlHolder(response1)
+def holder2 = groovyUtils.getXmlHolder(response2)
+
+def jdbcStringList = []
+def restStringList = []
+
+// loop item nodes in response message
+for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_NAME, //MAX' ))
+{  
+  //log.info 'Item : [$jdbcResults]'
+  jdbcStringList = jdbcStringList + jdbcResults
+}
+
+holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
+for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_name, //ns:results/ns:e/ns:reach_max'  ))
+{
+  //log.info 'Item : [$restResponse]' 
+  restStringList = restStringList + restResponse
+    //if (restResponse in jdbcStringList ) assert true
+    //else assert false
+}
+
+log.info "request  : >" + jdbcStringList
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="timeseries TestCase" searchProperties="true" id="074f6797-cec9-4ced-95e0-18445164ea83"><con:description>TestCase generated for REST Resource [timeseries] located at [/query/timeseries]</con:description><con:settings/><con:testStep type="groovy" name="settime"><con:settings/><con:config><script>Calendar sod = Calendar.instance
     sod.set(Calendar.AM_PM, 0)
     sod.set(Calendar.HOUR, 0)
     sod.set(Calendar.MINUTE, 0)
@@ -1258,7 +1661,7 @@ ts51.getHttpRequest().setRequestHeaders(headers)
 ts52.getHttpRequest().setRequestHeaders(headers)
 ts53.getHttpRequest().setRequestHeaders(headers)
 ts54.getHttpRequest().setRequestHeaders(headers)
-ts55.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="groovy" name="initialize_jdbc_driver"><con:settings/><con:config><script>com.eviware.soapui.support.GroovyUtils.registerJdbcDriver("vertica.jdbc.driver.vertica")</script></con:config></con:testStep><con:testStep type="restrequest" name="Trending01VolumeMavg"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending01VolumeMavg" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7536351613367906821--9132826908694509269-93379554148033455-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ts55.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="groovy" name="initialize_jdbc_driver"><con:settings/><con:config><script>com.eviware.soapui.support.GroovyUtils.registerJdbcDriver("vertica.jdbc.driver.vertica")</script></con:config></con:testStep><con:testStep type="restrequest" name="Trending01VolumeMavg"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending01VolumeMavg" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":10,
   "selectedFields":[
@@ -1287,7 +1690,7 @@ INNER JOIN (
 AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.publish_at_hour
-ORDER BY fa.publish_at_hour ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending02VolumeProjections"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending02VolumeProjections" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7536351613367906821--9132826908694509269-93379554148033455-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY fa.publish_at_hour ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending02VolumeProjections"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending02VolumeProjections" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":10,
   "selectedFields":[
@@ -1303,7 +1706,7 @@ ORDER BY fa.publish_at_hour ASC  limit 100</con:query><con:properties/></con:con
   "timeSlice":"HOUR"
 }</con:request><con:assertion type="XPath Match" name="assert_content_volume"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries';
-//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending03Sentiment"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending03Sentiment" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7536351613367906821--9132826908694509269-93379554148033455-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending03Sentiment"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending03Sentiment" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":10,
   "selectedFields":[
@@ -1328,7 +1731,7 @@ INNER JOIN (
 AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.sentiment, fa.publish_at_hour
-ORDER BY fa.sentiment DESC, fa.publish_at_hour ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending041TopEntitiesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending041TopEntitiesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7536351613367906821--9132826908694509269-93379554148033455-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY fa.sentiment DESC, fa.publish_at_hour ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending041TopEntitiesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending041TopEntitiesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":10,
   "selectedFields":[
@@ -1368,7 +1771,7 @@ AND en.level1 IN
 	ORDER BY COUNT(DISTINCT(fa.id)) DESC LIMIT 50
 	)
 GROUP BY en.level1, fa.publish_at_hour
-ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 500</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending042TopEntitiesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending042TopEntitiesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7536351613367906821--9132826908694509269-93379554148033455-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 500</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending042TopEntitiesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending042TopEntitiesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":10,
   "selectedFields":[
@@ -1384,7 +1787,7 @@ ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 500</con:query><con:proper
   "timeSlice":"HOUR"
 }</con:request><con:assertion type="XPath Match" name="assert_content_volume"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries';
-//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending051TopCategoriesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending051TopCategoriesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7536351613367906821--9132826908694509269-93379554148033455-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending051TopCategoriesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending051TopCategoriesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1425,7 +1828,7 @@ AND en.level1 IN
 	ORDER BY COUNT(DISTINCT(fa.id)) DESC LIMIT 30
 	)
 GROUP BY en.level1, fa.publish_at_hour
-ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 300</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending052TopCategoriesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending052TopCategoriesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7536351613367906821--9132826908694509269-93379554148033455-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 300</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending052TopCategoriesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending052TopCategoriesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",  
   "selectedFields":[
@@ -1441,7 +1844,7 @@ ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 300</con:query><con:proper
   "timeSlice":"HOUR"
 }</con:request><con:assertion type="XPath Match" name="assert_content_volume"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries';
-//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending053TopCategoriesLevel3"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending053TopCategoriesLevel3" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7536351613367906821--9132826908694509269-93379554148033455-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending053TopCategoriesLevel3"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending053TopCategoriesLevel3" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1457,7 +1860,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries'
   "timeSlice":"HOUR"
 }</con:request><con:assertion type="XPath Match" name="assert_content_volume"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries';
-//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending054TopCategoriesLevel4"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending054TopCategoriesLevel4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7536351613367906821--9132826908694509269-93379554148033455-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending054TopCategoriesLevel4"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending054TopCategoriesLevel4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1473,7 +1876,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries'
   "timeSlice":"HOUR"
 }</con:request><con:assertion type="XPath Match" name="assert_content_volume"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries';
-//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending055TopCategoriesLevel5"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending055TopCategoriesLevel5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7536351613367906821--9132826908694509269-93379554148033455-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending055TopCategoriesLevel5"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending055TopCategoriesLevel5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1532,7 +1935,7 @@ def ts1 = tc.getTestStepByName("articleDetails")
 def headers = new StringToStringMap()
 headers.putIfMissing("utoken",authkey)
 
-ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="articleDetails"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/details" methodName="POST - getArticleDetailsData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="articleDetails" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="8698312119230057753--6536750748066655759--1931497891729631655-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="articleDetails"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/details" methodName="POST - getArticleDetailsData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="articleDetails" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-1014564402684752833--6945730047967683247--2607951914768619613-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":240,
   "selectedFields":[
@@ -1600,7 +2003,7 @@ def ts1 = tc.getTestStepByName("articleFieldsMap")
 def headers = new StringToStringMap()
 headers.putIfMissing("utoken",authkey)
 
-ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="articleFieldsMap"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/fieldsmap" methodName="POST - getArticleFieldsMap" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="articleFieldsMap" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6679643418598825857--5321306974614648127--5548406233559864723-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:assertion type="XPath Match" name="assert_aquired_at"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="articleFieldsMap"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/fieldsmap" methodName="POST - getArticleFieldsMap" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="articleFieldsMap" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="6922277803506815614--2327423976291738928-2979826246958129704-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:assertion type="XPath Match" name="assert_aquired_at"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/fieldsmap';
 //ns1:acquired_at</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="population TestCase" searchProperties="true" id="88b0bea8-eede-4416-90ca-a8aebd0ee158"><con:description>TestCase generated for REST Resource [population] located at [/query/population]</con:description><con:settings/><con:testStep type="restrequest" name="authuser"><con:settings/><con:config service="Intelligent Topic Creator - UserManager" resourcePath="/SaasCoreUserManager/rest/auth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authuser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="authkey" value="1189377229352574419-2213262129298445271-4936701685398756970-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "username":${#Global#username},
@@ -1645,6 +2048,6 @@ def ts1 = tc.getTestStepByName("populationData")
 def headers = new StringToStringMap()
 headers.putIfMissing("utoken",authkey)
 
-ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="populationData"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" methodName="GET - getPopulation" resourcePath="/ArticleQueryApi/rest/query/population" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="populationData" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6872280496857885815-5402944466512695046-9074763373061613635-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:assertion type="XPath Match" name="assert_us"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="populationData"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" methodName="GET - getPopulation" resourcePath="/ArticleQueryApi/rest/query/population" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="populationData" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="1331435614089117868--7253186157060633537-2550347368735753315-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:assertion type="XPath Match" name="assert_us"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/population';
-//ns1:us</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="query TestCase" searchProperties="true" id="bc7175fa-40a8-4dc0-95e4-f684e0f17b6b" disabled="true"><con:description>TestCase generated for REST Resource [query] located at [/query]</con:description><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="csvresults TestCase" searchProperties="true" id="a323425e-41b2-4241-8e3b-381b08066317" disabled="true"><con:description>TestCase generated for REST Resource [csvresults] located at [/query/csvresults]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/csvresults" methodName="OPTIONS - fixOptionsCSVResults" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="/topicvolume/{id} TestCase" searchProperties="true" id="9ccf4b63-044a-48d0-8416-e337800569d8" disabled="true"><con:description>TestCase generated for REST Resource [/topicvolume/{id}] located at [/query/topicvolume/{id}]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/topicvolume/{id}" methodName="GET - getTopicAverage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Request 1 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/topicvolume/{id}" methodName="OPTIONS - fixOptionsTopicAverage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+//ns1:us</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="query TestCase" searchProperties="true" id="bc7175fa-40a8-4dc0-95e4-f684e0f17b6b" disabled="true"><con:description>TestCase generated for REST Resource [query] located at [/query]</con:description><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="csvresults TestCase" searchProperties="true" id="a323425e-41b2-4241-8e3b-381b08066317" disabled="true"><con:description>TestCase generated for REST Resource [csvresults] located at [/query/csvresults]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/csvresults" methodName="OPTIONS - fixOptionsCSVResults" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="/topicvolume/{id} TestCase" searchProperties="true" id="9ccf4b63-044a-48d0-8416-e337800569d8" disabled="true"><con:description>TestCase generated for REST Resource [/topicvolume/{id}] located at [/query/topicvolume/{id}]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/topicvolume/{id}" methodName="GET - getTopicAverage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Request 1 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/topicvolume/{id}" methodName="OPTIONS - fixOptionsTopicAverage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>Url</con:name><con:value>jdbc:vertica://10.200.0.190:5433/artsa01</con:value></con:property><con:property><con:name>User</con:name><con:value>artsa01</con:value></con:property><con:property><con:name>Pass</con:name><con:value>artsa2</con:value></con:property><con:property><con:name>Driver</con:name><con:value>com.vertica.Driver</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
