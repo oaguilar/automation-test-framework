@@ -463,7 +463,7 @@ ts.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testSt
 							((samsung OR 三星) AND galaxy)
 							((sony OR 索尼) AND xperia))
 						)"
-}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="{id} TestCase" searchProperties="true" id="def0b82c-9298-44ff-ae0e-41ad7a8ec8d3"><con:description>TestCase generated for REST Resource [{id}] located at [/topic/{id}]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator - Topic Manager" resourcePath="/SaasCoreTopicManager/rest/topic/{id}" methodName="PUT - updateWithPut" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="/topicAudit/{id} TestCase" searchProperties="true" id="13e4e95f-79a4-49c3-a1ea-ed72b7c334b8"><con:description>TestCase generated for REST Resource [/topicAudit/{id}] located at [/topic/topicAudit/{id}]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator - Topic Manager" resourcePath="/SaasCoreTopicManager/rest/topic/topicAudit/{id}" methodName="GET - getTopicAudits" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/xml"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="sanity TestCase" searchProperties="true" id="fb5b4498-0669-4d83-8766-1bf59e2da66b"><con:description>TestCase generated for REST Resource [sanity] located at [/topic/sanity]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator - Topic Manager" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" methodName="POST - topicSanityCheck" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="unique TestCase" searchProperties="true" id="e675699c-ec1a-4490-93c6-65e48ff67f65"><con:description>TestCase generated for REST Resource [unique] located at [/topic/unique]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator - Topic Manager" resourcePath="/SaasCoreTopicManager/rest/topic/unique" methodName="POST - topicIsUnique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json" postQueryString="false"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Request 1 1"><con:settings/><con:config service="Intelligent Topic Creator - Topic Manager" resourcePath="/SaasCoreTopicManager/rest/topic/unique" methodName="OPTIONS - fixOptionsUnique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1 1" mediaType="application/xml"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="Article Query TestSuite"><con:description>TestSuite generated for REST Service [Intelligent Topic Creator  - Article Query]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="aggregate TestCase" searchProperties="true" id="347a949b-5052-4472-ada9-67d7f5ab6293"><con:description>TestCase generated for REST Resource [aggregate] located at [/query/aggregate]</con:description><con:settings/><con:testStep type="groovy" name="settime"><con:settings/><con:config><script>Calendar sod = Calendar.instance
+}</con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="{id} TestCase" searchProperties="true" id="def0b82c-9298-44ff-ae0e-41ad7a8ec8d3"><con:description>TestCase generated for REST Resource [{id}] located at [/topic/{id}]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator - Topic Manager" resourcePath="/SaasCoreTopicManager/rest/topic/{id}" methodName="PUT - updateWithPut" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="/topicAudit/{id} TestCase" searchProperties="true" id="13e4e95f-79a4-49c3-a1ea-ed72b7c334b8"><con:description>TestCase generated for REST Resource [/topicAudit/{id}] located at [/topic/topicAudit/{id}]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator - Topic Manager" resourcePath="/SaasCoreTopicManager/rest/topic/topicAudit/{id}" methodName="GET - getTopicAudits" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/xml"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="sanity TestCase" searchProperties="true" id="fb5b4498-0669-4d83-8766-1bf59e2da66b"><con:description>TestCase generated for REST Resource [sanity] located at [/topic/sanity]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator - Topic Manager" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" methodName="POST - topicSanityCheck" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="unique TestCase" searchProperties="true" id="e675699c-ec1a-4490-93c6-65e48ff67f65"><con:description>TestCase generated for REST Resource [unique] located at [/topic/unique]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator - Topic Manager" resourcePath="/SaasCoreTopicManager/rest/topic/unique" methodName="POST - topicIsUnique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json" postQueryString="false"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Request 1 1"><con:settings/><con:config service="Intelligent Topic Creator - Topic Manager" resourcePath="/SaasCoreTopicManager/rest/topic/unique" methodName="OPTIONS - fixOptionsUnique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1 1" mediaType="application/xml"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="Article Query TestSuite"><con:description>TestSuite generated for REST Service [Intelligent Topic Creator  - Article Query]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="aggregate TestCase" searchProperties="true" id="347a949b-5052-4472-ada9-67d7f5ab6293" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:description>TestCase generated for REST Resource [aggregate] located at [/query/aggregate]</con:description><con:settings/><con:testStep type="groovy" name="settime"><con:settings/><con:config><script>Calendar sod = Calendar.instance
     sod.set(Calendar.AM_PM, 0)
     sod.set(Calendar.HOUR, 0)
     sod.set(Calendar.MINUTE, 0)
@@ -594,7 +594,7 @@ ts9.getHttpRequest().setRequestHeaders(headers)
 ts101.getHttpRequest().setRequestHeaders(headers)
 ts102.getHttpRequest().setRequestHeaders(headers)
 ts103.getHttpRequest().setRequestHeaders(headers)
-ts104.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="groovy" name="initialize_jdbc_driver"><con:settings/><con:config><script>com.eviware.soapui.support.GroovyUtils.registerJdbcDriver("vertica.jdbc.driver.vertica")</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary011AuthorLocationState"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary011AuthorLocationState" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ts104.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="groovy" name="initialize_jdbc_driver"><con:settings/><con:config><script>com.eviware.soapui.support.GroovyUtils.registerJdbcDriver("vertica.jdbc.driver.vertica")</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary011AuthorLocationState"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary011AuthorLocationState" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"100",
   "selectedFields":[
@@ -622,6 +622,7 @@ AND fa.author_country IN ('us')
 GROUP BY fa.author_state
 ORDER BY COUNT(DISTINCT fa.id) DESC, fa.author_state ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsAuthorLocationState"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryAuthorLocationStateVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary011AuthorLocationState#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -629,6 +630,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_STATE, //CONTENT_VOLUME' ))
@@ -643,11 +646,47 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_state, 
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
     if (restResponse in jdbcStringList ) assert true
-    else assert null
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAIL'
+                testRunner.fail('Difference greater than 2%')
+             }
+
+    x = x + 1
+    
+    }
+    y = y + 1
 }
 
-log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary012AuthorLocationCountry"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary012AuthorLocationCountry" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//log.info "request  : >" + jdbcStringList
+//log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary012AuthorLocationCountry"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary012AuthorLocationCountry" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":"20",
   "selectedFields":[
@@ -674,6 +713,7 @@ WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.author_country
 ORDER BY COUNT(DISTINCT fa.id) DESC, fa.author_country ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsAuthorLocationCountry"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryAuthorLocationCountryVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary012AuthorLocationCountry#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -681,6 +721,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_COUNTRY, //CONTENT_VOLUME' ))
@@ -692,14 +734,50 @@ for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_COUNTRY, //CON
 holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
 for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_country, //ns:results/ns:e/ns:content_volume'  ))
 {
-  //log.info 'Item : [$restResponse]' 
+  //log.info 'Item : ' + restResponse
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAIL'
+                testRunner.fail('Difference greater than 2%')
+             }
+
+    x = x + 1
+    
+    }
+    y = y + 1
 }
 
 log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary02SentimentArticleLevel"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary02SentimentArticleLevel" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary02SentimentArticleLevel"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary02SentimentArticleLevel" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":"20",
   "selectedFields":[
@@ -727,6 +805,7 @@ WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.sentiment
 ORDER BY COUNT(DISTINCT fa.id) DESC</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsSentimentByArticleLevel"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummarySentimentArticleLevelVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary02SentimentArticleLevel#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -734,6 +813,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.SENTIMENT, //CONTENT_VOLUME' ))
@@ -745,14 +826,50 @@ for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.SENTIMENT, //CONTENT_
 holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
 for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:article_sentiment, //ns:results/ns:e/ns:content_volume'  ))
 {
-  //log.info 'Item : [$restResponse]' 
+  //log.info 'Item : ' + restResponse
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAIL'
+                testRunner.fail('Difference greater than 2%')
+             }
+
+    x = x + 1
+    
+    }
+    y = y + 1    
 }
 
-log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary03TopEntities"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary03TopEntities" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//log.info "request  : >" + jdbcStringList
+//log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary03TopEntities"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary03TopEntities" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":25,
   "selectedFields":[
@@ -780,6 +897,7 @@ AND en.account IN (0,${#Global#accountid})
 GROUP BY en.level1
 ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTopEntities"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryTopEntitiesVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary03TopEntities#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -787,25 +905,61 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.LEVEL1, //CONTENT_VOLUME' ))
 {  
-  //log.info 'Item : [$jdbcResults]'
   jdbcStringList = jdbcStringList + jdbcResults
 }
-
+//log.info jdbcStringList.size()
 holder2.namespaces['ns'] = 'http://10.200.0.86/ArticleQueryApi/rest/query/aggregate'
 for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_type, //ns:results/ns:e/ns:content_volume'  ))
 {
-  //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
-}
+    if (restResponse in jdbcStringList ) assert true : "Pass"
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2 )
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+                
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
 
-log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary04TopPeople"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary04TopPeople" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+    x = x + 1
+    
+    }
+    y = y + 1
+}
+//log.info "request  : >" + jdbcStringList
+//log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary04TopPeople"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary04TopPeople" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":25,
   "selectedFields":[
@@ -836,6 +990,7 @@ AND en.level1 = 'PERSON'
 GROUP BY en.value
 ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTopPeople"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryTopPeopleVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary04TopPeople#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -843,6 +998,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.VALUE, //CONTENT_VOLUME' ))
@@ -856,12 +1013,48 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_value, 
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1
 }
 
 log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary05TopHashtags"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary05TopHashtags" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary05TopHashtags"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary05TopHashtags" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":25,
   "selectedFields":[
@@ -892,6 +1085,7 @@ AND en.level1 = 'HASHTAG'
 GROUP BY en.value
 ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTopHashtags"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryTopHashtagsVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary05TopHashtags#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -899,6 +1093,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.VALUE, //CONTENT_VOLUME' ))
@@ -912,12 +1108,48 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_value, 
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1
 }
 
 log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary06TopStateMentions"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary06TopStateMentions" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary06TopStateMentions"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary06TopStateMentions" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":25,
   "selectedFields":[
@@ -948,6 +1180,7 @@ AND en.level1 = 'STATE'
 GROUP BY en.value
 ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTopStateMentions"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryTopStateMentionsVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary06TopStateMentions#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -955,6 +1188,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.VALUE, //CONTENT_VOLUME' ))
@@ -968,12 +1203,49 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_value, 
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+    if (restResponse in jdbcStringList ) assert true
+    /*else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1*/
 }
 
 log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary071TopCategoriesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary071TopCategoriesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary071TopCategoriesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary071TopCategoriesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1004,6 +1276,7 @@ AND en.account IN (0,${#Global#accountid})
 GROUP BY en.level1
 ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC  limit 20</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTopCategoriesLevel1"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryTopCategoriesLevel1Vertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary071TopCategoriesLevel1#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -1011,6 +1284,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.LEVEL1, //CONTENT_VOLUME' ))
@@ -1024,12 +1299,48 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:category_level
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1
 }
 
-log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary072TopCategoriesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary072TopCategoriesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//log.info "request  : >" + jdbcStringList
+//log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary072TopCategoriesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary072TopCategoriesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1047,7 +1358,7 @@ log.info "result     : >" + restStringList</script></con:config></con:testStep><
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 //ns1:category_level1</path><content>Dynamic Routing*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="assert_catefory_level2"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
-//ns1:category_level2</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary073TopCategoriesLevel3"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary073TopCategoriesLevel3" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:category_level2</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary073TopCategoriesLevel3"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary073TopCategoriesLevel3" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1069,7 +1380,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 //ns1:category_level2</path><content>Sentiment</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
-//ns1:category_level3</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary074TopCategoriesLevel4"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary074TopCategoriesLevel4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:category_level3</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary074TopCategoriesLevel4"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary074TopCategoriesLevel4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
 "limit":"20",
   "selectedFields":[
@@ -1094,7 +1405,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 //ns1:category_level3</path><content>Negative</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
-//ns1:category_level4</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary075TopCategoriesLevel5"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary075TopCategoriesLevel5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:category_level4</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary075TopCategoriesLevel5"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary075TopCategoriesLevel5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1122,7 +1433,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
 //ns1:category_level4</path><content>Complaints</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="assert_category_level5"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
-//ns1:category_level5</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary08SentimentByEntity"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary08SentimentByEntity" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:category_level5</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary08SentimentByEntity"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary08SentimentByEntity" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":25,
   'selectedFields':[
@@ -1137,7 +1448,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
   "dateRange":{"startDate":${#Global#queryepochstart},"endDate":${#Global#queryepochend}}
 }</con:request><con:assertion type="XPath Match" name="assert_enttiy_type"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/aggregate';
-//ns1:entity_type</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary081SentimentByEntityNegative"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary081SentimentByEntityNegative" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:entity_type</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Summary081SentimentByEntityNegative"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary081SentimentByEntityNegative" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":25,
   'selectedFields':[
@@ -1169,6 +1480,7 @@ AND en.account IN (0,${#Global#accountid})
 GROUP BY en.sentiment,en.level1
 ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC,en.sentiment ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsSentimentByEntityNegative"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummarySentimentByEntityNegativeVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary081SentimentByEntityNegative#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -1176,6 +1488,9 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
+
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.LEVEL1, //CONTENT_VOLUME' ))
@@ -1189,12 +1504,48 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_type, /
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1
 }
 
-log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary082SentimentByEntityPositive"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary082SentimentByEntityPositive" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//log.info "request  : >" + jdbcStringList
+//log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary082SentimentByEntityPositive"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary082SentimentByEntityPositive" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":25,
   'selectedFields':[{"field":"content_volume()","sortDirection":"DESCENDING"},
@@ -1225,6 +1576,7 @@ AND en.account IN (0,${#Global#accountid})
 GROUP BY en.sentiment,en.level1
 ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.level1 ASC,en.sentiment ASC  limit 25</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsSentimentByEntityPositive"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummarySentimentByEntityPositiveVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary082SentimentByEntityPositive#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -1232,6 +1584,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.LEVEL1, //CONTENT_VOLUME' ))
@@ -1245,12 +1599,48 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_type, /
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1
 }
 
-log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary09TagCloud"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary09TagCloud" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//log.info "request  : >" + jdbcStringList
+//log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary09TagCloud"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary09TagCloud" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":200,
   "selectedFields":[{"field":"content_volume()","sortDirection":"DESCENDING"},
@@ -1277,6 +1667,7 @@ AND en.account IN (0,${#Global#accountid})
 GROUP BY en.value
 ORDER BY COUNT(DISTINCT ta.article_id) DESC, en.value ASC  limit 200</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTagCloud"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryTagCloudVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary09TagCloud#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -1284,6 +1675,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//MULTI_LEVEL_ANNOTATION.VALUE, //CONTENT_VOLUME' ))
@@ -1297,12 +1690,48 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:entity_value, 
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+/*    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1*/
 }
 
 log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary101Followers"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary101Followers" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary101Followers"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary101Followers" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":10,
  "selectedFields":[
@@ -1339,6 +1768,7 @@ WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.author_name
 ORDER BY max(fa.followers) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsFollowers"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryFollowersVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary101Followers#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -1346,6 +1776,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_NAME, //MAX' ))
@@ -1359,12 +1791,48 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_name, /
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+/*    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1*/
 }
 
 log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary102Klout"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary102Klout" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary102Klout"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary102Klout" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":10,
  "selectedFields":[
@@ -1401,6 +1869,7 @@ WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.author_name
 ORDER BY max(fa.klout) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsKlout"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryKloutVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary102Klout#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -1408,6 +1877,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_NAME, //MAX' ))
@@ -1421,12 +1892,48 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_name, /
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1
 }
 
 log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary103Tweets"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary103Tweets" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary103Tweets"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary103Tweets" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":10,
  "selectedFields":[
@@ -1463,6 +1970,7 @@ WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.author_name
 ORDER BY max(fa.status_updates) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsTweets"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryTweetsVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary103Tweets#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -1470,6 +1978,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_NAME, //MAX' ))
@@ -1483,12 +1993,48 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_name, /
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+         else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1
 }
 
 log.info "request  : >" + jdbcStringList
-log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary104Other"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary104Other" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2372448739458878235-7317054948956131474-5544386120782826433-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+log.info "result     : >" + restStringList</script></con:config></con:testStep><con:testStep type="restrequest" name="Summary104Other"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/aggregate" methodName="POST - getAggregateData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Summary104Other" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6639422370849098236-7779211790699421216-4309121687973220188-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":10,
  "selectedFields":[
@@ -1525,6 +2071,7 @@ WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.author_name
 ORDER BY max(fa.reach) DESC LIMIT 10;</con:query><con:properties/></con:config></con:testStep><con:testStep type="groovy" name="compareResultsOther"><con:settings/><con:config><script>// create groovyUtils and XmlHolder for response of Request
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def alert = com.eviware.soapui.support.UISupport;
 def response1 = context.expand( 'SummaryOtherVertica#ResponseAsXml' )
 def response2 = context.expand( '${Summary104Other#ResponseAsXml}' )
 def holder1 = groovyUtils.getXmlHolder(response1)
@@ -1532,6 +2079,8 @@ def holder2 = groovyUtils.getXmlHolder(response2)
 
 def jdbcStringList = []
 def restStringList = []
+def x = 0 as int
+def y = 0 as int
 
 // loop item nodes in response message
 for( jdbcResults in holder1.getNodeValues( '//FACT_ARTICLE.AUTHOR_NAME, //MAX' ))
@@ -1545,8 +2094,44 @@ for( restResponse in holder2.getNodeValues( '//ns:results/ns:e/ns:author_name, /
 {
   //log.info 'Item : [$restResponse]' 
   restStringList = restStringList + restResponse
-    //if (restResponse in jdbcStringList ) assert true
-    //else assert false
+/*    if (restResponse in jdbcStringList ) assert true
+    else {
+    	   //alert.showInfoMessage(jdbcStringList[x] + " counts do not match","soapUI Warning !")
+    	   //log.info 'Results from vertica do not match results from articleQueryApi '+ jdbcStringList[x] + " " + restResponse
+    	   log.info 'Entity : ' + jdbcStringList[x]
+        log.info 'Vertica: '+ jdbcStringList[y] + " HBase: " + restResponse
+        verticount = jdbcStringList[y] as Integer
+        hbasecount = restResponse as Integer
+        //log.info verticount
+        //log.info hbasecount
+       if (verticount &lt; hbasecount)
+          {
+             f = ((1 - (verticount/hbasecount)) * 100 )
+             f = f.abs()
+             log.info 'Difference of: ' + new Double(f).round(2) + '%'
+             log.info 'Vertica count is less than HBase count'
+          }
+          else
+             {
+                f = ((1 - (hbasecount/verticount)) * 100 )
+                f = f.abs()
+                log.info 'Difference of: ' + new Double(f).round(2) + '%'
+                log.info 'HBase count is less than Vertica count'
+             }
+       if (f &lt; 2)
+          {
+             log.info 'PASS'
+          }
+          else
+             {
+                log.info 'FAILED: Percentage is > 2%'
+             }
+       if (f > 2 ) assert false : "Percentage is greater than 2%"
+
+    x = x + 1
+    
+    }
+    y = y + 1*/
 }
 
 log.info "request  : >" + jdbcStringList
@@ -1661,7 +2246,7 @@ ts51.getHttpRequest().setRequestHeaders(headers)
 ts52.getHttpRequest().setRequestHeaders(headers)
 ts53.getHttpRequest().setRequestHeaders(headers)
 ts54.getHttpRequest().setRequestHeaders(headers)
-ts55.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="groovy" name="initialize_jdbc_driver"><con:settings/><con:config><script>com.eviware.soapui.support.GroovyUtils.registerJdbcDriver("vertica.jdbc.driver.vertica")</script></con:config></con:testStep><con:testStep type="restrequest" name="Trending01VolumeMavg"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending01VolumeMavg" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ts55.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="groovy" name="initialize_jdbc_driver"><con:settings/><con:config><script>com.eviware.soapui.support.GroovyUtils.registerJdbcDriver("vertica.jdbc.driver.vertica")</script></con:config></con:testStep><con:testStep type="restrequest" name="Trending01VolumeMavg"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending01VolumeMavg" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3871106108262888787-2240249812321244841--5689008646024843473-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":10,
   "selectedFields":[
@@ -1690,7 +2275,7 @@ INNER JOIN (
 AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.publish_at_hour
-ORDER BY fa.publish_at_hour ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending02VolumeProjections"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending02VolumeProjections" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY fa.publish_at_hour ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending02VolumeProjections"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending02VolumeProjections" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3871106108262888787-2240249812321244841--5689008646024843473-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":10,
   "selectedFields":[
@@ -1706,7 +2291,7 @@ ORDER BY fa.publish_at_hour ASC  limit 100</con:query><con:properties/></con:con
   "timeSlice":"HOUR"
 }</con:request><con:assertion type="XPath Match" name="assert_content_volume"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries';
-//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending03Sentiment"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending03Sentiment" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending03Sentiment"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending03Sentiment" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3871106108262888787-2240249812321244841--5689008646024843473-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":10,
   "selectedFields":[
@@ -1731,7 +2316,7 @@ INNER JOIN (
 AND ta.publish_at_week=fa.publish_at_week
 WHERE  ta.pipeline_topic_id IN (${#Global#topicid})
 GROUP BY fa.sentiment, fa.publish_at_hour
-ORDER BY fa.sentiment DESC, fa.publish_at_hour ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending041TopEntitiesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending041TopEntitiesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY fa.sentiment DESC, fa.publish_at_hour ASC  limit 100</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending041TopEntitiesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending041TopEntitiesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3871106108262888787-2240249812321244841--5689008646024843473-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":10,
   "selectedFields":[
@@ -1771,7 +2356,7 @@ AND en.level1 IN
 	ORDER BY COUNT(DISTINCT(fa.id)) DESC LIMIT 50
 	)
 GROUP BY en.level1, fa.publish_at_hour
-ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 500</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending042TopEntitiesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending042TopEntitiesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 500</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending042TopEntitiesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending042TopEntitiesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3871106108262888787-2240249812321244841--5689008646024843473-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   //"limit":10,
   "selectedFields":[
@@ -1787,7 +2372,7 @@ ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 500</con:query><con:proper
   "timeSlice":"HOUR"
 }</con:request><con:assertion type="XPath Match" name="assert_content_volume"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries';
-//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending051TopCategoriesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending051TopCategoriesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending051TopCategoriesLevel1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending051TopCategoriesLevel1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3871106108262888787-2240249812321244841--5689008646024843473-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1828,7 +2413,7 @@ AND en.level1 IN
 	ORDER BY COUNT(DISTINCT(fa.id)) DESC LIMIT 30
 	)
 GROUP BY en.level1, fa.publish_at_hour
-ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 300</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending052TopCategoriesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending052TopCategoriesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 300</con:query><con:properties/></con:config></con:testStep><con:testStep type="restrequest" name="Trending052TopCategoriesLevel2"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending052TopCategoriesLevel2" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3871106108262888787-2240249812321244841--5689008646024843473-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",  
   "selectedFields":[
@@ -1844,7 +2429,7 @@ ORDER BY en.level1 ASC, fa.publish_at_hour ASC  limit 300</con:query><con:proper
   "timeSlice":"HOUR"
 }</con:request><con:assertion type="XPath Match" name="assert_content_volume"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries';
-//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending053TopCategoriesLevel3"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending053TopCategoriesLevel3" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending053TopCategoriesLevel3"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending053TopCategoriesLevel3" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3871106108262888787-2240249812321244841--5689008646024843473-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1860,7 +2445,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries'
   "timeSlice":"HOUR"
 }</con:request><con:assertion type="XPath Match" name="assert_content_volume"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries';
-//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending054TopCategoriesLevel4"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending054TopCategoriesLevel4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending054TopCategoriesLevel4"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending054TopCategoriesLevel4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3871106108262888787-2240249812321244841--5689008646024843473-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1876,7 +2461,7 @@ declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries'
   "timeSlice":"HOUR"
 }</con:request><con:assertion type="XPath Match" name="assert_content_volume"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/timeseries';
-//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending055TopCategoriesLevel5"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending055TopCategoriesLevel5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3472331676738045619--6719409570679041999-8410696796125253539-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+//ns1:content_volume</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Trending055TopCategoriesLevel5"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/timeseries" methodName="POST - getTimeSeriesData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Trending055TopCategoriesLevel5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="3871106108262888787-2240249812321244841--5689008646024843473-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":"20",
   "selectedFields":[
@@ -1935,7 +2520,7 @@ def ts1 = tc.getTestStepByName("articleDetails")
 def headers = new StringToStringMap()
 headers.putIfMissing("utoken",authkey)
 
-ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="articleDetails"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/details" methodName="POST - getArticleDetailsData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="articleDetails" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-1014564402684752833--6945730047967683247--2607951914768619613-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
+ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="articleDetails"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/details" methodName="POST - getArticleDetailsData" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="articleDetails" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-1888990932044308814-4998341102310100385-5634517427267056933-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "topicIDs":[${#Global#topicid}],
   "limit":240,
   "selectedFields":[
@@ -2003,7 +2588,7 @@ def ts1 = tc.getTestStepByName("articleFieldsMap")
 def headers = new StringToStringMap()
 headers.putIfMissing("utoken",authkey)
 
-ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="articleFieldsMap"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/fieldsmap" methodName="POST - getArticleFieldsMap" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="articleFieldsMap" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="6922277803506815614--2327423976291738928-2979826246958129704-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:assertion type="XPath Match" name="assert_aquired_at"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="articleFieldsMap"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/fieldsmap" methodName="POST - getArticleFieldsMap" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="articleFieldsMap" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2213274026077534756-4162221610060968981-1945726994056583581-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:assertion type="XPath Match" name="assert_aquired_at"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/fieldsmap';
 //ns1:acquired_at</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="population TestCase" searchProperties="true" id="88b0bea8-eede-4416-90ca-a8aebd0ee158"><con:description>TestCase generated for REST Resource [population] located at [/query/population]</con:description><con:settings/><con:testStep type="restrequest" name="authuser"><con:settings/><con:config service="Intelligent Topic Creator - UserManager" resourcePath="/SaasCoreUserManager/rest/auth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authuser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="authkey" value="1189377229352574419-2213262129298445271-4936701685398756970-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request>{
   "username":${#Global#username},
@@ -2048,6 +2633,6 @@ def ts1 = tc.getTestStepByName("populationData")
 def headers = new StringToStringMap()
 headers.putIfMissing("utoken",authkey)
 
-ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="populationData"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" methodName="GET - getPopulation" resourcePath="/ArticleQueryApi/rest/query/population" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="populationData" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="1331435614089117868--7253186157060633537-2550347368735753315-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:assertion type="XPath Match" name="assert_us"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+ts1.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="populationData"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" methodName="GET - getPopulation" resourcePath="/ArticleQueryApi/rest/query/population" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="populationData" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-7182051143423610816-5113732044049600943-1632912680267067521-61" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:assertion type="XPath Match" name="assert_us"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.86/ArticleQueryApi/rest/query/population';
-//ns1:us</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="query TestCase" searchProperties="true" id="bc7175fa-40a8-4dc0-95e4-f684e0f17b6b" disabled="true"><con:description>TestCase generated for REST Resource [query] located at [/query]</con:description><con:settings/><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="csvresults TestCase" searchProperties="true" id="a323425e-41b2-4241-8e3b-381b08066317" disabled="true"><con:description>TestCase generated for REST Resource [csvresults] located at [/query/csvresults]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/csvresults" methodName="OPTIONS - fixOptionsCSVResults" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="/topicvolume/{id} TestCase" searchProperties="true" id="9ccf4b63-044a-48d0-8416-e337800569d8" disabled="true"><con:description>TestCase generated for REST Resource [/topicvolume/{id}] located at [/query/topicvolume/{id}]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/topicvolume/{id}" methodName="GET - getTopicAverage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Request 1 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/topicvolume/{id}" methodName="OPTIONS - fixOptionsTopicAverage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>Url</con:name><con:value>jdbc:vertica://10.200.0.190:5433/artsa01</con:value></con:property><con:property><con:name>User</con:name><con:value>artsa01</con:value></con:property><con:property><con:name>Pass</con:name><con:value>artsa2</con:value></con:property><con:property><con:name>Driver</con:name><con:value>com.vertica.Driver</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+//ns1:us</path><content>*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="csvresults TestCase" searchProperties="true" id="a323425e-41b2-4241-8e3b-381b08066317" disabled="true"><con:description>TestCase generated for REST Resource [csvresults] located at [/query/csvresults]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/csvresults" methodName="OPTIONS - fixOptionsCSVResults" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="/topicvolume/{id} TestCase" searchProperties="true" id="9ccf4b63-044a-48d0-8416-e337800569d8" disabled="true"><con:description>TestCase generated for REST Resource [/topicvolume/{id}] located at [/query/topicvolume/{id}]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/topicvolume/{id}" methodName="GET - getTopicAverage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Request 1 1"><con:settings/><con:config service="Intelligent Topic Creator  - Article Query" resourcePath="/ArticleQueryApi/rest/query/topicvolume/{id}" methodName="OPTIONS - fixOptionsTopicAverage" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.86:8080</con:endpoint><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>Url</con:name><con:value>jdbc:vertica://10.200.0.190:5433/artsa01</con:value></con:property><con:property><con:name>User</con:name><con:value>artsa01</con:value></con:property><con:property><con:name>Pass</con:name><con:value>artsa2</con:value></con:property><con:property><con:name>Driver</con:name><con:value>com.vertica.Driver</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
