@@ -253,7 +253,7 @@
       </resource>
     </resource>
   </resources>
-</application>]]></con:content><con:type>http://wadl.dev.java.net/2009/02</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.200.0.124:8080</con:endpoint></con:endpoints><con:resource name="topic" path="topic"><con:settings/><con:parameters/><con:resource name="{id}" path="{id}"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value>-1</con:value><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:int</con:type><con:default>-1</con:default></con:parameter></con:parameters><con:method name="PUT - updateWithPut" method="PUT"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="OPTIONS - fixOptionsPut" method="OPTIONS"><con:settings/><con:parameters><con:parameter><con:name>Access-Control-Request-Headers</con:name><con:value xsi:nil="true"/><con:style>HEADER</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="GET - getTopic" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="DELETE - deleteTopic" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/topicAudit/{id}" path="/topicAudit/{id}"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value>-1</con:value><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:int</con:type><con:default>-1</con:default></con:parameter></con:parameters><con:method name="GET - getTopicAudits" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="sanity" path="sanity"><con:settings/><con:parameters/><con:method name="POST - topicSanityCheck" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="OPTIONS - fixOptionsSanity" method="OPTIONS"><con:settings/><con:parameters><con:parameter><con:name>Access-Control-Request-Headers</con:name><con:value xsi:nil="true"/><con:style>HEADER</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="unique" path="unique"><con:settings/><con:parameters/><con:method name="POST - topicIsUnique" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="OPTIONS - fixOptionsUnique" method="OPTIONS"><con:settings/><con:parameters><con:parameter><con:name>Access-Control-Request-Headers</con:name><con:value xsi:nil="true"/><con:style>HEADER</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="POST - update" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="OPTIONS - fixOptions" method="OPTIONS"><con:settings/><con:parameters><con:parameter><con:name>Access-Control-Request-Headers</con:name><con:value xsi:nil="true"/><con:style>HEADER</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="GET - getAllTopics" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite name="accountManagerTestSuite" disabled="true"><con:description>TestSuite generated for REST Service [ARTSA- Account Manager]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="accountBrandList" searchProperties="true" id="6ec89ca4-f663-4520-af26-38a31d00e7eb"><con:description>TestCase generated for REST Resource [brands] located at [/account/brands]</con:description><con:settings/><con:testStep type="groovy" name="setTime"><con:settings/><con:config><script>Calendar sod = Calendar.instance
+</application>]]></con:content><con:type>http://wadl.dev.java.net/2009/02</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.200.0.124:8080</con:endpoint></con:endpoints><con:resource name="topic" path="topic"><con:settings/><con:parameters/><con:resource name="{id}" path="{id}"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value>-1</con:value><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:int</con:type><con:default>-1</con:default></con:parameter></con:parameters><con:method name="PUT - updateWithPut" method="PUT"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="OPTIONS - fixOptionsPut" method="OPTIONS"><con:settings/><con:parameters><con:parameter><con:name>Access-Control-Request-Headers</con:name><con:value xsi:nil="true"/><con:style>HEADER</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="GET - getTopic" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="DELETE - deleteTopic" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/topicAudit/{id}" path="/topicAudit/{id}"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value>-1</con:value><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:int</con:type><con:default>-1</con:default></con:parameter></con:parameters><con:method name="GET - getTopicAudits" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="sanity" path="sanity"><con:settings/><con:parameters/><con:method name="POST - topicSanityCheck" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="OPTIONS - fixOptionsSanity" method="OPTIONS"><con:settings/><con:parameters><con:parameter><con:name>Access-Control-Request-Headers</con:name><con:value xsi:nil="true"/><con:style>HEADER</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="unique" path="unique"><con:settings/><con:parameters/><con:method name="POST - topicIsUnique" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="OPTIONS - fixOptionsUnique" method="OPTIONS"><con:settings/><con:parameters><con:parameter><con:name>Access-Control-Request-Headers</con:name><con:value xsi:nil="true"/><con:style>HEADER</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="alerts" path="/update/alerts"><con:settings/><con:parameters/><con:method name="POST - addAlert" method="POST"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:method name="POST - update" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="OPTIONS - fixOptions" method="OPTIONS"><con:settings/><con:parameters><con:parameter><con:name>Access-Control-Request-Headers</con:name><con:value xsi:nil="true"/><con:style>HEADER</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method><con:method name="GET - getAllTopics" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.200.0.124:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://10.200.0.124:8080</con:endpoint></con:endpoints><con:resource name="Id" path="/SaasCoreInternalManager/rest/internal/topic_status/{id}"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value>id</con:value><con:style>TEMPLATE</con:style><con:default>id</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET - Topic Status" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json"><con:settings/><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="topic_status" path="/SaasCoreInternalManager/rest/internal/topic_status/"><con:settings/><con:parameters/><con:method name="POST - Topic Status" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>401</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite name="accountManagerTestSuite" disabled="true"><con:description>TestSuite generated for REST Service [ARTSA- Account Manager]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="accountBrandList" searchProperties="true" id="6ec89ca4-f663-4520-af26-38a31d00e7eb"><con:description>TestCase generated for REST Resource [brands] located at [/account/brands]</con:description><con:settings/><con:testStep type="groovy" name="setTime"><con:settings/><con:config><script>Calendar sod = Calendar.instance
     sod.set(Calendar.AM_PM, 0)
     sod.set(Calendar.HOUR, 0)
     sod.set(Calendar.MINUTE, 0)
@@ -1464,7 +1464,7 @@ headers.putIfMissing("utoken",authkey)
 
 ts1.getHttpRequest().setRequestHeaders(headers)
 
-//log.info ts5.getHttpRequest().getRequestHeaders()</script></con:config></con:testStep><con:testStep type="restrequest" name="listUsername"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/user" methodName="GET - getAllUsersForAccountExceptCurrentUser" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listUsername" mediaType="application/json" postQueryString="false" accept=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7868385742987184277-1375810677549761084--5363778542511557675-32" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="UserToken" value="${#Global#accountAuthKey}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="topicManagerTestSuite"><con:description>TestSuite generated for REST Service [ARTSA - Topic Manager]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="topicCreate" searchProperties="true" id="0af9e08f-2eb8-41c6-8c25-72e07954d581"><con:description>TestCase generated for REST Resource [topic] located at [/topic]</con:description><con:settings/><con:testStep type="groovy" name="setTime"><con:settings/><con:config><script>Calendar sod = Calendar.instance
+//log.info ts5.getHttpRequest().getRequestHeaders()</script></con:config></con:testStep><con:testStep type="restrequest" name="listUsername"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/user" methodName="GET - getAllUsersForAccountExceptCurrentUser" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listUsername" mediaType="application/json" postQueryString="false" accept=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7868385742987184277-1375810677549761084--5363778542511557675-32" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="UserToken" value="${#Global#accountAuthKey}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="topicManagerTestSuite" disabled="true"><con:description>TestSuite generated for REST Service [ARTSA - Topic Manager]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="topicCreate" searchProperties="true" id="0af9e08f-2eb8-41c6-8c25-72e07954d581"><con:description>TestCase generated for REST Resource [topic] located at [/topic]</con:description><con:settings/><con:testStep type="groovy" name="setTime"><con:settings/><con:config><script>Calendar sod = Calendar.instance
     sod.set(Calendar.AM_PM, 0)
     sod.set(Calendar.HOUR, 0)
     sod.set(Calendar.MINUTE, 0)
@@ -10608,12 +10608,12 @@ ts13.getHttpRequest().setRequestHeaders(headers)
 ts14.getHttpRequest().setRequestHeaders(headers)
 ts15.getHttpRequest().setRequestHeaders(headers)
 ts16.getHttpRequest().setRequestHeaders(headers)
-ts17.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="getAccountListAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="GET - getAccounts" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getAccountListAccount" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>attensity</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getListOfAccountUsersAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/user/account/{account}" methodName="GET - getAllUsersForAccount" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getListOfAccountUsersAccount" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>2012</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="account" value="${#Global#illumiAccountId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getBrandListAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/account/brands" methodName="GET - getBrands" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getBrandListAccount" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>Attensity</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueAccountNameAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/account/unique" methodName="POST - accountIsUnique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueAccountNamePassAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+ts17.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="getAccountListAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="GET - getAccounts" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getAccountListAccount" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>attensity</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getListOfAccountUsersAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/user/account/{account}" methodName="GET - getAllUsersForAccount" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getListOfAccountUsersAccountUser" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>2012</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="account" value="${#Global#illumiAccountId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getBrandListAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/account/brands" methodName="GET - getBrands" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getBrandListAccountUser" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>Attensity</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueAccountNameAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/account/unique" methodName="POST - accountIsUnique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueAccountNameAccountUser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "id":-1,
   "name":"AttensityBlah"
 }</con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/account/unique';
-//ns1:unique</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getAccountInfoAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/account/accountInfo" methodName="GET - getAccountInfo" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getAccountInfoAccount" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>INTERNAL</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createAccountAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - update" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createAccountAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+//ns1:unique</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="getAccountInfoAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/account/accountInfo" methodName="GET - getAccountInfo" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getAccountInfoAccountUser" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>INTERNAL</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createAccountAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - update" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createAccountAccountUser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "id":-1,
   "name":"AccountCreateThroughAPI${#Global#currentTime}",
   "user":{
@@ -10649,7 +10649,7 @@ declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/account/u
   "maxUserLimit":10,
   "maxVolumeLimit":3,
   "maxDataLimit":2
-}</con:request><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>PASSWORD</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="editAccountAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - update" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="editAccountSuccessAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+}</con:request><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>PASSWORD</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="editAccountAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - update" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="editAccountAccountUser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5334070054506634098-6307752227963074984-135591299899923713-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "id":${#Global#illumiAccountId},
   "name":${#Global#illumiAccountName},
   "accountType":0,
@@ -11173,17 +11173,17 @@ com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiReadOnlyUser
 def userName = (slurperresponse.username) as String
 com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiReadOnlyUserFromAccountUsername", userName )
 
-//log.info id</script></con:config></con:testStep><con:testStep type="restrequest" name="listUsernameAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="GET - getAllUsersForAccount" resourcePath="/SaasCoreAccountManager/rest/user/account/{account}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listUsername" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5078884223399430052--6787474239751519315-675236664717351367-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>${#Global#illumiAccountId}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="account" value="${#Global#illumiAccountId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueUserNameAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - userIsUnique" resourcePath="/SaasCoreAccountManager/rest/user/unique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueUserNameAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5078884223399430052--6787474239751519315-675236664717351367-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+//log.info id</script></con:config></con:testStep><con:testStep type="restrequest" name="listUsernameAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="GET - getAllUsersForAccount" resourcePath="/SaasCoreAccountManager/rest/user/account/{account}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listUsernameAccount" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5078884223399430052--6787474239751519315-675236664717351367-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>${#Global#illumiAccountId}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="account" value="${#Global#illumiAccountId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueUserNameAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - userIsUnique" resourcePath="/SaasCoreAccountManager/rest/user/unique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueUserNameAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5078884223399430052--6787474239751519315-675236664717351367-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "account":${#Global#illumiAccountId},
   "username":"blahblahblahblah1234567890"
-}</con:request><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>true</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateEditorUserEmailAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - updateUser" resourcePath="/SaasCoreAccountManager/rest/user" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateAdminUserEmailAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5078884223399430052--6787474239751519315-675236664717351367-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+}</con:request><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>true</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateEditorUserEmailAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - updateUser" resourcePath="/SaasCoreAccountManager/rest/user" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateEditorUserEmailAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5078884223399430052--6787474239751519315-675236664717351367-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "id":"${#Global#illumiEditorUserFromAccountUserId}",
   "email": "changedbyaccount@a.com"
-}</con:request><con:assertion type="Simple Contains" name="containsNewEmail"><con:configuration><token>changedbyaccount@a.com</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateReadOnlyPasswordAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - updateUser" resourcePath="/SaasCoreAccountManager/rest/user" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateEditorPasswordAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5078884223399430052--6787474239751519315-675236664717351367-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+}</con:request><con:assertion type="Simple Contains" name="containsNewEmail"><con:configuration><token>changedbyaccount@a.com</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateReadOnlyPasswordAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - updateUser" resourcePath="/SaasCoreAccountManager/rest/user" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateReadOnlyPasswordAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5078884223399430052--6787474239751519315-675236664717351367-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "id":${#Global#illumiReadOnlyUserFromAccountUserId},
   "password": "${#Global#illumiReadOnlyPassword}",
   "updatePassword":true
-}</con:request><con:assertion type="Simple Contains" name="containsNewPassword"><con:configuration><token>P@ssword1</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateEditorPermissionsAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - updateUser" resourcePath="/SaasCoreAccountManager/rest/user" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateEditorRolesAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5078884223399430052--6787474239751519315-675236664717351367-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+}</con:request><con:assertion type="Simple Contains" name="containsNewPassword"><con:configuration><token>P@ssword1</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateEditorPermissionsAccount"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - updateUser" resourcePath="/SaasCoreAccountManager/rest/user" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateEditorPermissionsAccount" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5078884223399430052--6787474239751519315-675236664717351367-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "id": ${#Global#illumiEditorUserFromAccountUserId},
   "account": ${#Global#illumiAccountId},
   "accountName": ${#Global#illumiAccountName},
@@ -11512,7 +11512,7 @@ declare namespace ns1='http://10.200.0.124/SaasCoreUserManager/rest/user';
   }
 }</con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns1='http://10.200.0.124/SaasCoreUserManager/rest/user';
-//ns1:roleName</path><content>editor</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="setPermissionsToReadOnly"><con:settings/><con:config service="ARTSA - UserManager" methodName="POST - update" resourcePath="/SaasCoreUserManager/rest/user" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="setPermissionsToEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="8872922380505494898-3228657147389684012-2122806876941779815-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+//ns1:roleName</path><content>editor</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="setPermissionsToReadOnly"><con:settings/><con:config service="ARTSA - UserManager" methodName="POST - update" resourcePath="/SaasCoreUserManager/rest/user" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="setPermissionsToReadOnly" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="8872922380505494898-3228657147389684012-2122806876941779815-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "id": ${#Global#illumiReadOnlyUserId},
   "account": ${#Global#illumiAccountId},
   "accountName": ${#Global#illumiAccountName},
@@ -11699,7 +11699,7 @@ ts113.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:tes
 </con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueUserNameEditor"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/user/unique" methodName="POST - userIsUnique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueUserNameEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-8545841595472732773-2744432642885947986--7405945953758229387-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "account":${#Global#illumiAccountId},
   "username":"blahblahblahblah1234567890"
-}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="UserToken" value="${#Global#authkey}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateUserEmailEditor"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/profile" methodName="POST - updateProfile" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateUserEmailAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-8545841595472732773-2744432642885947986--7405945953758229387-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="UserToken" value="${#Global#authkey}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateUserEmailEditor"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/profile" methodName="POST - updateProfile" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateUserEmailEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-8545841595472732773-2744432642885947986--7405945953758229387-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "id":"${#Global#illumiEditorUserId}",
   "email": "tmemmoty@a.com"
 }</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserRoleEditForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateAnotherUserEmailEditor"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/profile" methodName="POST - updateProfile" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateAnotherUserEmailEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-8545841595472732773-2744432642885947986--7405945953758229387-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
@@ -11930,13 +11930,13 @@ ts113.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:tes
 </con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueUserNameReadOnly"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/user/unique" methodName="POST - userIsUnique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueUserNameReadOnly" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-902062052031696791--7406074714507961275--7197080267924524643-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "account":${#Global#illumiAccountId},
   "username":"blahblahblahblah1234567890"
-}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="UserToken" value="${#Global#authkey}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateUserEmailReadOnly"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/profile" methodName="POST - updateProfile" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateUserEmailAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-902062052031696791--7406074714507961275--7197080267924524643-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="UserToken" value="${#Global#authkey}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateUserEmailReadOnly"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/profile" methodName="POST - updateProfile" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateUserEmailReadOnly" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-902062052031696791--7406074714507961275--7197080267924524643-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "id":"${#Global#illumiReadOnlyUserId}",
   "email": "tmemmoty@a.com"
 }</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserRoleEditForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateAnotherUserEmailReadOnly"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/profile" methodName="POST - updateProfile" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateAnotherUserEmailReadOnly" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-902062052031696791--7406074714507961275--7197080267924524643-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "id":"${#Global#illumiAdminUserId}",
   "email": "tmemmoty@a.com"
-}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateUserPasswordReadOnly"><con:settings/><con:config service="ARTSA - UserManager" methodName="POST - updatePassword" resourcePath="/SaasCoreUserManager/rest/profile/password" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updatepassword" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-902062052031696791--7406074714507961275--7197080267924524643-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateUserPasswordReadOnly"><con:settings/><con:config service="ARTSA - UserManager" methodName="POST - updatePassword" resourcePath="/SaasCoreUserManager/rest/profile/password" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateUserPasswordReadOnly" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-902062052031696791--7406074714507961275--7197080267924524643-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "username": ${#Global#illumiReadOnlyUsername},
   "account": ${#Global#illumiAccountId},
   "id":${#Global#illumiReadOnlyUserId},
@@ -12069,15 +12069,7 @@ declare namespace ns1='http://10.200.0.124/SaasCoreUserManager/rest/profile/pass
   "updatePassword":true
 }</con:request><con:assertion type="Simple Contains" name="assert_not_complex_password"><con:configuration><token>PASSWORD_NOT_COMPLEX</token><ignoreCase>true</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="topicLockDownTestSuite"><con:description>This Test Suite is to test to ensure Topics is locked down based on roles.
 
-Assertions have been made to either pass or fail the test cases.</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="accountAuthenticateInvalidUser" searchProperties="true"><con:description>TestCase generated for REST Resource [brands] located at [/account/brands]</con:description><con:settings/><con:testStep type="restrequest" name="authAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/accountauth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authAccountUser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
-  "username":${#Global#illumiAdminUsername},
-  "password":${#Global#illumiAdminPassword}
-}</con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
-declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/accountauth';
-//ns1:loginFailed</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
-  <con:entry key="username" value="${#Global#illumiAdminUsername}"/>
-  <con:entry key="password" value="${#Global#illumiAdminPassword}"/>
-</con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="accountAuthenticateValidUser" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="authAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/accountauth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authAccountUser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+Assertions have been made to either pass or fail the test cases.</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="topicLockDownTestCaseAdmin" searchProperties="true" id="43183c37-541f-4cbf-b0d8-190f2cd15e2f" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="restrequest" name="authAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/accountauth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authAccountUser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
   "username":${#Global#illumiAccountUsername},
   "password":${#Global#illumiAccountPassword}
 }</con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
@@ -12085,4 +12077,1435 @@ declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/accountau
 //ns1:loginFailed</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
   <con:entry key="username" value="${#Global#illumiAccountUsername}"/>
   <con:entry key="password" value="${#Global#illumiAccountPassword}"/>
-</con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="authResponse"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import com.eviware.soapui.impl.wsdl.teststeps.*
+
+responseContent = testRunner.testCase.getTestStepByName("authAccountUser").getPropertyValue("response")
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+authkey = (slurperresponse.authkey)
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiAccountAuthKey", authkey )
+
+//log.info authkey</script></con:config></con:testStep><con:testStep type="groovy" name="setUtokenHeader"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.teststeps.*
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def authkey = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "illumiAccountAuthKey")
+def tc = testRunner.testCase.testSuite.getTestCaseByName("topicLockDownTestCaseAdmin")
+def ts11 = tc.getTestStepByName("editTopicLimit1")
+def ts12 = tc.getTestStepByName("editTopicLimit100")
+
+
+def headers = new StringToStringMap()
+headers.putIfMissing("utoken",authkey)
+
+ts11.getHttpRequest().setRequestHeaders(headers)
+ts12.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="authIllumiAdminUser"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/auth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authIllumiAdminUser" mediaType="application/json" postQueryString="false" accept=""><con:description>get token for current User</con:description><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Contest-Type" value="application/json"/>
+  &lt;con:entry key="Accept" value="application/json"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "username":"${#Global#illumiAdminUsername}",
+  "password":"${#Global#illumiAdminPassword}",
+  "accountName":"${#Global#illumiAccountName}"
+}</con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreUserManager/rest/auth';
+//ns1:loginFailed</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="authIllumiAdminResponse"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import com.eviware.soapui.impl.wsdl.teststeps.*
+
+responseContent = testRunner.testCase.getTestStepByName("authIllumiAdminUser").getPropertyValue("response")
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+authkey = (slurperresponse.authkey)
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiAdminAuthKey", authkey )
+
+//log.info authkey</script></con:config></con:testStep><con:testStep type="groovy" name="setAdminUtokenHeader"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.teststeps.*
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def authkey = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "illumiAdminAuthKey")
+def tc = testRunner.testCase.testSuite.getTestCaseByName("topicLockDownTestCaseAdmin")
+def ts11 = tc.getTestStepByName("viewTopicListAdmin")
+def ts12 = tc.getTestStepByName("uniqueTopicNameTrueAdmin")
+def ts13 = tc.getTestStepByName("uniqueTopicNameFalseAdmin")
+def ts14 = tc.getTestStepByName("sanityTopicFailAdmin")
+def ts15 = tc.getTestStepByName("sanityTopicPassAdmin")
+def ts16 = tc.getTestStepByName("sanityTopicWarnAdmin")
+def ts17 = tc.getTestStepByName("createTopicLimitFailAdmin")
+def ts18 = tc.getTestStepByName("createTopicLimitPassAdmin")
+def ts19 = tc.getTestStepByName("eidtTopicAdmin")
+def ts110 = tc.getTestStepByName("alertTopicAddAdmin")
+def ts111 = tc.getTestStepByName("alertTopicRemoveAdmin")
+def ts112 = tc.getTestStepByName("auditTopicListAdmin")
+def ts113 = tc.getTestStepByName("viewInternalTopicStatusAdmin")
+def ts114 = tc.getTestStepByName("updateInternalTopicStatusAdmin")
+def ts115 = tc.getTestStepByName("deleteTopicAdmin")
+
+
+def headers = new StringToStringMap()
+headers.putIfMissing("utoken",authkey)
+
+ts11.getHttpRequest().setRequestHeaders(headers)
+ts12.getHttpRequest().setRequestHeaders(headers)
+ts13.getHttpRequest().setRequestHeaders(headers)
+ts14.getHttpRequest().setRequestHeaders(headers)
+ts15.getHttpRequest().setRequestHeaders(headers)
+ts16.getHttpRequest().setRequestHeaders(headers)
+ts17.getHttpRequest().setRequestHeaders(headers)
+ts18.getHttpRequest().setRequestHeaders(headers)
+ts19.getHttpRequest().setRequestHeaders(headers)
+ts110.getHttpRequest().setRequestHeaders(headers)
+ts111.getHttpRequest().setRequestHeaders(headers)
+ts112.getHttpRequest().setRequestHeaders(headers)
+ts113.getHttpRequest().setRequestHeaders(headers)
+ts114.getHttpRequest().setRequestHeaders(headers)
+ts115.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="viewTopicListAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="GET - getAllTopics" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="viewTopicListAdmin" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsAccountId"><con:configuration><token>${#Global#iillumiAccountId}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueTopicNameTrueAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicIsUnique" resourcePath="/SaasCoreTopicManager/rest/topic/unique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueTopicNameAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "name":"is this unique"
+}</con:request><con:assertion type="Simple Contains" name="containsUniqueTrue"><con:configuration><token>true</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueTopicNameFalseAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicIsUnique" resourcePath="/SaasCoreTopicManager/rest/topic/unique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueTopicNameFalseAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "name":"Competitive Analysis"
+}</con:request><con:assertion type="Simple Contains" name="containsUniqueFalse"><con:configuration><token>false</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="sanityTopicFailAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicSanityCheck" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="sanityTopicFailAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+"jsonDefinition": {
+        "includeAll": [],
+        "includeAny": [
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "i",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "me",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "you",
+                "alias": "KEYWORD"
+            }
+        ],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicSanityFail"><con:configuration><token>Topic Sanity Test Failed</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="sanityTopicPassAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicSanityCheck" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="sanityTopicPassAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+"jsonDefinition": {
+        "includeAll": [],
+        "includeAny": [
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Apple",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Orange",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Bananna",
+                "alias": "KEYWORD"
+            }
+        ],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicSanityPass"><con:configuration><token>Topic Sanity Test Passed</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="sanityTopicWarnAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicSanityCheck" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="sanityTopicWarnAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+"jsonDefinition": {
+        "includeAll": [],
+        "includeAny": [
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "me",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "you",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Bananna",
+                "alias": "KEYWORD"
+            }
+        ],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicSanityWarn"><con:configuration><token>Topic Sanity Test issued Warning</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="editTopicLimit1"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - update" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="editAccountAccountUser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-4851208494011614058-7270597858038093055-8015452504827319962-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "id":${#Global#illumiAccountId},
+  "name":${#Global#illumiAccountName},
+  "accountType":0,
+  "brand":"",
+  "expirationDate":"${#Global#expirationDate}",
+  "accessEli":true,
+  "accessTempEditorEli":true,
+  "contactName":"anything goes here",
+  "contactEmail":"b@b.BBB",
+  "address":"anything goes here",
+  "city":"anything goes here",
+  "state":"anything goes here",
+  "zipCode":"anything goes here",
+  "psOwner":"anything goes here",
+  "maxTopicLimit":1,
+  "maxUserLimit":100,
+  "maxVolumeLimit":3,
+  "maxDataLimit":2
+}</con:request><con:assertion type="XPath Match" name="XPathMaxTopicLimit1"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/account';
+//ns1:maxTopicLimit</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createTopicLimitFailAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - update" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createTopicAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": -1,
+    "name": "Topic create through API 1",
+    "jsonDefinition": {
+        "includeAll": [
+            {
+                "extraction": "ENTITY",
+                "type": "COMPANY",
+                "text": "Apple",
+                "alias": "Company"
+            }
+        ],
+        "includeAny": [],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicLimitReached"><con:configuration><token>TopicLimitReached</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="editTopicLimit100"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - update" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="editTopicLimit100" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-4851208494011614058-7270597858038093055-8015452504827319962-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "id":${#Global#illumiAccountId},
+  "name":${#Global#illumiAccountName},
+  "accountType":0,
+  "brand":"",
+  "expirationDate":"${#Global#expirationDate}",
+  "accessEli":true,
+  "accessTempEditorEli":true,
+  "contactName":"anything goes here",
+  "contactEmail":"b@b.BBB",
+  "address":"anything goes here",
+  "city":"anything goes here",
+  "state":"anything goes here",
+  "zipCode":"anything goes here",
+  "psOwner":"anything goes here",
+  "maxTopicLimit":100,
+  "maxUserLimit":100,
+  "maxVolumeLimit":3,
+  "maxDataLimit":2
+}</con:request><con:assertion type="XPath Match" name="XPathMaxTopicLimit1"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/account';
+//ns1:maxTopicLimit</path><content>100</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createTopicLimitPassAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - update" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createTopicLimitPassAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": -1,
+    "name": "Topic create through API 1",
+    "jsonDefinition": {
+        "includeAll": [
+            {
+                "extraction": "ENTITY",
+                "type": "COMPANY",
+                "text": "Apple",
+                "alias": "Company"
+            }
+        ],
+        "includeAny": [],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsCreatedTopicName"><con:configuration><token>Topic create through API 1</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="topicIllumiAdminResponse"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import com.eviware.soapui.impl.wsdl.teststeps.*
+
+responseContent = testRunner.testCase.getTestStepByName("createTopicLimitPassAdmin").getPropertyValue("response")
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+def topicId = (slurperresponse.id) as String
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiAdminCreatTopicId", topicId )
+def topicName = (slurperresponse.name) as String
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiAdminCreatTopicName", topicName )
+
+//log.info authkey</script></con:config></con:testStep><con:testStep type="restrequest" name="eidtTopicAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - update" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="eidtTopicAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": ${#Global#illumiAdminCreatTopicId},
+    "name": "${#Global#illumiAdminCreatTopicName}",
+    "jsonDefinition": {
+        "includeAll": [
+            {
+                "extraction": "ENTITY",
+                "type": "COMPANY",
+                "text": "Apple",
+                "alias": "Company"
+            }
+        ],
+        "includeAny": [],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsCreatedTopicName"><con:configuration><token>Topic create through API 1</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="alertTopicAddAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - addAlert" resourcePath="/SaasCoreTopicManager/rest/topic/update/alerts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="alertTopicAddAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": ${#Global#illumiAdminCreatTopicId},
+    "topicAlerts":
+     [
+        {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "FOLLOWER_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "FOLLOWER_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "IMPRESSION_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "IMPRESSION_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "KLOUT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "KLOUT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "SENTIMENT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "SENTIMENT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "TREND_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "TREND_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "VOLUME_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "VOLUME_ALERT"
+        },
+        {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "FOLLOWER_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "FOLLOWER_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "IMPRESSION_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "IMPRESSION_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "KLOUT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "KLOUT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "SENTIMENT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "SENTIMENT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "TREND_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "TREND_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "VOLUME_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "VOLUME_ALERT"
+        }
+     ]
+}</con:request><con:assertion type="Simple Contains" name="containsFollowerAlert"><con:configuration><token>FOLLOWER_ALERT</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="alertTopicRemoveAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - addAlert" resourcePath="/SaasCoreTopicManager/rest/topic/update/alerts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="alertTopicRemoveAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": ${#Global#illumiAdminCreatTopicId},
+    "topicAlerts":
+     [
+        
+     ]
+}</con:request><con:assertion type="Simple NotContains" name="notContainsFollowerAlert"><con:configuration><token>FOLLOWER_ALERT</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="auditTopicListAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="GET - getTopicAudits" resourcePath="/SaasCoreTopicManager/rest/topic/topicAudit/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="auditTopicListAdmin" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsAdd"><con:configuration><token>ADD</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Global#illumiAdminCreatTopicId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="viewInternalTopicStatusAdmin"><con:settings/><con:config service="http://10.200.0.124:8080" methodName="GET - Topic Status" resourcePath="/SaasCoreInternalManager/rest/internal/topic_status/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="getInternalTopicStatusAdmin" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Global#illumiAdminCreatTopicId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateInternalTopicStatusAdmin"><con:settings/><con:config service="http://10.200.0.124:8080" methodName="POST - Topic Status" resourcePath="/SaasCoreInternalManager/rest/internal/topic_status/" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateInternalTopicStatusAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "id": ${#Global#illumiAdminCreatTopicId},
+  //"name": "Quite Large",
+  //"definition": "he OR him OR me OR you OR we OR twitter",
+  "status": 1,
+  "account": ${#Global#illumiAccountId}
+}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="deleteTopicAdmin"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="DELETE - deleteTopic" resourcePath="/SaasCoreTopicManager/rest/topic/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="deleteTopicAdmin" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="2557575396315254482--2409833078173852182--1015834774429911385-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Global#illumiAdminCreatTopicId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="topicLockDownTestCaseEditor" searchProperties="true" id="96664cdd-f16f-42e3-b8f0-64e8b27cf753" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="restrequest" name="authAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/accountauth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authAccountUser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "username":${#Global#illumiAccountUsername},
+  "password":${#Global#illumiAccountPassword}
+}</con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/accountauth';
+//ns1:loginFailed</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="username" value="${#Global#illumiAccountUsername}"/>
+  <con:entry key="password" value="${#Global#illumiAccountPassword}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="authResponse"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import com.eviware.soapui.impl.wsdl.teststeps.*
+
+responseContent = testRunner.testCase.getTestStepByName("authAccountUser").getPropertyValue("response")
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+authkey = (slurperresponse.authkey)
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiAccountAuthKey", authkey )
+
+//log.info authkey</script></con:config></con:testStep><con:testStep type="groovy" name="setUtokenHeader"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.teststeps.*
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def authkey = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "illumiAccountAuthKey")
+def tc = testRunner.testCase.testSuite.getTestCaseByName("topicLockDownTestCaseEditor")
+def ts11 = tc.getTestStepByName("editTopicLimit1")
+def ts12 = tc.getTestStepByName("editTopicLimit100")
+
+
+def headers = new StringToStringMap()
+headers.putIfMissing("utoken",authkey)
+
+ts11.getHttpRequest().setRequestHeaders(headers)
+ts12.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="authIllumiEditorUser"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/auth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authIllumiAdminUser" mediaType="application/json" postQueryString="false" accept=""><con:description>get token for current User</con:description><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Contest-Type" value="application/json"/>
+  &lt;con:entry key="Accept" value="application/json"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "username":"${#Global#illumiEditorUsername}",
+  "password":"${#Global#illumiEditorPassword}",
+  "accountName":"${#Global#illumiAccountName}"
+}</con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreUserManager/rest/auth';
+//ns1:loginFailed</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="authIllumiEditorResponse"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import com.eviware.soapui.impl.wsdl.teststeps.*
+
+responseContent = testRunner.testCase.getTestStepByName("authIllumiEditorUser").getPropertyValue("response")
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+authkey = (slurperresponse.authkey)
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiEditorAuthKey", authkey )
+
+//log.info authkey</script></con:config></con:testStep><con:testStep type="groovy" name="setEditorUtokenHeader"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.teststeps.*
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def authkey = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "illumiEditorAuthKey")
+def tc = testRunner.testCase.testSuite.getTestCaseByName("topicLockDownTestCaseEditor")
+def ts11 = tc.getTestStepByName("viewTopicListEditor")
+def ts12 = tc.getTestStepByName("uniqueTopicNameTrueEditor")
+def ts13 = tc.getTestStepByName("uniqueTopicNameFalseEditor")
+def ts14 = tc.getTestStepByName("sanityTopicFailEditor")
+def ts15 = tc.getTestStepByName("sanityTopicPassEditor")
+def ts16 = tc.getTestStepByName("sanityTopicWarnEditor")
+def ts17 = tc.getTestStepByName("createTopicLimitFailEditor")
+def ts18 = tc.getTestStepByName("createTopicLimitPassEditor")
+def ts19 = tc.getTestStepByName("eidtTopicEditor")
+def ts110 = tc.getTestStepByName("alertTopicAddEditor")
+def ts111 = tc.getTestStepByName("alertTopicRemoveEditor")
+def ts112 = tc.getTestStepByName("auditTopicListEditor")
+def ts113 = tc.getTestStepByName("viewInternalTopicStatusEditor")
+def ts114 = tc.getTestStepByName("updateInternalTopicStatusEditor")
+def ts115 = tc.getTestStepByName("deleteTopicEditor")
+
+
+def headers = new StringToStringMap()
+headers.putIfMissing("utoken",authkey)
+
+ts11.getHttpRequest().setRequestHeaders(headers)
+ts12.getHttpRequest().setRequestHeaders(headers)
+ts13.getHttpRequest().setRequestHeaders(headers)
+ts14.getHttpRequest().setRequestHeaders(headers)
+ts15.getHttpRequest().setRequestHeaders(headers)
+ts16.getHttpRequest().setRequestHeaders(headers)
+ts17.getHttpRequest().setRequestHeaders(headers)
+ts18.getHttpRequest().setRequestHeaders(headers)
+ts19.getHttpRequest().setRequestHeaders(headers)
+ts110.getHttpRequest().setRequestHeaders(headers)
+ts111.getHttpRequest().setRequestHeaders(headers)
+ts112.getHttpRequest().setRequestHeaders(headers)
+ts113.getHttpRequest().setRequestHeaders(headers)
+ts114.getHttpRequest().setRequestHeaders(headers)
+ts115.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="viewTopicListEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="GET - getAllTopics" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="viewTopicListAdmin" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsAccountId"><con:configuration><token>${#Global#iillumiAccountId}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueTopicNameTrueEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicIsUnique" resourcePath="/SaasCoreTopicManager/rest/topic/unique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueTopicNameTrueAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "name":"is this unique"
+}</con:request><con:assertion type="Simple Contains" name="containsUniqueTrue"><con:configuration><token>true</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueTopicNameFalseEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicIsUnique" resourcePath="/SaasCoreTopicManager/rest/topic/unique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueTopicNameFalseAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "name":"Competitive Analysis"
+}</con:request><con:assertion type="Simple Contains" name="containsUniqueFalse"><con:configuration><token>false</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="sanityTopicFailEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicSanityCheck" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="sanityTopicFailAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+"jsonDefinition": {
+        "includeAll": [],
+        "includeAny": [
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "i",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "me",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "you",
+                "alias": "KEYWORD"
+            }
+        ],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicSanityFail"><con:configuration><token>Topic Sanity Test Failed</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="sanityTopicPassEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicSanityCheck" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="sanityTopicPassAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+"jsonDefinition": {
+        "includeAll": [],
+        "includeAny": [
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Apple",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Orange",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Bananna",
+                "alias": "KEYWORD"
+            }
+        ],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicSanityPass"><con:configuration><token>Topic Sanity Test Passed</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="sanityTopicWarnEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicSanityCheck" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="sanityTopicWarnAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+"jsonDefinition": {
+        "includeAll": [],
+        "includeAny": [
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "me",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "you",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Bananna",
+                "alias": "KEYWORD"
+            }
+        ],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicSanityWarn"><con:configuration><token>Topic Sanity Test issued Warning</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="editTopicLimit1"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - update" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="editTopicLimit1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-7404633039626725204--5924243056660494990--5701824735716047415-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "id":${#Global#illumiAccountId},
+  "name":${#Global#illumiAccountName},
+  "accountType":0,
+  "brand":"",
+  "expirationDate":"${#Global#expirationDate}",
+  "accessEli":true,
+  "accessTempEditorEli":true,
+  "contactName":"anything goes here",
+  "contactEmail":"b@b.BBB",
+  "address":"anything goes here",
+  "city":"anything goes here",
+  "state":"anything goes here",
+  "zipCode":"anything goes here",
+  "psOwner":"anything goes here",
+  "maxTopicLimit":1,
+  "maxUserLimit":100,
+  "maxVolumeLimit":3,
+  "maxDataLimit":2
+}</con:request><con:assertion type="XPath Match" name="XPathMaxTopicLimit1"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/account';
+//ns1:maxTopicLimit</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createTopicLimitFailEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - update" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createTopicLimitFailAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": -1,
+    "name": "Topic create through API 1",
+    "jsonDefinition": {
+        "includeAll": [
+            {
+                "extraction": "ENTITY",
+                "type": "COMPANY",
+                "text": "Apple",
+                "alias": "Company"
+            }
+        ],
+        "includeAny": [],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicLimitReached"><con:configuration><token>TopicLimitReached</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="editTopicLimit100"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - update" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="editTopicLimit100" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-7404633039626725204--5924243056660494990--5701824735716047415-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "id":${#Global#illumiAccountId},
+  "name":${#Global#illumiAccountName},
+  "accountType":0,
+  "brand":"",
+  "expirationDate":"${#Global#expirationDate}",
+  "accessEli":true,
+  "accessTempEditorEli":true,
+  "contactName":"anything goes here",
+  "contactEmail":"b@b.BBB",
+  "address":"anything goes here",
+  "city":"anything goes here",
+  "state":"anything goes here",
+  "zipCode":"anything goes here",
+  "psOwner":"anything goes here",
+  "maxTopicLimit":100,
+  "maxUserLimit":100,
+  "maxVolumeLimit":3,
+  "maxDataLimit":2
+}</con:request><con:assertion type="XPath Match" name="XPathMaxTopicLimit1"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/account';
+//ns1:maxTopicLimit</path><content>100</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createTopicLimitPassEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - update" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createTopicLimitPassAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": -1,
+    "name": "Topic create through API 1",
+    "jsonDefinition": {
+        "includeAll": [
+            {
+                "extraction": "ENTITY",
+                "type": "COMPANY",
+                "text": "Apple",
+                "alias": "Company"
+            }
+        ],
+        "includeAny": [],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsCreatedTopicName"><con:configuration><token>Topic create through API 1</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="topicIllumiEditorResponse"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import com.eviware.soapui.impl.wsdl.teststeps.*
+
+responseContent = testRunner.testCase.getTestStepByName("createTopicLimitPassEditor").getPropertyValue("response")
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+def topicId = (slurperresponse.id) as String
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiEditorCreatTopicId", topicId )
+def topicName = (slurperresponse.name) as String
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiEditorCreatTopicName", topicName )
+
+//log.info authkey</script></con:config></con:testStep><con:testStep type="restrequest" name="eidtTopicEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - update" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="eidtTopicAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": ${#Global#illumiEditorCreatTopicId},
+    "name": "${#Global#illumiEditorCreatTopicName}",
+    "jsonDefinition": {
+        "includeAll": [
+            {
+                "extraction": "ENTITY",
+                "type": "COMPANY",
+                "text": "Apple",
+                "alias": "Company"
+            }
+        ],
+        "includeAny": [],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsCreatedTopicName"><con:configuration><token>Topic create through API 1</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="alertTopicAddEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - addAlert" resourcePath="/SaasCoreTopicManager/rest/topic/update/alerts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="alertTopicAddAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": ${#Global#illumiEditorCreatTopicId},
+    "topicAlerts":
+     [
+        {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "FOLLOWER_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "FOLLOWER_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "IMPRESSION_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "IMPRESSION_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "KLOUT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "KLOUT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "SENTIMENT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "SENTIMENT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "TREND_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "TREND_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "VOLUME_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "VOLUME_ALERT"
+        },
+        {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "FOLLOWER_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "FOLLOWER_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "IMPRESSION_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "IMPRESSION_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "KLOUT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "KLOUT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "SENTIMENT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "SENTIMENT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "TREND_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "TREND_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "VOLUME_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "VOLUME_ALERT"
+        }
+     ]
+}</con:request><con:assertion type="Simple Contains" name="containsFollowerAlert"><con:configuration><token>FOLLOWER_ALERT</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="alertTopicRemoveEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - addAlert" resourcePath="/SaasCoreTopicManager/rest/topic/update/alerts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="alertTopicRemoveAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": ${#Global#illumiEditorCreatTopicId},
+    "topicAlerts":
+     [
+        
+     ]
+}</con:request><con:assertion type="Simple NotContains" name="notContainsFollowerAlert"><con:configuration><token>FOLLOWER_ALERT</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="auditTopicListEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="GET - getTopicAudits" resourcePath="/SaasCoreTopicManager/rest/topic/topicAudit/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="auditTopicListAdmin" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsAdd"><con:configuration><token>ADD</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Global#illumiEditorCreatTopicId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="viewInternalTopicStatusEditor"><con:settings/><con:config service="http://10.200.0.124:8080" methodName="GET - Topic Status" resourcePath="/SaasCoreInternalManager/rest/internal/topic_status/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="viewInternalTopicStatusAdmin" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Global#illumiEditorCreatTopicId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateInternalTopicStatusEditor"><con:settings/><con:config service="http://10.200.0.124:8080" methodName="POST - Topic Status" resourcePath="/SaasCoreInternalManager/rest/internal/topic_status/" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateInternalTopicStatusAdmin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "id": ${#Global#illumiEditorCreatTopicId},
+  //"name": "Quite Large",
+  //"definition": "he OR him OR me OR you OR we OR twitter",
+  "status": 1,
+  "account": ${#Global#illumiAccountId}
+}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="deleteTopicEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="DELETE - deleteTopic" resourcePath="/SaasCoreTopicManager/rest/topic/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="deleteTopicAdmin" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-5890243122822910411-796678420634545961-7560237557281013618-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Global#illumiEditorCreatTopicId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="topicLockDownTestCaseReadOnly" searchProperties="true" id="165aade3-b708-4177-b68e-59c6cacb66e9" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="restrequest" name="authAccountUser"><con:settings/><con:config service="ARTSA- Account Manager" resourcePath="/SaasCoreAccountManager/rest/accountauth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authAccountUser" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "username":${#Global#illumiAccountUsername},
+  "password":${#Global#illumiAccountPassword}
+}</con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/accountauth';
+//ns1:loginFailed</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="username" value="${#Global#illumiAccountUsername}"/>
+  <con:entry key="password" value="${#Global#illumiAccountPassword}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="authResponse"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import com.eviware.soapui.impl.wsdl.teststeps.*
+
+responseContent = testRunner.testCase.getTestStepByName("authAccountUser").getPropertyValue("response")
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+authkey = (slurperresponse.authkey)
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiAccountAuthKey", authkey )
+
+//log.info authkey</script></con:config></con:testStep><con:testStep type="groovy" name="setUtokenHeader"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.teststeps.*
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def authkey = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "illumiAccountAuthKey")
+def tc = testRunner.testCase.testSuite.getTestCaseByName("topicLockDownTestCaseReadOnly")
+def ts11 = tc.getTestStepByName("editTopicLimit1")
+def ts12 = tc.getTestStepByName("editTopicLimit100")
+
+
+def headers = new StringToStringMap()
+headers.putIfMissing("utoken",authkey)
+
+ts11.getHttpRequest().setRequestHeaders(headers)
+ts12.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="authIllumiReadOnlyUser"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/auth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authIllumiEditorUser" mediaType="application/json" postQueryString="false" accept=""><con:description>get token for current User</con:description><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Contest-Type" value="application/json"/>
+  &lt;con:entry key="Accept" value="application/json"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "username":"${#Global#illumiReadOnlyUsername}",
+  "password":"${#Global#illumiReadOnlyPassword}",
+  "accountName":"${#Global#illumiAccountName}"
+}</con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreUserManager/rest/auth';
+//ns1:loginFailed</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="authIllumiReadOnlyResponse"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import com.eviware.soapui.impl.wsdl.teststeps.*
+
+responseContent = testRunner.testCase.getTestStepByName("authIllumiReadOnlyUser").getPropertyValue("response")
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+authkey = (slurperresponse.authkey)
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiReadOnlyAuthKey", authkey )
+
+//log.info authkey</script></con:config></con:testStep><con:testStep type="groovy" name="setReadOnlyUtokenHeader"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.teststeps.*
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def authkey = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "illumiReadOnlyAuthKey")
+def tc = testRunner.testCase.testSuite.getTestCaseByName("topicLockDownTestCaseReadOnly")
+def ts11 = tc.getTestStepByName("viewTopicListReadOnly")
+def ts12 = tc.getTestStepByName("uniqueTopicNameTrueReadOnly")
+def ts13 = tc.getTestStepByName("uniqueTopicNameFalseReadOnly")
+def ts14 = tc.getTestStepByName("sanityTopicFailReadOnly")
+def ts15 = tc.getTestStepByName("sanityTopicPassReadOnly")
+def ts16 = tc.getTestStepByName("sanityTopicWarnReadOnly")
+def ts17 = tc.getTestStepByName("createTopicLimitFailReadOnly")
+def ts18 = tc.getTestStepByName("createTopicLimitPassReadOnly")
+def ts19 = tc.getTestStepByName("eidtTopicReadOnly")
+def ts110 = tc.getTestStepByName("alertTopicAddReadOnly")
+def ts111 = tc.getTestStepByName("alertTopicRemoveReadOnly")
+def ts112 = tc.getTestStepByName("auditTopicListReadOnly")
+def ts113 = tc.getTestStepByName("viewInternalTopicStatusReadOnly")
+def ts114 = tc.getTestStepByName("updateInternalTopicStatusReadOnly")
+def ts115 = tc.getTestStepByName("deleteTopicReadOnly")
+
+
+def headers = new StringToStringMap()
+headers.putIfMissing("utoken",authkey)
+
+ts11.getHttpRequest().setRequestHeaders(headers)
+ts12.getHttpRequest().setRequestHeaders(headers)
+ts13.getHttpRequest().setRequestHeaders(headers)
+ts14.getHttpRequest().setRequestHeaders(headers)
+ts15.getHttpRequest().setRequestHeaders(headers)
+ts16.getHttpRequest().setRequestHeaders(headers)
+ts17.getHttpRequest().setRequestHeaders(headers)
+ts18.getHttpRequest().setRequestHeaders(headers)
+ts19.getHttpRequest().setRequestHeaders(headers)
+ts110.getHttpRequest().setRequestHeaders(headers)
+ts111.getHttpRequest().setRequestHeaders(headers)
+ts112.getHttpRequest().setRequestHeaders(headers)
+ts113.getHttpRequest().setRequestHeaders(headers)
+ts114.getHttpRequest().setRequestHeaders(headers)
+ts115.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="viewTopicListReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="GET - getAllTopics" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="viewTopicListEditor" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsAccountId"><con:configuration><token>${#Global#iillumiAccountId}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueTopicNameTrueReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicIsUnique" resourcePath="/SaasCoreTopicManager/rest/topic/unique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueTopicNameTrueEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "name":"is this unique"
+}</con:request><con:assertion type="Simple Contains" name="containsUniqueTrue"><con:configuration><token>true</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="uniqueTopicNameFalseReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicIsUnique" resourcePath="/SaasCoreTopicManager/rest/topic/unique" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="uniqueTopicNameFalseEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "name":"Competitive Analysis"
+}</con:request><con:assertion type="Simple Contains" name="containsUniqueFalse"><con:configuration><token>false</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="sanityTopicFailReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicSanityCheck" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="sanityTopicFailEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+"jsonDefinition": {
+        "includeAll": [],
+        "includeAny": [
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "i",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "me",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "you",
+                "alias": "KEYWORD"
+            }
+        ],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicSanityFail"><con:configuration><token>Topic Sanity Test Failed</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="sanityTopicPassReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicSanityCheck" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="sanityTopicPassEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+"jsonDefinition": {
+        "includeAll": [],
+        "includeAny": [
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Apple",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Orange",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Bananna",
+                "alias": "KEYWORD"
+            }
+        ],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicSanityPass"><con:configuration><token>Topic Sanity Test Passed</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="sanityTopicWarnReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - topicSanityCheck" resourcePath="/SaasCoreTopicManager/rest/topic/sanity" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="sanityTopicWarnEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+"jsonDefinition": {
+        "includeAll": [],
+        "includeAny": [
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "me",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "you",
+                "alias": "KEYWORD"
+            },
+            {
+                "extraction": "KEYWORD",
+                "type": "KEYWORD",
+                "text": "Bananna",
+                "alias": "KEYWORD"
+            }
+        ],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicSanityWarn"><con:configuration><token>Topic Sanity Test issued Warning</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="editTopicLimit1"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - update" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="editTopicLimit1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6381959013626199956--1737343453782334517--6301670540181141757-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "id":${#Global#illumiAccountId},
+  "name":${#Global#illumiAccountName},
+  "accountType":0,
+  "brand":"",
+  "expirationDate":"${#Global#expirationDate}",
+  "accessEli":true,
+  "accessTempEditorEli":true,
+  "contactName":"anything goes here",
+  "contactEmail":"b@b.BBB",
+  "address":"anything goes here",
+  "city":"anything goes here",
+  "state":"anything goes here",
+  "zipCode":"anything goes here",
+  "psOwner":"anything goes here",
+  "maxTopicLimit":1,
+  "maxUserLimit":100,
+  "maxVolumeLimit":3,
+  "maxDataLimit":2
+}</con:request><con:assertion type="XPath Match" name="XPathMaxTopicLimit1"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/account';
+//ns1:maxTopicLimit</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createTopicLimitFailReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - update" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createTopicLimitFailEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": -1,
+    "name": "Topic create through API 1",
+    "jsonDefinition": {
+        "includeAll": [
+            {
+                "extraction": "ENTITY",
+                "type": "COMPANY",
+                "text": "Apple",
+                "alias": "Company"
+            }
+        ],
+        "includeAny": [],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsTopicLimitReached"><con:configuration><token>TopicLimitReached</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="editTopicLimit100"><con:settings/><con:config service="ARTSA- Account Manager" methodName="POST - update" resourcePath="/SaasCoreAccountManager/rest/account" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="editTopicLimit100" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="-6381959013626199956--1737343453782334517--6301670540181141757-0" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "id":${#Global#illumiAccountId},
+  "name":${#Global#illumiAccountName},
+  "accountType":0,
+  "brand":"",
+  "expirationDate":"${#Global#expirationDate}",
+  "accessEli":true,
+  "accessTempEditorEli":true,
+  "contactName":"anything goes here",
+  "contactEmail":"b@b.BBB",
+  "address":"anything goes here",
+  "city":"anything goes here",
+  "state":"anything goes here",
+  "zipCode":"anything goes here",
+  "psOwner":"anything goes here",
+  "maxTopicLimit":100,
+  "maxUserLimit":100,
+  "maxVolumeLimit":3,
+  "maxDataLimit":2
+}</con:request><con:assertion type="XPath Match" name="XPathMaxTopicLimit1"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreAccountManager/rest/account';
+//ns1:maxTopicLimit</path><content>100</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createTopicLimitPassReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - update" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createTopicLimitPassEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": -1,
+    "name": "Topic create through API 1",
+    "jsonDefinition": {
+        "includeAll": [
+            {
+                "extraction": "ENTITY",
+                "type": "COMPANY",
+                "text": "Apple",
+                "alias": "Company"
+            }
+        ],
+        "includeAny": [],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>TopicEditForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="authIllumiEditorUser"><con:settings/><con:config service="ARTSA - UserManager" resourcePath="/SaasCoreUserManager/rest/auth" methodName="POST - authenticate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="authIllumiEditorUser" mediaType="application/json" postQueryString="false" accept=""><con:description>get token for current User</con:description><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Contest-Type" value="application/json"/>
+  &lt;con:entry key="Accept" value="application/json"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "username":"${#Global#illumiEditorUsername}",
+  "password":"${#Global#illumiEditorPassword}",
+  "accountName":"${#Global#illumiAccountName}"
+}</con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://10.200.0.124/SaasCoreUserManager/rest/auth';
+//ns1:loginFailed</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="authIllumiEditorResponse"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import com.eviware.soapui.impl.wsdl.teststeps.*
+
+responseContent = testRunner.testCase.getTestStepByName("authIllumiEditorUser").getPropertyValue("response")
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+authkey = (slurperresponse.authkey)
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiEditorAuthKey", authkey )
+
+//log.info authkey</script></con:config></con:testStep><con:testStep type="groovy" name="setEditorUtokenHeader"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.teststeps.*
+import com.eviware.soapui.support.types.StringToStringMap;
+
+def authkey = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "illumiEditorAuthKey")
+def tc = testRunner.testCase.testSuite.getTestCaseByName("topicLockDownTestCaseReadOnly")
+def ts11 = tc.getTestStepByName("createTopicLimitPassEditor")
+def ts12 = tc.getTestStepByName("deleteTopicEditor")
+
+
+def headers = new StringToStringMap()
+headers.putIfMissing("utoken",authkey)
+
+ts11.getHttpRequest().setRequestHeaders(headers)
+ts12.getHttpRequest().setRequestHeaders(headers)</script></con:config></con:testStep><con:testStep type="restrequest" name="createTopicLimitPassEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - update" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createTopicLimitPassEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="6434655919008314464--141415610945747985-1258127124432864747-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": -1,
+    "name": "Topic create through API 1",
+    "jsonDefinition": {
+        "includeAll": [
+            {
+                "extraction": "ENTITY",
+                "type": "COMPANY",
+                "text": "Apple",
+                "alias": "Company"
+            }
+        ],
+        "includeAny": [],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsCreatedTopicName"><con:configuration><token>Topic create through API 1</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="topicIllumiEditorResponse"><con:settings/><con:config><script>import groovy.json.JsonSlurper
+import com.eviware.soapui.impl.wsdl.teststeps.*
+
+responseContent = testRunner.testCase.getTestStepByName("createTopicLimitPassEditor").getPropertyValue("response")
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+def topicId = (slurperresponse.id) as String
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiEditorCreatTopicId", topicId )
+def topicName = (slurperresponse.name) as String
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "illumiEditorCreatTopicName", topicName )
+
+//log.info authkey</script></con:config></con:testStep><con:testStep type="restrequest" name="eidtTopicReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - update" resourcePath="/SaasCoreTopicManager/rest/topic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="eidtTopicEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": ${#Global#illumiEditorCreatTopicId},
+    "name": "${#Global#illumiEditorCreatTopicName}",
+    "jsonDefinition": {
+        "includeAll": [
+            {
+                "extraction": "ENTITY",
+                "type": "COMPANY",
+                "text": "Apple",
+                "alias": "Company"
+            }
+        ],
+        "includeAny": [],
+        "exclude": [],
+        "exactPhrases": [],
+        "other": [
+            {
+                "type": "lang",
+                "values": [
+                    "en"
+                ]
+            }
+        ],
+   "results":{}
+    }
+}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>TopicEditForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="alertTopicAddReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - addAlert" resourcePath="/SaasCoreTopicManager/rest/topic/update/alerts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="alertTopicAddEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": ${#Global#illumiEditorCreatTopicId},
+    "topicAlerts":
+     [
+        {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "FOLLOWER_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "FOLLOWER_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "IMPRESSION_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "IMPRESSION_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "KLOUT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "KLOUT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "SENTIMENT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "SENTIMENT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "TREND_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "TREND_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": true,
+            "alertType": "VOLUME_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": true,
+            "alertType": "VOLUME_ALERT"
+        },
+        {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "FOLLOWER_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "FOLLOWER_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "IMPRESSION_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "IMPRESSION_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "KLOUT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "KLOUT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "SENTIMENT_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "SENTIMENT_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "TREND_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "TREND_ALERT"
+        },
+       {
+            "sensitivity": "HIGH",
+            "alertActive": false,
+            "alertType": "VOLUME_ALERT"
+        },
+        {
+            "sensitivity": "LOW",
+            "alertActive": false,
+            "alertType": "VOLUME_ALERT"
+        }
+     ]
+}</con:request><con:assertion type="Simple Contains" name="containsFollowerAlert"><con:configuration><token>FOLLOWER_ALERT</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="alertTopicRemoveReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="POST - addAlert" resourcePath="/SaasCoreTopicManager/rest/topic/update/alerts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="alertTopicRemoveEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+    "id": ${#Global#illumiEditorCreatTopicId},
+    "topicAlerts":
+     [
+        
+     ]
+}</con:request><con:assertion type="Simple NotContains" name="notContainsFollowerAlert"><con:configuration><token>FOLLOWER_ALERT</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="auditTopicListReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="GET - getTopicAudits" resourcePath="/SaasCoreTopicManager/rest/topic/topicAudit/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="auditTopicListEditor" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsAdd"><con:configuration><token>ADD</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Global#illumiEditorCreatTopicId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="viewInternalTopicStatusReadOnly"><con:settings/><con:config service="http://10.200.0.124:8080" methodName="GET - Topic Status" resourcePath="/SaasCoreInternalManager/rest/internal/topic_status/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="viewInternalTopicStatusEditor" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Global#illumiEditorCreatTopicId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="updateInternalTopicStatusReadOnly"><con:settings/><con:config service="http://10.200.0.124:8080" methodName="POST - Topic Status" resourcePath="/SaasCoreInternalManager/rest/internal/topic_status/" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="updateInternalTopicStatusEditor" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request>{
+  "id": ${#Global#illumiEditorCreatTopicId},
+  //"name": "Quite Large",
+  //"definition": "he OR him OR me OR you OR we OR twitter",
+  "status": 1,
+  "account": ${#Global#illumiAccountId}
+}</con:request><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>UserForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="deleteTopicReadOnly"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="DELETE - deleteTopic" resourcePath="/SaasCoreTopicManager/rest/topic/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="deleteTopicEditor" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="7020636882049273998-840830928572651122--411637391265515709-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="containsForbidden"><con:configuration><token>TopicEditForbidden</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Global#illumiEditorCreatTopicId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="deleteTopicEditor"><con:settings/><con:config service="ARTSA - Topic Manager" methodName="DELETE - deleteTopic" resourcePath="/SaasCoreTopicManager/rest/topic/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="deleteTopicEditor" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="utoken" value="6434655919008314464--141415610945747985-1258127124432864747-2012" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.200.0.124:8080</con:endpoint><con:request/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Global#illumiEditorCreatTopicId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
