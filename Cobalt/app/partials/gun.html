@@ -1,0 +1,23 @@
+<div class="message gun view">
+  <div class="container">
+  	<table>
+      <tr>
+        <td>
+          <h1>Message Gun View</h1>
+        </td>
+        <td>
+          <input id="pauseBtn" ng-click="pause()" value="Start" class="btn btn-primary" type="button"/>
+        </td>
+      </tr>
+    </table>
+    <p>Viewing results for: {{gun.messageGunName}} Message Gun</p>
+    <p>Address: {{gun.messageGunAddress}}:{{gun.messageGunPort}}</p>
+    <p>AccountID: {{gun.messageGunAccountID}}</p>
+    <p>API Key: {{gun.messageGunApiKey}}</p>
+    <p>URL: {{wsUrl}}</p>
+
+    <div id="log">
+      <p>Messages sent will appear here.</p>
+    </div>
+  </div>
+</div>

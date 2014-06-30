@@ -1,0 +1,17 @@
+<div class="tests view">
+	<div class="container">
+		<header>
+			<h3>All Tests by Suite</h3>
+		</header>
+		<div>
+			<div class="row">
+				<div class="span12" ng-repeat="suite in suites | orderBy:'suiteID'">
+					<div class="indent">
+						<h4><a href="#/suiteTests/{{suite.suiteID}}">ID:{{suite.suiteID + ' - ' + suite.suiteName}}</a></h4>
+					</div>
+					<div ng-include="'/app/partials/testsTable.html'" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

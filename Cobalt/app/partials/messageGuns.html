@@ -1,0 +1,57 @@
+<div class="Message Guns view">
+	<div class="container">
+		<header>
+			<h3>Message Guns</h3>
+		</header>
+		<div class="row">
+			<div class="span1">
+				Secure Web Socket?
+				<br />
+				<input ng-model="newMessageGun.messageGunSecure" type="checkbox">
+			</div>
+			<div class="span3">
+				Web Socket Monitor Name:
+				<br />
+				<input ng-model="newmessageGun.messageGunName" type="text" placeholder="e.g. Staging">
+			</div>
+			<div class="span3">
+				Web Socket IP Address:
+				<br />
+				<input ng-model="newmessageGun.messageGunAddress" type="text" placeholder="#.#.#.#">
+			</div>
+			<div class="span3">
+				Web Socket Port:
+				<br />
+				<input ng-model="newmessageGun.messageGunPort" type="text" placeholder="####">
+			</div>
+			<div class="span3">
+				Web Socket Account ID:
+				<br />
+				<input ng-model="newmessageGun.messageGunAccountID" type="text" placeholder="#">
+			</div>
+			<div class="span6">
+				Web Socket Api Key:
+				<br />
+				<input ng-model="newmessageGun.messageGunApiKey" type="text" placeholder="API Key">
+				<button id="submitmessageGun" class="btn btn-primary" type="button"
+					ng-disabled="!newmessageGun.messageGunName || 
+								!newmessageGun.messageGunAddress || 
+								!newmessageGun.messageGunPort || 
+								!newmessageGun.messageGunAccountID || 
+								!newmessageGun.messageGunApiKey"
+					ng-click="insertmessageGun()">Add Message Gun</button>
+			</div>
+		</div>
+		<br /><br />
+		<div>
+			<div class="row cardContainer"><!--Change this to a different bootstrap show device-->
+				<div class="span3 card" ng-repeat="messageGun in messageGuns | orderBy: 'messageGunName'">
+					<button class="btn close cardClose" ng-click="deletemessageGun(messageGun.messageGunID)">&times;</button>
+					<div class="cardHeader">{{messageGun.messageGunName}}</div>
+					<div class="cardBody">{{messageGun.messageGunAddress}}:{{messageGun.messageGunPort}}</div>
+					<a href="#/messageGun/{{messageGun.messageGunID}}" class="cardBody btn-link">View Gun</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

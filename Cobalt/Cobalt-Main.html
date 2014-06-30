@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="cobaltApp">
+<head>
+	<title>Cobalt</title>
+	<link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="Content/customerManagementStyles.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand " href="#/">
+					<img src="Content/images/CobaltSteel-48x45.png" alt="logo"> Cobalt - The Pipeline Tester
+				</a>
+				<ul class="nav nav-pills" ng-controller="NavbarController">
+					<li ng-class="{'active':getClass('/suites')}"><a href="#/suites">Test Suites</a></li>
+					<li ng-class="{'active':getClass('/tests')}"><a href="#/tests">Tests</a></li>
+                    <li ng-class="{'active':getClass('/messageGun')}"><a href="#/messageGuns">Message Gun</a></li>
+                    <li ng-class="{'active':getClass('/socketMonitors')}"><a href="#/socketMonitors">Socket Monitors</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div animated-view></div>
+	
+	    <div id="footer">
+        <div class="navbar navbar-fixed-bottom">
+            <div class="navbar-inner">
+                <div class="container">
+                    <footer>
+                        <div class="row">
+                            <div class="span4">
+                                created by beau nelford
+                            </div>
+                            <div class="span4">
+                                email: <a href="mailto:bnelford@attensity.com">bnelford@attensity.com</a>
+                            </div>
+                            <div class="span4">
+                                company home: <a href="http://www.attensity.com">www.attensity.com</a>
+                            </div>
+                        </div>
+                   </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Vendor Libs: jQuery only used for Bootstrap functionality -->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/jquery.min.js"></script>
+	<!-- UI Libs -->
+    <script src="Scripts/bootstrap.js"></script>
+	<!-- App libs -->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/maincontrollers.js"></script>
+    <script src="app/controllers/messagegunscontrollers.js"></script>
+    <script src="app/controllers/socketmonitorscontrollers.js"></script>
+    <script src="app/controllers/suitescontrollers.js"></script>
+    <script src="app/controllers/testscontrollers.js"></script>
+    <script src="app/services/suitesService.js"></script>
+    <script src="app/services/socketMonitorsService.js"></script>
+    <script src="app/services/messageGunsService.js"></script>
+    <script src="app/services/testsService.js"></script>
+    <script src="app/directives/animatedView.js"></script>
+
+</body>
+</html>
