@@ -12,6 +12,11 @@ app.config(function ($routeProvider) {
 			controller: 'TestsController',
 			templateUrl: 'app/partials/tests.html'
 		})
+		.when('/tests/:suiteID/:testID',
+		{
+			controller: 'TestController',
+			templateUrl: 'app/partials/test.html'
+		})
 		.when('/suiteTests/:suiteID',
 		{
 			controller: 'SuiteTestsController',

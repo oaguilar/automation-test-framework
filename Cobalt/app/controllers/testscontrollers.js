@@ -28,3 +28,13 @@ app.controller('TestChildController', function ($scope) {
 		$scope.orderby = orderby;
 	};
 });
+
+app.controller('TestController', function ($scope, suitesService) {
+	$scope.test = [];
+	
+	init();
+	
+	function init() {
+		$scope.test = suitesService.getSuites();
+	}
+});

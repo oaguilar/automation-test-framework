@@ -4,35 +4,60 @@
 			<h3>Message Guns</h3>
 		</header>
 		<div class="row">
-			<div class="span1">
-				Secure Web Socket?
-				<br />
-				<input ng-model="newMessageGun.messageGunSecure" type="checkbox">
-			</div>
 			<div class="span3">
-				Web Socket Monitor Name:
+				Message Gun Name:
 				<br />
 				<input ng-model="newmessageGun.messageGunName" type="text" placeholder="e.g. Staging">
 			</div>
 			<div class="span3">
-				Web Socket IP Address:
+				Rabbit Host:
 				<br />
-				<input ng-model="newmessageGun.messageGunAddress" type="text" placeholder="#.#.#.#">
+				<input ng-model="newmessageGun.messageGunRabbitAddress" type="text" placeholder="#.#.#.# or localhost">
 			</div>
 			<div class="span3">
-				Web Socket Port:
+				Rabbit Port:
 				<br />
-				<input ng-model="newmessageGun.messageGunPort" type="text" placeholder="####">
+				<input ng-model="newmessageGun.messageGunRabbitPort" type="text" placeholder="####">
 			</div>
 			<div class="span3">
-				Web Socket Account ID:
+				Rabbit User Name:
 				<br />
-				<input ng-model="newmessageGun.messageGunAccountID" type="text" placeholder="#">
+				<input ng-model="newmessageGun.messageGunRabbitUsername" type="text" placeholder="guest">
+			</div>
+			<div class="span3">
+				Rabbit password:
+				<br />
+				<input ng-model="newmessageGun.messageGunRabbitPassword" type="text" placeholder="guest">
+			</div>
+			<div class="span3">
+				Data Type:
+				<br />
+				<input ng-model="newmessageGun.messageGunDataType" type="text" placeholder="staticData">
+			</div>
+			<div class="span3">
+				Data Location:
+				<br />
+				<input ng-model="newmessageGun.messageGunDataLocation" type="text" placeholder="/opt/Messageun/textFiles/twitterSampeData20.json">
+			</div>
+			<div class="span3">
+				Message Receiver:
+				<br />
+				<input ng-model="newmessageGun.messageGunMessageReceiver" type="text" placeholder="SocketServer">
+			</div>
+			<div class="span3">
+				Messages Per Second:
+				<br />
+				<input ng-model="newmessageGun.messageGunMessagesPerSecond" type="text" placeholder="#">
+			</div>
+			<div class="span3">
+				Max Messages:
+				<br />
+				<input ng-model="newmessageGun.messageGunMaxMessages" type="text" placeholder="#">
 			</div>
 			<div class="span6">
-				Web Socket Api Key:
+				Optional Pipeline Parameters:
 				<br />
-				<input ng-model="newmessageGun.messageGunApiKey" type="text" placeholder="API Key">
+				<input ng-model="newmessageGun.messageGunOptionalParams" type="text" placeholder="<JSON>">
 				<button id="submitmessageGun" class="btn btn-primary" type="button"
 					ng-disabled="!newmessageGun.messageGunName || 
 								!newmessageGun.messageGunAddress || 

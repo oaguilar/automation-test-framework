@@ -3,16 +3,25 @@ app.service('messageGunsService', function() {
 		return messageGuns;
 	};
 	
-	this.insertMessageGun = function (name, address, port, accountID, api_key, secure) {
+	this.insertMessageGun = function (name, rabbitHost, rabbitPort, rabbitUserName, rabbitPassword, dataType, dataLocation, messageReceiver, messagesPerSecond, maxMessages, optionalParams) {
 		var topID = messageGuns.length + 1;
 		messageGuns.push({
 			messageGunID:topID,
 			messageGunName:name,
-			messageGunAddress: address,
-			messageGunecure: secure,
-			messageGunPort: port,
-			messageGunAccountID: accountID,
-			messageGunApiKey: api_key
+			messageGunConfig: {
+				rabbitHost: rabbitHost,
+				rabbitPort: rabbitPort,
+				rabbitUserName: rabbitUserName,
+				rabbitPassword: rabbitPassword,
+				dataType: dataType,
+				dataLocation: dataLocation,
+				messageReceiver: messageReceiver,
+					senders: {
+						messagesPerSecond: messagesPerSecond,
+						maxMessages: maxMessages,
+						optionalPipelineParameters: optionalParams
+					}
+			}
 		});
 	};
 	
@@ -37,40 +46,23 @@ app.service('messageGunsService', function() {
 	var messageGuns = [
 		{
 			messageGunID:1,
-			messageGunName: 'Staging',
-			messageGunAddress:'10.200.0.82', 
-			messageGunecure: true,
-			messageGunPort: '443', 
-			messageGunAccountID:'1',
-			messageGunApiKey: '1234567890ABCDEF1'
-		},
-		{
-			messageGunID:2, 
-			messageGunName: 'Staging2',
-			messageGunAddress:'10.200.0.125', 
-			messageGunecure: true,
-			messageGunPort: '443', 
-			messageGunAccountID:'1',
-			messageGunApiKey: '1234567890ABCDEF1'
-		},
-		{
-			messageGunID:3, 
-			messageGunName: 'QA1',
-			messageGunAddress:'10.100.75.6', 
-			messageGunecure: false,
-			messageGunPort: '8505', 
-			messageGunAccountID:'1',
-			messageGunApiKey: '1234567890ABCDEF1'
-		},
-		{
-			messageGunID:4, 
-			messageGunName: 'QA2',
-			messageGunAddress:'10.100.75.19', 
-			messageGunecure: false,
-			messageGunPort: '8505', 
-			messageGunAccountID:'1',
-			messageGunApiKey: '1234567890ABCDEF1'
+			messageGunName:'Local',
+			messageGunConfig: {
+				rabbitHost: 'localhost',
+				rabbitPort: 5672,
+				rabbitUserName: 'guest',
+				rabbitPassword: 'guest',
+				dataType: 'staticData',
+				dataLocation: '/opt/MessageGun/textFiles/twitterSampleData20.json',
+				messageReceiver: 'SocketServer',
+					senders: {
+						messagesPerSecond: 1,
+						maxMessages: 20,
+						optionalPipelineParameters: {
+
+						}
+					}
+			}
 		}
 	];
-	
 });

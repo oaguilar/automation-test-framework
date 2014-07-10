@@ -9,22 +9,39 @@ app.controller('MessageGunsController', function ($scope, messageGunsService) {
 
 	$scope.insertMessageGuns = function () {
 		var messageGunName = $scope.newMessageGun.messageGunName;
-		var messageGunAddress = $scope.newMessageGun.messageGunAddress;
-		var messageGunSecure = $scope.newMessageGun.messageGunSecure;
-		var messageGunPort = $scope.newMessageGun.messageGunPort;
-		var messageGunAccountID = $scope.newMessageGun.messageGunAccountID;
-		var messageGunApiKey = $scope.newMessageGun.messageGunApiKey;
+		var messageGunRabbitAddress = $scope.newMessageGun.messageGunRabbitAddress;
+		var messageGunRabbitPort = $scope.newMessageGun.messageGunRabbitPort;
+		var messageGunRabbitUsername = $scope.newMessageGun.messageGunRabbitUsername;
+		var messageGunRabbitPassword = $scope.newMessageGun.messageGunRabbitPassword;
+		var messageGunDataType = $scope.newMessageGun.messageGunDataType;
+		var messageGunDataLocation = $scope.newMessageGun.messageGunDataLocation;
+		var messageGunMessageReceiver = $scope.newMessageGun.messageGunMessageReceiver;
+		var messageGunMessagesPerSecond = $scope.newMessageGun.messageGunMessagesPerSecond;
+		var messageGunMaxMessages = $scope.newMessageGun.messageGunMaxMessages;
+		var messageGunOptionalParams = $scope.newMessageGun.messageGunOptionalParams;
+
 		messageGunsService.insertMessageGun(messageGunName, 
-												smessageGunAddress, 
-												messageGunPort, 
-												messageGunAccountID, 
-												messageGunApiKey, 
-												messageGunSecure)
+												messageGunRabbitAddress, 
+												messageGunRabbitPort, 
+												messageGunRabbitUsername,
+												messageGunRabbitPassword,
+												messageGunDataType,
+												messageGunDataLocation,
+												messageGunMessageReceiver,
+												messageGunMessagesPerSecond,
+												messageGunMaxMessages,
+												messageGunOptionalParams)
 		$scope.newMessageGun.messageGunName = '';
-		$scope.newMessageGun.messageGunAddress = '';
-		$scope.newMessageGun.messageGunPort = '';
-		$scope.newMessageGun.messageGunAccountID = '';
-		$scope.newMessageGun.messageGunApiKey = '';
+		$scope.newMessageGun.messageGunRabbitAddress = '';
+		$scope.newMessageGun.messageGunRabbitPort = '';
+		$scope.newMessageGun.messageGunRabbitUsername = '';
+		$scope.newMessageGun.messageGunRabbitPassword = '';
+		$scope.newMessageGun.messageGunDataType = '';
+		$scope.newMessageGun.messageGunDataLocation = '';
+		$scope.newMessageGun.messageGunMessageReceiver = '';
+		$scope.newMessageGun.messageGunMessagesPerSecond = '';
+		$scope.newMessageGun.messageGunMaxMessages = '';
+		$scope.newMessageGun.messageGunOptionalParams = '';
 	};
 
 	$scope.deleteMessageGun = function (id) {
@@ -35,8 +52,7 @@ app.controller('MessageGunsController', function ($scope, messageGunsService) {
 
 app.controller('GunController', function ($scope, $routeParams, messageGunsService) {
 	$scope.gun = {};
-	$scope.wsUrl = '';
-	
+		
 	init();
 	
 	function init() {
@@ -45,44 +61,4 @@ app.controller('GunController', function ($scope, $routeParams, messageGunsServi
 			$scope.gun = messageGunsService.getMessageGun(messageGunID);
 		}
 	}
-
-	window.paused=true;
-    function WS() {
-      var _self = this;
-      this.start = function() {
-        var proto = '';
-        if ($scope.gun.messageGunSecure) {
-        	proto = 'wss';
-        }
-        else {
-        	proto = 'ws';
-        }
-        var wsUrl = proto + "://" + 
-        			$scope.gun.messageGunAddress + 
-        			":" +
-        			$scope.gun.messageGunPort +
-        			"/account/" +
-        			$scope.gun.messageGunAccountID +
-        			"/feed?api_key=" +
-        			$scope.gun.messageGunApiKey
-        $scope.wsUrl = wsUrl;
-        console.log(wsUrl);
-        var ws = new WebSocket(wsUrl);								
-        ws.onmessage = function(e) {
-      		if(!window.paused) {	
-            	var message = JSON.parse(e.data);
-            $('#log').prepend('<pre>' + JSON.stringify(message, undefined, 2) + '</pre>');
-      		}
-        	//console.log(message);   
-        };
-      }
-      _self.start();
-    }
-
-  	$scope.pause = function () {
-  		console.log("Pause button clicked.")
-  		window.paused=!window.paused;
-  		$('#pauseBtn').val(window.paused?'Resume':'Pause');
-  	}
-    new WS();
 });
