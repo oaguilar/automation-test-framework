@@ -11,7 +11,7 @@ var LIMIT = 10
 
 	frisby.create('UToken - User')
 		.post('http://10.202.207.206:8080/SaasCoreUserManager/rest/auth',
-		{ username : 'oaguilar', password: 'P@ssword1', accountName: 'qabeta'},
+		{ username : '[YOUR USERID]', password: '[YOUR PASSWORD]', accountName: '[YOUR ACCOUNT NAME]'},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }})
 		.expectStatus(200)
