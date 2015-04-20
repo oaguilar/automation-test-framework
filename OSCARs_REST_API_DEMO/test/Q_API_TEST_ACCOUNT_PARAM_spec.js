@@ -1,5 +1,5 @@
 /* jasmine-node Q_API_TEST_ACCOUNT_spec.js */
-//This test creates an edits an account repeatedly, testing all supported accountType, maxTopicLimit, and maxTopicVolume values.
+//This test creates an edits an account repeatedly, testing all supported accountType, accountLanguage, maxTopicLimit, and maxTopicVolume values.
 
 var frisby = require('frisby')
 var URL = 'http://stage-q01.attensity.com:8080'
