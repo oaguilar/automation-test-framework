@@ -1,35 +1,57 @@
 /* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js */
+/* Updated on April 20, 2015 */
 
 var frisby = require('frisby')
-var URL = 'http://10.202.207.206:8080/ArticleQueryApi/rest/query';
-var URX = 'http://10.202.207.206:8080/SaasCoreTopicManager/rest/topic';
+var moment = require('moment');
+var fs, configurationFile;
+	configurationFile = 'configuration.json';
+	fs = require('fs'); 
+var configuration = JSON.parse(
+    fs.readFileSync(configurationFile)
+	);
+
+var sd = moment();
+var sm = moment.unix(sd);
+var ed = moment().add(14, 'days');
+var em = moment.unix(ed);
+
+var IP01 = configuration.IP01;
+var URL = configuration.URL_RESTQRY;
+var URX = configuration.URL_RESTTPC;
 var TOPIC_ID = -1
 var TOPIC_NM = 'Topic Create through API NODE.JS'
-var START_DT = 1425248813000
-var END_DT = 1460149317000
+var START_DT = sm.unix()
+var END_DT = em.unix()
 var LIMIT = 10
 
+{
+  console.log(sm.unix())
+  console.log(em.unix())
+}
 
+//Generates UToken for User//
 	frisby.create('UToken - User')
-		.post('http://10.202.207.206:8080/SaasCoreUserManager/rest/auth',
-		{ username : '[YOUR USERID]', password: '[YOUR PASSWORD]', accountName: '[YOUR ACCOUNT NAME]'},
+		.post(configuration.AUTH_URL,
+		{ username : configuration.username, password: configuration.password, accountName: configuration.accountName},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }})
 		.expectStatus(200)
 		.expectHeader('Content-Type', 'application/json')
 		.expectJSONTypes({authkey: String})
-	    .after(function() {console.log('UToken - User')})
+	    .after(function() {console.log('=====>>>>>UToken - User Completed<<<<<=====')})
         .afterJSON(function (res) {
-    /* include auth token in the header of all future requests (Callback function to run after test is completed. )*/
+
+//Callback UToken for all other REST API Service Calls//
     frisby.globalSetup({
       request: { 
 		headers: { 'utoken': res.authkey, 'Content-Type': 'application/json' },
 		json: true },
 		timeout: 24000
     });
-	
+
+//Creates a Topic//	
 	frisby.create('Topic Create')
-		.post(URX,
+		.post(IP01 + URX,
 		{
 			id: TOPIC_ID,
 				name: TOPIC_NM,
@@ -57,29 +79,45 @@ var LIMIT = 10
 			}
 		})
 		.expectStatus(200)
+		.expectJSON({lookbackComplete: 101})
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>Topic create through API NODE.JS<<<<<=====')})
+//Callback Topic ID for REST API Service Calls//
 		.afterJSON(function(json) {
 		 var id = json.id
-		
+
+		 
     frisby.create('entitysentiment')
-		.post(URL + '/entitysentiment',
+		.post(IP01 + URL + '/entitysentiment',
 		{ topicIDs:[id], 
 		dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of entitysentiment<<<<<=====')})
 		.toss();
+		
+	frisby.create('Filters - Gender Example')
+		.post(IP01 + URL + '/entitysentiment',
+		{ topicIDs:[id], 
+		 limit:LIMIT,
+		 filters:[
+			  {field:'article_gender', comparison:'CO_OCCURS', values:['f']} 
+				   ],
+		dateRange:{ startDate:START_DT, endDate:END_DT}})
+		.expectStatus(200)
+		.inspectJSON()
+		.after(function() {console.log('=====>>>>>End Of Filters - Gender Example<<<<<=====')})
+		.toss();
 	
     frisby.create('topicmetrics')
-		.get(URL + '/topicmetrics')
+		.get(IP01 + URL + '/topicmetrics')
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of topicmetrics<<<<<=====')})
 		.toss();
 	  
     frisby.create('timeseries')
-		.post(URL + '/timeseries',
+		.post(IP01 + URL + '/timeseries',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
 		 selectedFields:[
@@ -95,7 +133,7 @@ var LIMIT = 10
 		.toss();
 		
     frisby.create('tsrelevantarticles')
-		.post(URL + '/tsrelevantarticles',
+		.post(IP01 + URL + '/tsrelevantarticles',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
          selectedFields:[
@@ -110,7 +148,7 @@ var LIMIT = 10
 		.toss();
 		
 	frisby.create('aggregate')
-		.post(URL + '/aggregate',
+		.post(IP01 + URL + '/aggregate',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
          selectedFields:[
@@ -124,7 +162,7 @@ var LIMIT = 10
 		.toss();
 		
 	frisby.create('volatility')
-		.post(URL + '/volatility',
+		.post(IP01 + URL + '/volatility',
 		{ topicIDs:[id], 
 		dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
@@ -133,16 +171,15 @@ var LIMIT = 10
 		.toss();
 	  
     frisby.create('trends')
-		.post(URL + '/trends',
+		.post(IP01 + URL + '/trends',
 		{ topicIDs:[id], dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of trends<<<<<=====')})
 		.toss();
 		
-	
 	frisby.create('details')
-		.post(URL + '/details',
+		.post(IP01 + URL + '/details',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
          selectedFields:[
@@ -169,7 +206,7 @@ var LIMIT = 10
 		.toss();
 
     frisby.create('clusters')
-		.post(URL + '/clusters',
+		.post(IP01 + URL + '/clusters',
 		{ topicIDs:[id], 
 		dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
@@ -178,14 +215,14 @@ var LIMIT = 10
 		.toss();
 		
     frisby.create('fieldsmap')
-		.post(URL + '/fieldsmap')
+		.post(IP01 + URL + '/fieldsmap')
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of fieldsmap<<<<<=====')})
 		.toss();
 		
 	frisby.create('Topic Delete')
-		.delete(URX + '/'+ id )
+		.delete(IP01 + URX + '/'+ id )
 	 	.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Topic Delete<<<<<=====')})

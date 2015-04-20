@@ -1,7 +1,15 @@
 /* jasmine-node Q_API_TEST_TOPIC_spec.js */
 
 var frisby = require('frisby')
-var URL = 'http://10.202.207.206:8080/SaasCoreTopicManager/rest/topic';
+var fs, configurationFile;
+	configurationFile = 'configuration.json';
+	fs = require('fs'); 
+var configuration = JSON.parse(
+    fs.readFileSync(configurationFile)
+	);
+var IP01 = configuration.IP01;
+var URL = configuration.URL_RESTTPC;
+var AUTH = configuration.URL_RESTUSR;
 var TOPIC_ID = -1
 var TOPIC_NM = 'Topic Create through API NODE.JS'
 var START_DT = 1425248813000
@@ -10,14 +18,14 @@ var LIMIT = 10
 
 
 	frisby.create('UToken - User')
-		.post('http://10.202.207.206:8080/SaasCoreUserManager/rest/auth',
-		{ username : '[YOUR USERID]', password: '[YOUR PASSWORD]', accountName: '[YOUR ACCOUNT NAME]'},
+		.post(IP01 + AUTH + '/auth',
+		{ username : configuration.username, password: configuration.password, accountName: configuration.accountName},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }})
 		.expectStatus(200)
 		.expectHeader('Content-Type', 'application/json')
 		.expectJSONTypes({authkey: String})
-	    .after(function() {console.log('UToken - User')})
+	    .after(function() {console.log('=====>>>>>UToken - User Completed<<<<<=====')})
         .afterJSON(function (res) {
 	/* include auth token in the header of all future requests (Callback function to run after test is completed. )*/
     frisby.globalSetup({
@@ -28,14 +36,14 @@ var LIMIT = 10
     });
 		
 	frisby.create('Topic List')
-		.get(URL)
+		.get(IP01 + URL)
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Topic List<<<<<=====')})
 		.toss();
 	
     frisby.create('Topic Name Unique')
-		.post(URL + '/unique',
+		.post(IP01 + URL + '/unique',
 		{
 			name:'1 american idol'
 		})
@@ -45,7 +53,7 @@ var LIMIT = 10
 		.toss();	
 		
     frisby.create('Topic Sanity Checker')
-		.post(URL + '/sanity',
+		.post(IP01 + URL + '/sanity',
 		{ 		
 			jsonDefinition: {
 					includeAll: [],
@@ -84,45 +92,84 @@ var LIMIT = 10
 			})
 		.expectStatus(200)
 		.inspectJSON()
+		.expectJSONLength(2)
 		.after(function() {console.log('=====>>>>>End Of Topic Sanity Checker<<<<<=====')})
 		.toss();
 		
 	frisby.create('Topic Create')
-		.post(URL,
-		{
-			id: TOPIC_ID,
+		.post(IP01 + URL,
+			{
+				id: TOPIC_ID,
 				name: TOPIC_NM,
 				jsonDefinition: {
-				includeAll: [
-				{
-					extraction: 'ENTITY',
-					type: 'COMPANY',
-					text: 'Apple',
-					alias: 'Company'
+					includeAll: [{
+						extraction: 'KEYWORD',
+						type: 'KEYWORD',
+						text: 'super',
+						id: 'KEYWORD-KEYWORD-super',
+						alias: 'KEYWORD'
+					}],
+					includeAny: [{
+						extraction: 'KEYWORD',
+						type: 'KEYWORD',
+						text: 'day',
+						id: 'KEYWORD-KEYWORD-day',
+						alias: 'KEYWORD'
+					}],
+					additionalIncludeAny: [[{
+						extraction: 'KEYWORD',
+						type: 'KEYWORD',
+						text: 'beach',
+						id: 'KEYWORD-KEYWORD-beach',
+						alias: 'KEYWORD'
+					}]],
+					exclude: [{
+						extraction: 'KEYWORD',
+						type: 'KEYWORD',
+						text: 'dirt',
+						id: 'KEYWORD-KEYWORD-dirt',
+						alias: 'KEYWORD'
+					}],
+					exactPhrases: [],
+					other: [{
+						type: 'lang',
+						values: ['en']
+					},
+							{
+						type: 'content_type',
+						values: ['blogpost',
+						'forumpost',
+						'mainstreamnews']
+					},
+					{
+						type: 'content_subtype',
+						values: ['googleplus',
+						'youtube',
+						'facebookpost',
+						'facebookcomment']
+					},
+					{
+						type: 'spam_type_category',
+						values: ['drug_related',
+						'for_sale',
+						'giveaways',
+						'updates',
+						'game_postings',
+						'pornography']
+					}],
+			results:{}
 				}
-					],
-				includeAny: [],
-				exclude: [],
-				exactPhrases: [],
-				other: [
-				{	
-					type: 'lang',
-					values: [
-                    'en'
-					]
-				}
-			],
-		results:{}
-			}
-		})
+			})
 		.expectStatus(200)
 		.inspectJSON()
+		.expectJSON({'createdBy': 'restapi'})
+		.expectJSONTypes({'createdBy': String})
 		.after(function() {console.log('=====>>>>>End Of Topic create through API NODE.JS<<<<<=====')})
 		.afterJSON(function(json) {
 		 var id = json.id
 		
 	frisby.create('Topic Edit')
-		.post(URL,
+		.post(IP01 + URL,
 		{
 			id: id,
 			name: TOPIC_NM,
@@ -161,14 +208,17 @@ var LIMIT = 10
 		.toss();
 		
 	frisby.create('Topic Audit Trail')
-		.get(URL + '/topicAudit/' + id )
+		.get(IP01 + URL + '/topicAudit/' + id )
 	 	.expectStatus(200)
 		.inspectJSON()
+		.expectJSON('?', {'createdBy': 'restapi'})
+		.expectJSONTypes('?', {'createdBy': String})
+		.expectJSONLength(2)
 		.after(function() {console.log('=====>>>>>End Of Topic Audit Trail<<<<<=====')})
 		.toss();
 			
 	frisby.create('Topic Delete')
-		.delete(URL + '/'+ id )
+		.delete(IP01 + URL + '/'+ id )
 	 	.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Topic Delete<<<<<=====')})
