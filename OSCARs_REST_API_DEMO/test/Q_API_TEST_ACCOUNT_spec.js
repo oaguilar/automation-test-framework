@@ -95,18 +95,6 @@ frisby.create('GetAccountReport')
 	.inspectJSON()
 	.after(function() {console.log('=====>>>>>End Of Get Account Report<<<<<=====')})
 	.toss();
-	
-/*frisby.create('GetAverageAndMonthlyVolume')
-//Retrieves Average and Monthly Volume account data
-	.get(URL + '/' + accountService  + "/averageAndMonthlyVolume")
-		.expectStatus(200)
-		.expectJSONTypes({
-			volume: Number,
-			average: Number,
-			monthlyVolume: Number
-		})
-	.after(function() {console.log('=====>>>>>End Of Get Average and Monthly Volume<<<<<=====')})
-	.toss();*/
 		
 frisby.create('GetAccountType')
 //Retrieves list of the types of all current accounts
@@ -134,7 +122,7 @@ frisby.create('Create Account')
 		name: 'FrisbyTestAccount',
 		accountType: 0,
 		accountPermissions: [],
-		accountLanguages:[{name: 'English', abbreviation: "en"}],
+		accountLanguages:[{name: 'English', abbreviation: 'en'}],
 		maxVolumeLimit: 80000,
 		maxUserLimit: 5,
 		maxTopicLimit: 15,
@@ -304,7 +292,7 @@ frisby.create('Edit Account Put')
 	.afterJSON(function(json) {
 	var id = json.id	
 
-/*frisby.create('Account Name Not Unique')
+/*frisby.create('Account Name Not Unique') Currently commented out subsequent to ART-3027, will add test back once resolved
 //Checks to see if account name is unique when sending duplicate name
 	.post(URL + '/' + accountUniqueService, {
 		name: "Attensity"
