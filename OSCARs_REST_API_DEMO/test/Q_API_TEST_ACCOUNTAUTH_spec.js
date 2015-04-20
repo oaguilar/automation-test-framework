@@ -3,6 +3,7 @@
 var frisby = require('frisby')
 var URL = 'http://stage-q01.attensity.com:8080'
 var accountAuthService = 'SaasCoreAccountManager/rest/accountauth'
+var accountService = 'SaasCoreAccountManager/rest/account'
 var usernameVal = 'account'
 var invalidUserName = 'squirrel'
 var passwordVal = 'account'
@@ -90,6 +91,15 @@ frisby.create('AccountAuth Invalid User Name')
 		.after(function() {console.log('=====>>>>>End Of Get Account Auth Session<<<<<=====')})
 		.afterJSON(function(json) {
 		 var account = json.account
+		 
+	frisby.create('GetAccountList')
+	//Retrieves list of all accounts
+	.get(URL + '/' + accountService)
+		.expectStatus(200)
+		.expectHeaderContains('Content-Type', 'application/json')
+	.inspectJSON()
+	.after(function() {console.log('=====>>>>>End Of Get Account List<<<<<=====')})
+	.toss();
 		
 	frisby.create('Delete Auth Session')
 		.delete(URL + '/' + accountAuthService + '/' + account)
@@ -111,5 +121,15 @@ frisby.create('AccountAuth Invalid User Name')
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Delete Auth Session<<<<<=====')})
 		.toss();
+		
+	frisby.create('GetAccountList')
+	//Retrieves list of all accounts - normally this should fail, because of a bug it is currently successful.  Once ART-3014 is fixed, update test to expect failure
+	.get(URL + '/' + accountService)
+		.expectStatus(200)
+		.expectHeaderContains('Content-Type', 'application/json')
+	.inspectJSON()
+	.after(function() {console.log('=====>>>>>End Of Get Account List<<<<<=====')})
+	.toss();
+		
 		}).toss();	
 	}).toss();
