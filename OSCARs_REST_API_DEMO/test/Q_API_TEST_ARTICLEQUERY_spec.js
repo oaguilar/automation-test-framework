@@ -140,6 +140,7 @@ var LIMIT = 10
 		.after(function() {console.log('=====>>>>>End Of trends<<<<<=====')})
 		.toss();
 		
+	
 	frisby.create('details')
 		.post(URL + '/details',
 		{ topicIDs:[id], 
