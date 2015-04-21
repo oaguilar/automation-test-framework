@@ -1,22 +1,33 @@
 /* jasmine-node Q_API_TEST_TOPIC_spec.js */
 
-var frisby = require('frisby')
+var frisby = require('frisby');
+var moment = require('moment');
 var fs, configurationFile;
 	configurationFile = 'configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
+	
+var sd = moment();
+var sm = moment.unix(sd);
+var ed = moment().add(14, 'days');
+var em = moment.unix(ed);
+
 var IP01 = configuration.IP01;
 var HTTPS = configuration.HTTPS;
 var URL = configuration.URL_RESTTPC;
 var AUTH = configuration.URL_RESTUSR;
 var TOPIC_ID = -1
 var TOPIC_NM = 'Topic Create through API NODE.JS'
-var START_DT = 1425248813000
-var END_DT = 1460149317000
+var START_DT = sm.unix()
+var END_DT = em.unix()
 var LIMIT = 10
 
+{
+  console.log(sm.unix())
+  console.log(em.unix())
+}
 
 	frisby.create('UToken - User')
 		.post(IP01 + AUTH + '/auth',
