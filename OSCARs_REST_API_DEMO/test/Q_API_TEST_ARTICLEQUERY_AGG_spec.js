@@ -187,5 +187,5 @@ var END_DT = em.unix()
 		.after(function() {console.log('=====>>>>>End Of Aggregate - Company Sentiment - Sentiment<<<<<=====')})
 		.toss();		
 		
-	}).toss();
+	
 }).toss();
