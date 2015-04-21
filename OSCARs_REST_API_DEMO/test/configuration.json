@@ -2,6 +2,9 @@
  "username" : "restapi",
  "password" : "w3t3$t4U",
  "accountName" : "qabeta",
+ "autoAccountName" : "Automation",
+ "autoUsername" : "AdminUser",
+ "autoPassword": "Admin1234",
  "useraccount" : "account",
  "passwordaccount" : "account",
  "IP01"  : "http://10.202.207.206:8080",
@@ -10,5 +13,6 @@
  "URL_RESTACT" : "/SaasCoreAccountManager/rest",
  "URL_RESTUSR" : "/SaasCoreUserManager/rest",
  "URL_RESTTPC" : "/SaasCoreTopicManager/rest/topic",
- "URL_RESTQRY" : "/ArticleQueryApi/rest/query"
+ "URL_RESTQRY" : "/ArticleQueryApi/rest/query",
+ "URL_RESTQRYAGG" : "/ArticleQueryApi/rest/query/aggregate"
  }
