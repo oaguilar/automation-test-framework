@@ -1,194 +1,191 @@
-/* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js */
+/* jasmine-node Q_API_TEST_ARTICLEQUERY_AGG_spec.js */
+/* Updated on April 20, 2015 */
+//Tests all Aggregate calls for all Aggregate widgets using long running topic
 
 var frisby = require('frisby')
-var URL = 'http://10.202.207.206:8080/ArticleQueryApi/rest/query';
-var URX = 'http://10.202.207.206:8080/SaasCoreTopicManager/rest/topic';
-var TOPIC_ID = -1
-var TOPIC_NM = 'Topic Create through API NODE.JS'
-var START_DT = 1425248813000
-var END_DT = 1460149317000
-var LIMIT = 10
+var moment = require('moment');
+var fs, configurationFile;
+	configurationFile = 'configuration.json';
+	fs = require('fs'); 
+var configuration = JSON.parse(
+    fs.readFileSync(configurationFile)
+	);
 
+var endDate = moment();
+var em = moment.unix(endDate);
+var startDate = moment().subtract(2, 'days');
+var sm = moment.unix(startDate);
 
+var IP01 = configuration.IP01;
+var URL = configuration.URL_RESTQRY;
+var START_DT = sm.unix()
+var END_DT = em.unix()
+
+{
+  console.log(sm.unix())
+  console.log(em.unix())
+}
+
+//Generates UToken for User//
 	frisby.create('UToken - User')
-		.post('http://10.202.207.206:8080/SaasCoreUserManager/rest/auth',
-		{ username : '[YOUR USERID]', password: '[YOUR PASSWORD]', accountName: '[YOUR ACCOUNT NAME]'},
+		.post(configuration.AUTH_URL,
+		{ username : configuration.autoUsername, password: configuration.autoPassword, accountName: configuration.autoAccountName},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }})
 		.expectStatus(200)
 		.expectHeader('Content-Type', 'application/json')
 		.expectJSONTypes({authkey: String})
-	    .after(function() {console.log('UToken - User')})
+	    .after(function() {console.log('=====>>>>>UToken - User Completed<<<<<=====')})
         .afterJSON(function (res) {
-    /* include auth token in the header of all future requests (Callback function to run after test is completed. )*/
+
+//Callback UToken for all other REST API Service Calls//
     frisby.globalSetup({
       request: { 
 		headers: { 'utoken': res.authkey, 'Content-Type': 'application/json' },
 		json: true },
 		timeout: 24000
     });
-	
-	frisby.create('Topic Create')
-		.post(URX,
-		{
-			id: TOPIC_ID,
-				name: TOPIC_NM,
-				jsonDefinition: {
-				includeAll: [
-				{
-					extraction: 'ENTITY',
-					type: 'COMPANY',
-					text: 'Apple',
-					alias: 'Company'
-				}
-					],
-				includeAny: [],
-				exclude: [],
-				exactPhrases: [],
-				other: [
-				{	
-					type: 'lang',
-					values: [
-                    'en'
-					]
-				}
-			],
-		results:{}
-			}
+
+    frisby.create('Aggregate - Overview Sources')
+		.post(HTTPS + URL,
+		{ topicIDs: [configuration.autoLongRunTopicID], 
+		limit: 10,
+		filters:[],
+		dateRange:{ startDate:START_DT, endDate:END_DT},
+		selectedFields:[
+		{'field':'article_content_subtype'},
+		{'field': 'article_content_type'},
+		{'field':'content_volume()', 'sortDirection':'DESCENDING'}]
 		})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>Topic create through API NODE.JS<<<<<=====')})
-		.afterJSON(function(json) {
-		 var id = json.id
+		.after(function() {console.log('=====>>>>>End Of Aggregate Overview Sources<<<<<=====')})
+		.toss();
 		
-    frisby.create('entitysentiment')
-		.post(URL + '/entitysentiment',
-		{ topicIDs:[id], 
-		dateRange:{ startDate:START_DT, endDate:END_DT}})
+	frisby.create('Aggregate - Sentiment Ratio')
+		.post(HTTPS + URL,
+		{ topicIDs: [configuration.autoLongRunTopicID], 
+		limit: 10,
+		filters:[],
+		dateRange:{ startDate:START_DT, endDate:END_DT},
+		selectedFields:[
+		{'field':'article_sentiment', 'sortDirection': 'ASCENDING'},
+		{'field':'content_volume()', 'sortDirection':'DESCENDING'}]
+		})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of entitysentiment<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Aggregate - Sentiment Ratio<<<<<=====')})
+		.toss();
+						
+	frisby.create('Aggregate - Overview Location of Mentions')
+		.post(HTTPS + URL,
+		{ topicIDs: [configuration.autoLongRunTopicID], 
+		limit: 0,
+		filters:[],
+		dateRange:{ startDate:START_DT, endDate:END_DT},
+		selectedFields:[
+		{'field':'author_country','sortDirection': 'ASCENDING'},
+		{'field':'content_volume()', 'sortDirection':'DESCENDING'}]
+		})
+		.expectStatus(200)
+		.inspectJSON()
+		.after(function() {console.log('=====>>>>>End Of Aggregate - Overview Location of Mentions<<<<<=====')})
 		.toss();
 	
-    frisby.create('topicmetrics')
-		.get(URL + '/topicmetrics')
-		.expectStatus(200)
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of topicmetrics<<<<<=====')})
-		.toss();
-	  
-    frisby.create('timeseries')
-		.post(URL + '/timeseries',
-		{ topicIDs:[id], 
-		 limit:LIMIT,
-		 selectedFields:[
-        {field:'content_volume()'},
-        {field:'topic_id'},
-        {field:'ts_average()'}
-		],
+	frisby.create('Aggregate - Reach')
+		.post(HTTPS + URL,
+		{ topicIDs: [configuration.autoLongRunTopicID], 
+		limit: 1,
+		filters:[{"field":"article_content_type","comparison":"EQ","values":["blogpost","forumpost"]}],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
-		timeSlice:'DAY'})
+		selectedFields: [{'field':'article_reach_sum','sortDirection':'DESCENDING'}]
+		})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of timeseries<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Aggregate - Reach<<<<<=====')})
 		.toss();
 		
-    frisby.create('tsrelevantarticles')
-		.post(URL + '/tsrelevantarticles',
-		{ topicIDs:[id], 
-		 limit:LIMIT,
-         selectedFields:[
-        { field:'content_volume()', sortDirection: 'DESCENDING'},
-        { field:'article_sentiment', sortDirection:'ASCENDING'}
-		],
+	frisby.create('Aggregate - Impressions')
+		.post(HTTPS + URL,
+		{ topicIDs: [configuration.autoLongRunTopicID], 
+		limit: 1,
+		filters:[],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
-		timeSlice:'DAY'})
+		selectedFields: [{"field":"article_impressions","sortDirection":"DESCENDING"}]
+		})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of tsrelevantarticles<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Aggregate - Impressions<<<<<=====')})
 		.toss();
 		
-	frisby.create('aggregate')
-		.post(URL + '/aggregate',
-		{ topicIDs:[id], 
-		 limit:LIMIT,
-         selectedFields:[
-        { field:'content_volume()', sortDirection: 'DESCENDING'},
-        { field:'article_sentiment', sortDirection:'ASCENDING'}
-		],
-		dateRange:{ startDate:START_DT, endDate:END_DT}})
-		.expectStatus(200)
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of aggregate<<<<<=====')})
-		.toss();
-		
-	frisby.create('volatility')
-		.post(URL + '/volatility',
-		{ topicIDs:[id], 
-		dateRange:{ startDate:START_DT, endDate:END_DT}})
-		.expectStatus(200)
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of volatility<<<<<=====')})
-		.toss();
-	  
-    frisby.create('trends')
-		.post(URL + '/trends',
-		{ topicIDs:[id], dateRange:{ startDate:START_DT, endDate:END_DT}})
-		.expectStatus(200)
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of trends<<<<<=====')})
-		.toss();
-		
-	
-	frisby.create('details')
-		.post(URL + '/details',
-		{ topicIDs:[id], 
-		 limit:LIMIT,
-         selectedFields:[
-        { field:'article_published_at', sortDirection: 'DESCENDING'},
-        { field:'article_publisher'},
-		{ field:'article_screen_name'},
-		{ field:'article_title'},
-		{ field:'article_topic'},
-		{ field:'article_uri'},
-		{ field:'article_content_subtype'},
-		{ field:'article_content_type'},
-		{ field:'author_name'},
-		{ field:'author_image_url'},
-		{ field:'body'},
-		{ field:'article_followers'},
-		{ field:'article_klout'},
-		{ field:'article_sentiment'},
-		],
+	frisby.create('Aggregate - Followers')
+		.post(HTTPS + URL,
+		{ topicIDs: [configuration.autoLongRunTopicID], 
+		limit: 1,
+		filters:[{"field":"article_content_subtype","comparison":"EQ","values":["twitter"]}],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
-		timeSlice:'HOUR'})
+		selectedFields: [{"field":"article_followers_sum","sortDirection":"DESCENDING"}]
+		})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of details<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Aggregate - Followers<<<<<=====')})
 		.toss();
 
-    frisby.create('clusters')
-		.post(URL + '/clusters',
-		{ topicIDs:[id], 
-		dateRange:{ startDate:START_DT, endDate:END_DT}})
+	frisby.create('Aggregate - Demographics - Location - TopLevel')
+		.post(HTTPS + URL,
+		{ topicIDs: [configuration.autoLongRunTopicID], 
+		limit: 0,
+		filters:[],
+		dateRange:{ startDate:START_DT, endDate:END_DT},
+		selectedFields: [{"field":"article_gender"},{"field":"content_volume()"}]
+		})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of clusters<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Demographics - Location - TopLevel<<<<<=====')})
 		.toss();
-		
-    frisby.create('fieldsmap')
-		.post(URL + '/fieldsmap')
+
+	frisby.create('Aggregate - Demographics - Location - DrillDown')
+		.post(HTTPS + URL,
+		{ topicIDs: [configuration.autoLongRunTopicID], 
+		limit: 0,
+		filters:[{"field":"author_country","comparison":"CO_OCCURS","values":["us"]}],
+		dateRange:{ startDate:START_DT, endDate:END_DT},
+		selectedFields: [
+			{"field":"author_country","sortDirection":"ASCENDING"},
+			{"field":"author_state","sortDirection":"ASCENDING"},
+			{"field":"content_volume()","sortDirection":"DESCENDING"}
+			]
+		})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of fieldsmap<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Aggregate - Demographics - Location - DrillDown<<<<<=====')})
+		.toss();
+	
+	frisby.create('Aggregate - Demographics - Gender')
+		.post(HTTPS + URL,
+		{ topicIDs: [configuration.autoLongRunTopicID], 
+		limit: 0,
+		filters:[],
+		dateRange:{ startDate:START_DT, endDate:END_DT},
+		selectedFields: [{"field":"article_gender"},{"field":"content_volume()"}]
+		})
+		.expectStatus(200)
+		.inspectJSON()
+		.after(function() {console.log('=====>>>>>End Of Aggregate - Demographics - Gender<<<<<=====')})
 		.toss();
 		
-	frisby.create('Topic Delete')
-		.delete(URX + '/'+ id )
-	 	.expectStatus(200)
+		frisby.create('Aggregate - Company Sentiment - Sentiment')
+		.post(HTTPS + URL,
+		{ topicIDs: [configuration.autoLongRunTopicID], 
+		limit: 0,
+		filters:[],
+		dateRange:{ startDate:START_DT, endDate:END_DT},
+		selectedFields: [{"field":"themes_category()"}]
+		})
+		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of Topic Delete<<<<<=====')})
-		.toss();
+		.after(function() {console.log('=====>>>>>End Of Aggregate - Company Sentiment - Sentiment<<<<<=====')})
+		.toss();		
+		
 	}).toss();
 }).toss();
