@@ -32,7 +32,7 @@ var passwordVal = 'account'
 	/* include auth token in the header of all future requests (Callback function to run after test is completed. )*/
     frisby.globalSetup({
       request: { 
-		headers: {	'utoken': res.authkey, 'Content-Type': 'application/json' },
+		headers: {'utoken': res.authkey, 'Content-Type': 'application/json' },
 		json: true },
 		timeout: (400 * 1000 )   
 		});
