@@ -8,6 +8,7 @@ var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
 var IP01 = configuration.IP01;
+var HTTPS = configuration.HTTPS;
 var URL = configuration.URL_RESTTPC;
 var AUTH = configuration.URL_RESTUSR;
 var TOPIC_ID = -1
@@ -34,7 +35,8 @@ var LIMIT = 10
 		json: true },
 		timeout: 24000
     });
-		
+	
+	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 	frisby.create('Topic List')
 		.get(IP01 + URL)
 		.expectStatus(200)
@@ -205,6 +207,25 @@ var LIMIT = 10
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Topic Edit<<<<<=====')})
+		.toss();
+		
+	frisby.create('Topic Alerts')
+		.post(HTTPS + URL + '/update/alerts',		
+		{
+			id: id,
+			topicAlerts:
+			[
+				{
+					value: 1,
+					timeInterval: 'DAILY',
+					alertActive: true,
+					alertType: 'VOLUME_ALERT'
+				}
+			]
+		})
+		.expectStatus(200)
+		.inspectJSON()
+		.after(function() {console.log('=====>>>>>End Of Topic Alerts<<<<<=====')})
 		.toss();
 		
 	frisby.create('Topic Audit Trail')
