@@ -1,10 +1,16 @@
 /* jasmine-node Q_API_TEST_ACCOUNT_spec.js */
 //This test creates an edits an account repeatedly, testing all supported accountType, accountLanguage, maxTopicLimit, and maxTopicVolume values.
 
-var frisby = require('frisby')
-var URL = 'http://stage-q01.attensity.com:8080'
-var accountService = 'SaasCoreAccountManager/rest/account'
-var accountAuthService = 'SaasCoreAccountManager/rest/accountauth'
+var frisby = require('frisby');
+var fs, configurationFile;
+	configurationFile = 'configuration.json';
+	fs = require('fs'); 
+var configuration = JSON.parse(
+    fs.readFileSync(configurationFile)
+	);
+var URL = configuration.BOHTTP;
+var accountService = configuration.URL_RESTACT + '/account'
+var accountAuthService = configuration.URL_RESTACT + '/accountauth'
 var accountUserService = 'SaasCoreAccountManager/rest/user/account'
 var accountUniqueService = 'SaasCoreAccountManager/rest/account/unique'
 var usernameVal = 'account'
@@ -12,7 +18,7 @@ var passwordVal = 'account'
 
 	frisby.create('AccountAuthentication')
 	//authenticates the user to Account Manager
-		.post(URL + '/' + accountAuthService,
+		.post(URL + accountAuthService,
 		{username : usernameVal, password: passwordVal},
 		{json: true},
 		{headers: {'Content-Type': 'application/json' }}
@@ -39,7 +45,7 @@ var passwordVal = 'account'
 
 frisby.create('Create Account')
 //Creates a new account
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: -1,
 		name: 'FrisbyTestAccount',
 		accountType: 0,
@@ -169,7 +175,7 @@ frisby.create('Create Account')
 		
 frisby.create('Edit Account Post')
 //Edits an existing account using Post 
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		accountType: 1,
@@ -201,7 +207,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		accountLanguages:[{name: "English", abbreviation: "en"},{name: "French", abbreviation: "fr"}, {name: "German", abbreviation: "de"}],
@@ -237,7 +243,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		accountLanguages:[{name: "English", abbreviation: "en"},{name: "French", abbreviation: "fr"}, {name: "German", abbreviation: "de"},{name: "Spanish", abbreviation: "es"}],
@@ -275,7 +281,7 @@ frisby.create('Edit Account Post')
 	
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		accountType: 4,
@@ -295,7 +301,7 @@ frisby.create('Edit Account Post')
 	
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxVolumeLimit: 80000,
@@ -313,7 +319,7 @@ frisby.create('Edit Account Post')
 	
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxVolumeLimit: 160000,
@@ -331,7 +337,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxVolumeLimit: 320000,
@@ -349,7 +355,7 @@ frisby.create('Edit Account Post')
 	
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxVolumeLimit: 640000,
@@ -367,7 +373,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 50
@@ -383,7 +389,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 60
@@ -399,7 +405,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 70
@@ -415,7 +421,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 80
@@ -431,7 +437,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 90
@@ -447,7 +453,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(URL + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 100
@@ -463,7 +469,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Delete Account')
 //Deletes account created during test
-	.delete(URL + '/' + accountService + '/' + json.id)
+	.delete(URL + accountService + '/' + json.id)
 	.expectStatus(200)
 	.after(function() {console.log('=====>>>>>End Of Delete Account<<<<<=====')})
 	.toss();

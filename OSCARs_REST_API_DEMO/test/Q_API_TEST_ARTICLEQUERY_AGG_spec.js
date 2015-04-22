@@ -16,7 +16,7 @@ var em = moment.unix(endDate);
 var startDate = moment().subtract(2, 'days');
 var sm = moment.unix(startDate);
 
-var IP01 = configuration.IP01;
+var QHTTP = configuration.QHTTP;
 var URL = configuration.URL_RESTQRY;
 var START_DT = sm.unix()
 var END_DT = em.unix()
@@ -47,7 +47,7 @@ var END_DT = em.unix()
     });
 
     frisby.create('Aggregate - Overview Sources')
-		.post(HTTPS + URL,
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs: [configuration.autoLongRunTopicID], 
 		limit: 10,
 		filters:[],
@@ -63,7 +63,7 @@ var END_DT = em.unix()
 		.toss();
 		
 	frisby.create('Aggregate - Sentiment Ratio')
-		.post(HTTPS + URL,
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs: [configuration.autoLongRunTopicID], 
 		limit: 10,
 		filters:[],
@@ -78,7 +78,7 @@ var END_DT = em.unix()
 		.toss();
 						
 	frisby.create('Aggregate - Overview Location of Mentions')
-		.post(HTTPS + URL,
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs: [configuration.autoLongRunTopicID], 
 		limit: 0,
 		filters:[],
@@ -93,7 +93,7 @@ var END_DT = em.unix()
 		.toss();
 	
 	frisby.create('Aggregate - Reach')
-		.post(HTTPS + URL,
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs: [configuration.autoLongRunTopicID], 
 		limit: 1,
 		filters:[{"field":"article_content_type","comparison":"EQ","values":["blogpost","forumpost"]}],
@@ -106,7 +106,7 @@ var END_DT = em.unix()
 		.toss();
 		
 	frisby.create('Aggregate - Impressions')
-		.post(HTTPS + URL,
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs: [configuration.autoLongRunTopicID], 
 		limit: 1,
 		filters:[],
@@ -119,7 +119,7 @@ var END_DT = em.unix()
 		.toss();
 		
 	frisby.create('Aggregate - Followers')
-		.post(HTTPS + URL,
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs: [configuration.autoLongRunTopicID], 
 		limit: 1,
 		filters:[{"field":"article_content_subtype","comparison":"EQ","values":["twitter"]}],
@@ -132,7 +132,7 @@ var END_DT = em.unix()
 		.toss();
 
 	frisby.create('Aggregate - Demographics - Location - TopLevel')
-		.post(HTTPS + URL,
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs: [configuration.autoLongRunTopicID], 
 		limit: 0,
 		filters:[],
@@ -145,7 +145,7 @@ var END_DT = em.unix()
 		.toss();
 
 	frisby.create('Aggregate - Demographics - Location - DrillDown')
-		.post(HTTPS + URL,
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs: [configuration.autoLongRunTopicID], 
 		limit: 0,
 		filters:[{"field":"author_country","comparison":"CO_OCCURS","values":["us"]}],
@@ -162,7 +162,7 @@ var END_DT = em.unix()
 		.toss();
 	
 	frisby.create('Aggregate - Demographics - Gender')
-		.post(HTTPS + URL,
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs: [configuration.autoLongRunTopicID], 
 		limit: 0,
 		filters:[],
@@ -175,7 +175,7 @@ var END_DT = em.unix()
 		.toss();
 		
 		frisby.create('Aggregate - Company Sentiment - Sentiment')
-		.post(HTTPS + URL,
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs: [configuration.autoLongRunTopicID], 
 		limit: 0,
 		filters:[],

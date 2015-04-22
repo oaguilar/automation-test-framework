@@ -1,7 +1,13 @@
 /* jasmine-node Q_API_TEST_ACCOUNTAUTH_spec.js */
 
-var frisby = require('frisby')
-var URL = 'http://stage-q01.attensity.com:8080'
+var frisby = require('frisby');
+var fs, configurationFile;
+	configurationFile = 'configuration.json';
+	fs = require('fs'); 
+var configuration = JSON.parse(
+    fs.readFileSync(configurationFile)
+	);
+var URL = configuration.BOHTTP
 var accountAuthService = 'SaasCoreAccountManager/rest/accountauth'
 var accountService = 'SaasCoreAccountManager/rest/account'
 var usernameVal = 'account'
