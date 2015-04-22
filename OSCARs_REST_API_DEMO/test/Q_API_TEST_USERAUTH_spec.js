@@ -12,16 +12,14 @@ var HTTP = configuration.HTTP;
 var HTTPS = configuration.HTTPS;
 var URLACT = configuration.URL_RESTACT;
 var URLUSR = configuration.URL_RESTUSR;
-
 var usrnm = configuration.useraccount;
 var psswd = configuration.passwordaccount;
-
 var qusrnm = configuration.username;
 var qpsswd = configuration.password;
 var acctnm = configuration.accountName;
 var acctnr = configuration.accountnmbr;
 
-
+//UToken Fetch//
 	frisby.create('UToken - Back Office Account')
 		.post(HTTP + URLACT + '/accountauth',
 		{ username : usrnm, password: psswd},
@@ -79,13 +77,14 @@ var acctnr = configuration.accountnmbr;
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Account Login Valid<<<<<=====')})
 		.toss();
-		
+
+//Creation of Editor User//		
     frisby.create('User Editor Create New')
 		.post(HTTP + URLACT + '/user',	
 {
 	username: 'frisbyEditor',
-	email: 'oaguilar@attensity.com',
-	password: 'P@ssword1',
+	email: 'restapiEditor@attensity.com',
+	password: qpsswd,
 	account: acctnr,
 	enabled: true,
 	accountAdminUser: false,
@@ -100,7 +99,7 @@ var acctnr = configuration.accountnmbr;
 	brandName: 'attensity',
 	expirationDate: 1451601777000,
 	userRole: {
-		id: 1,
+		id: 2,
 		description: 'Editor',
 		roleName: 'editor',
 		userPermissions: [
@@ -171,8 +170,8 @@ var acctnr = configuration.accountnmbr;
 		.post(HTTPS + URLUSR + '/auth',
 		{
 		  username: qusrnm,
-		  password:'w3t3$t4U',
-		  accountName:'qabeta'
+		  password: qpsswd,
+		  accountName: acctnm
 		},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }})
@@ -272,92 +271,109 @@ var acctnr = configuration.accountnmbr;
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Account User Valid Login<<<<<=====')})
 		.toss();
-
-	frisby.create('User Delete')
+		
+//Deletion of Editor User//
+	frisby.create('User Editor Delete')
 		.delete(HTTPS + URLUSR + '/user/' + id )
 	 	.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of User Delete<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Editor User Delete<<<<<=====')})
 		.toss();
 	}).toss();
 	
-	
+//Creation of Ready-Only User//	
     frisby.create('User Ready-Only Create New')
 		.post(HTTP + URLACT + '/user',	
-{
-	username: 'frisbyReadOnly',
-	email: 'oaguilar@attensity.com',
-	password: 'P@ssword1',
-	account: acctnr,
-	enabled: true,
-	accountAdminUser: false,
-	loginFailed: false,
-	id: -1,
-	accountName: acctnm,
-	preferences: {
-		timeZoneString: 'America/Denver',
-		timeZoneOffset: -21600000
-	},
-	accountType: 0,
-	brandName: 'attensity',
-	expirationDate: 1451601777000,
-	userRole: {
-		id: 1,
-		description: 'Ready-Only',
-		roleName: 'Ready-Only',
-		userPermissions: [
-		{
-			permissionName: 'create_users',
-			permissionDesc: 'Able to create users'
+	{
+		username: 'frisbyReadOnly',
+		email: 'restapiReadOnly@attensity.com',
+		password: 'P@ssword1',
+		account: acctnr,
+		enabled: true,
+		accountAdminUser: false,
+		loginFailed: false,
+		id: -1,
+		accountName: acctnm,
+		preferences: {
+			timeZoneString: 'America/Denver',
+			timeZoneOffset: -21600000
 		},
-		{
-			permissionName: 'edit_users',
-			permissionDesc: 'Able to edit users'
+		accountType: 0,
+		brandName: 'attensity',
+		expirationDate: 1451601777000,
+		userRole: {
+			id: 3,
+			description: 'Ready-Only',
+			roleName: 'Ready-Only',
+			userPermissions: [
+			{
+				permissionName: 'create_users',
+				permissionDesc: 'Able to create users'
+			},
+			{
+				permissionName: 'edit_users',
+				permissionDesc: 'Able to edit users'
+			},
+			{
+				permissionName: 'set_account_level_preferences',
+				permissionDesc: 'Able to set Account level preferences'
+			},
+			{
+				permissionName: 'view_account_reports',
+				permissionDesc: 'Able to view account reports'
+			},
+			{
+				permissionName: 'create_edit_topics',
+				permissionDesc: 'Able to create/edit topics'
+			},
+			{
+				permissionName: 'create_custom_entities',
+				permissionDesc: 'Able to create custom entities'
+			},
+			{
+				permissionName: 'apply_filters',
+				permissionDesc: 'Able to apply filters'
+			},
+			{
+				permissionName: 'drill_down_article',
+				permissionDesc: 'Able to drill down the article'
+			},
+			{
+				permissionName: 'export',
+				permissionDesc: 'Able to export the data'
+			},
+			{
+				permissionName: 'share_data_dashboards',
+				permissionDesc: 'Able to share the data \u0026 dashboards'
+			},
+			{
+				permissionName: 'access_eli',
+				permissionDesc: 'Access ELI'
+			},
+			{
+				permissionName: 'access_temp_editor_eli',
+				permissionDesc: 'Access Temporary Editor ELI'
+			}]
 		},
-		{
-			permissionName: 'set_account_level_preferences',
-			permissionDesc: 'Able to set Account level preferences'
-		},
-		{
-			permissionName: 'view_account_reports',
-			permissionDesc: 'Able to view account reports'
-		},
-		{
-			permissionName: 'create_edit_topics',
-			permissionDesc: 'Able to create/edit topics'
-		},
-		{
-			permissionName: 'create_custom_entities',
-			permissionDesc: 'Able to create custom entities'
-		},
-		{
-			permissionName: 'apply_filters',
-			permissionDesc: 'Able to apply filters'
-		},
-		{
-			permissionName: 'drill_down_article',
-			permissionDesc: 'Able to drill down the article'
-		},
-		{
-			permissionName: 'export',
-			permissionDesc: 'Able to export the data'
-		},
-		{
-			permissionName: 'share_data_dashboards',
-			permissionDesc: 'Able to share the data \u0026 dashboards'
-		},
-		{
-			permissionName: 'access_eli',
-			permissionDesc: 'Access ELI'
-		},
-		{
-			permissionName: 'access_temp_editor_eli',
-			permissionDesc: 'Access Temporary Editor ELI'
-		}]
-	},
-	maxTopicLimit: 80
-})
+		maxTopicLimit: 80
+	})
 		.expectStatus(200)
+		.expectJSON ({userRole:
+					   { id: 3,
+						 description: 'Read-Only',
+						 roleName: 'read_only',
+						 userPermissions:
+						  [ { permissionName: 'apply_filters',
+							  permissionDesc: 'Able to apply filters' },
+							{ permissionName: 'drill_down_article',
+							  permissionDesc: 'Able to drill down the article' },
+							{ permissionName: 'export',
+							  permissionDesc: 'Able to export the data' },
+							{ permissionName: 'share_data_dashboards',
+							  permissionDesc: 'Able to share the data & dashboards' },
+							{ permissionName: 'edit_users',
+							  permissionDesc: 'Able to edit users' } ] },
+							maxTopicLimit: 80 })
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of User Ready-Only Create New<<<<<=====')})
 		.afterJSON(function(json) {
@@ -365,91 +381,92 @@ var acctnr = configuration.accountnmbr;
 		 var id = json.id
 		 var accountName = json.accountName
 		 var username = json.username
-				
-	frisby.create('User Delete')
+
+//Deletion of Ready-Only User//		 
+	frisby.create('Ready-Only User Delete')
 		.delete(HTTPS + URLUSR + '/user/' + id )
 	 	.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of User Delete<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Ready-Only User Delete<<<<<=====')})
 		.toss();
 	}).toss();		
 		
-
+//Validates Weak Password Requirements//
     frisby.create('User Weak Password Create New')
 		.post(HTTP + URLACT + '/user',	
-{
-	username: 'WeakPassword',
-	email: 'oaguilar@attensity.com',
-	password: 'password1',
-	account: acctnr,
-	enabled: true,
-	accountAdminUser: false,
-	loginFailed: false,
-	id: -1,
-	accountName: acctnm,
-	preferences: {
-		timeZoneString: 'America/Denver',
-		timeZoneOffset: -21600000
-	},
-	accountType: 0,
-	brandName: 'attensity',
-	expirationDate: 1451601777000,
-	userRole: {
-		id: 1,
-		description: 'Admin',
-		roleName: 'admin',
-		userPermissions: [
-		{
-			permissionName: 'create_users',
-			permissionDesc: 'Able to create users'
+	{
+		username: 'WeakPassword',
+		email: 'restapi@attensity.com',
+		password: 'password1',
+		account: acctnr,
+		enabled: true,
+		accountAdminUser: false,
+		loginFailed: false,
+		id: -1,
+		accountName: acctnm,
+		preferences: {
+			timeZoneString: 'America/Denver',
+			timeZoneOffset: -21600000
 		},
-		{
-			permissionName: 'edit_users',
-			permissionDesc: 'Able to edit users'
+		accountType: 0,
+		brandName: 'attensity',
+		expirationDate: 1451601777000,
+		userRole: {
+			id: 1,
+			description: 'Admin',
+			roleName: 'admin',
+			userPermissions: [
+			{
+				permissionName: 'create_users',
+				permissionDesc: 'Able to create users'
+			},
+			{
+				permissionName: 'edit_users',
+				permissionDesc: 'Able to edit users'
+			},
+			{
+				permissionName: 'set_account_level_preferences',
+				permissionDesc: 'Able to set Account level preferences'
+			},
+			{
+				permissionName: 'view_account_reports',
+				permissionDesc: 'Able to view account reports'
+			},
+			{
+				permissionName: 'create_edit_topics',
+				permissionDesc: 'Able to create/edit topics'
+			},
+			{
+				permissionName: 'create_custom_entities',
+				permissionDesc: 'Able to create custom entities'
+			},
+			{
+				permissionName: 'apply_filters',
+				permissionDesc: 'Able to apply filters'
+			},
+			{
+				permissionName: 'drill_down_article',
+				permissionDesc: 'Able to drill down the article'
+			},
+			{
+				permissionName: 'export',
+				permissionDesc: 'Able to export the data'
+			},
+			{
+				permissionName: 'share_data_dashboards',
+				permissionDesc: 'Able to share the data \u0026 dashboards'
+			},
+			{
+				permissionName: 'access_eli',
+				permissionDesc: 'Access ELI'
+			},
+			{
+				permissionName: 'access_temp_editor_eli',
+				permissionDesc: 'Access Temporary Editor ELI'
+			}]
 		},
-		{
-			permissionName: 'set_account_level_preferences',
-			permissionDesc: 'Able to set Account level preferences'
-		},
-		{
-			permissionName: 'view_account_reports',
-			permissionDesc: 'Able to view account reports'
-		},
-		{
-			permissionName: 'create_edit_topics',
-			permissionDesc: 'Able to create/edit topics'
-		},
-		{
-			permissionName: 'create_custom_entities',
-			permissionDesc: 'Able to create custom entities'
-		},
-		{
-			permissionName: 'apply_filters',
-			permissionDesc: 'Able to apply filters'
-		},
-		{
-			permissionName: 'drill_down_article',
-			permissionDesc: 'Able to drill down the article'
-		},
-		{
-			permissionName: 'export',
-			permissionDesc: 'Able to export the data'
-		},
-		{
-			permissionName: 'share_data_dashboards',
-			permissionDesc: 'Able to share the data \u0026 dashboards'
-		},
-		{
-			permissionName: 'access_eli',
-			permissionDesc: 'Access ELI'
-		},
-		{
-			permissionName: 'access_temp_editor_eli',
-			permissionDesc: 'Access Temporary Editor ELI'
-		}]
-	},
-	maxTopicLimit: 80
-})
+		maxTopicLimit: 80
+	})
 		.expectStatus(500)
 		.expectJSON (
 						{ type: 'VALIDATION_FAIL',
@@ -459,82 +476,83 @@ var acctnr = configuration.accountnmbr;
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of User Weak Password Create New<<<<<=====')})
 		.toss();
-		
+
+//Creation of Admin User//		
     frisby.create('User Admin Create New')
 		.post(HTTP + URLACT + '/user',	
-{
-	username: 'frisbyAdmin',
-	email: 'oaguilar@attensity.com',
-	password: 'P@ssword1',
-	account: acctnr,
-	enabled: true,
-	accountAdminUser: false,
-	loginFailed: false,
-	id: -1,
-	accountName: acctnm,
-	preferences: {
-		timeZoneString: 'America/Denver',
-		timeZoneOffset: -21600000
-	},
-	accountType: 0,
-	brandName: 'attensity',
-	expirationDate: 1451601777000,
-	userRole: {
-		id: 1,
-		description: 'Admin',
-		roleName: 'admin',
-		userPermissions: [
-		{
-			permissionName: 'create_users',
-			permissionDesc: 'Able to create users'
+	{
+		username: 'frisbyAdmin',
+		email: 'restapi@attensity.com',
+		password: 'P@ssword1',
+		account: acctnr,
+		enabled: true,
+		accountAdminUser: false,
+		loginFailed: false,
+		id: -1,
+		accountName: acctnm,
+		preferences: {
+			timeZoneString: 'America/Denver',
+			timeZoneOffset: -21600000
 		},
-		{
-			permissionName: 'edit_users',
-			permissionDesc: 'Able to edit users'
+		accountType: 0,
+		brandName: 'attensity',
+		expirationDate: 1451601777000,
+		userRole: {
+			id: 1,
+			description: 'Admin',
+			roleName: 'admin',
+			userPermissions: [
+			{
+				permissionName: 'create_users',
+				permissionDesc: 'Able to create users'
+			},
+			{
+				permissionName: 'edit_users',
+				permissionDesc: 'Able to edit users'
+			},
+			{
+				permissionName: 'set_account_level_preferences',
+				permissionDesc: 'Able to set Account level preferences'
+			},
+			{
+				permissionName: 'view_account_reports',
+				permissionDesc: 'Able to view account reports'
+			},
+			{
+				permissionName: 'create_edit_topics',
+				permissionDesc: 'Able to create/edit topics'
+			},
+			{
+				permissionName: 'create_custom_entities',
+				permissionDesc: 'Able to create custom entities'
+			},
+			{
+				permissionName: 'apply_filters',
+				permissionDesc: 'Able to apply filters'
+			},
+			{
+				permissionName: 'drill_down_article',
+				permissionDesc: 'Able to drill down the article'
+			},
+			{
+				permissionName: 'export',
+				permissionDesc: 'Able to export the data'
+			},
+			{
+				permissionName: 'share_data_dashboards',
+				permissionDesc: 'Able to share the data \u0026 dashboards'
+			},
+			{
+				permissionName: 'access_eli',
+				permissionDesc: 'Access ELI'
+			},
+			{
+				permissionName: 'access_temp_editor_eli',
+				permissionDesc: 'Access Temporary Editor ELI'
+			}]
 		},
-		{
-			permissionName: 'set_account_level_preferences',
-			permissionDesc: 'Able to set Account level preferences'
-		},
-		{
-			permissionName: 'view_account_reports',
-			permissionDesc: 'Able to view account reports'
-		},
-		{
-			permissionName: 'create_edit_topics',
-			permissionDesc: 'Able to create/edit topics'
-		},
-		{
-			permissionName: 'create_custom_entities',
-			permissionDesc: 'Able to create custom entities'
-		},
-		{
-			permissionName: 'apply_filters',
-			permissionDesc: 'Able to apply filters'
-		},
-		{
-			permissionName: 'drill_down_article',
-			permissionDesc: 'Able to drill down the article'
-		},
-		{
-			permissionName: 'export',
-			permissionDesc: 'Able to export the data'
-		},
-		{
-			permissionName: 'share_data_dashboards',
-			permissionDesc: 'Able to share the data \u0026 dashboards'
-		},
-		{
-			permissionName: 'access_eli',
-			permissionDesc: 'Access ELI'
-		},
-		{
-			permissionName: 'access_temp_editor_eli',
-			permissionDesc: 'Access Temporary Editor ELI'
-		}]
-	},
-	maxTopicLimit: 80
-})
+		maxTopicLimit: 80
+	})
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of User Admin Create New<<<<<=====')})
@@ -543,7 +561,8 @@ var acctnr = configuration.accountnmbr;
 		 var id = json.id
 		 var accountName = json.accountName
 		 var username = json.username		
-		
+
+//Edits Admin Role to Editor Role//		 
     frisby.create('User Edit Permissions')
 		.post(HTTPS + URLUSR + '/user',		
 		{
@@ -566,56 +585,43 @@ var acctnr = configuration.accountnmbr;
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of User Edit Permissions<<<<<=====')})
 		.toss();		
-	
+
+//Updates User's Email//		
     frisby.create('User Update Email')
 		.post(HTTPS + URLUSR + '/user',		
 		{
 			id: id,
-			email: 'oaguilar.1@attensity.com'
+			email: 'restapi.1@attensity.com'
 		})
 		.expectStatus(200)
+		.expectJSON({email: 'restapi.1@attensity.com'})
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of User Update Email<<<<<=====')})
 		.toss();	
 		
-		
+//Udates User's Password//	
     frisby.create('User Update Password')
 		.post(HTTPS + URLUSR + '/user',		
 		{
-			account: 10020,
+			account: acctnr,
             oldpassword: 'P@ssword1',
 			id: id,
 			password: 'P@ssword2',
 			updatePassword: true
 		})
 		.expectStatus(200)
+		.expectJSON({password: 'P@ssword2'})
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of User Update Password<<<<<=====')})
 		.toss();	
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+//Deletion of Admin User//		
+	frisby.create('Admin User Delete')
+		.delete(HTTPS + URLUSR + '/user/' + id )
+	 	.expectStatus(200)
+		.inspectJSON()
+		.after(function() {console.log('=====>>>>>End Of Admin User Delete<<<<<=====')})
+		.toss();
 		}).toss();	
-		
-		
-		
-		}).toss();	
-		
-	}).toss();
+	}).toss();	
+}).toss();
