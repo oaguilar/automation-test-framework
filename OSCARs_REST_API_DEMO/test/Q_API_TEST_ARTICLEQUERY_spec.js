@@ -15,7 +15,7 @@ var sm = moment.unix(sd);
 var ed = moment().add(14, 'days');
 var em = moment.unix(ed);
 
-var IP01 = configuration.IP01;
+var QHTTP = configuration.QHTTP;
 var URL = configuration.URL_RESTQRY;
 var URX = configuration.URL_RESTTPC;
 var TOPIC_ID = -1
@@ -51,7 +51,7 @@ var LIMIT = 10
 
 //Creates a Topic//	
 	frisby.create('Topic Create')
-		.post(IP01 + URX,
+		.post(QHTTP + URX,
 		{
 			id: TOPIC_ID,
 				name: TOPIC_NM,
@@ -88,7 +88,7 @@ var LIMIT = 10
 
 		 
     frisby.create('entitysentiment')
-		.post(IP01 + URL + '/entitysentiment',
+		.post(QHTTP + URL + '/entitysentiment',
 		{ topicIDs:[id], 
 		dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
@@ -97,7 +97,7 @@ var LIMIT = 10
 		.toss();
 		
 	frisby.create('Filters - Gender Example')
-		.post(IP01 + URL + '/entitysentiment',
+		.post(QHTTP + URL + '/entitysentiment',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
 		 filters:[
@@ -110,14 +110,14 @@ var LIMIT = 10
 		.toss();
 	
     frisby.create('topicmetrics')
-		.get(IP01 + URL + '/topicmetrics')
+		.get(QHTTP + URL + '/topicmetrics')
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of topicmetrics<<<<<=====')})
 		.toss();
 	  
     frisby.create('timeseries')
-		.post(IP01 + URL + '/timeseries',
+		.post(QHTTP + URL + '/timeseries',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
 		 selectedFields:[
@@ -133,7 +133,7 @@ var LIMIT = 10
 		.toss();
 		
     frisby.create('tsrelevantarticles')
-		.post(IP01 + URL + '/tsrelevantarticles',
+		.post(QHTTP + URL + '/tsrelevantarticles',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
          selectedFields:[
@@ -148,7 +148,7 @@ var LIMIT = 10
 		.toss();
 		
 	frisby.create('aggregate')
-		.post(IP01 + URL + '/aggregate',
+		.post(QHTTP + URL + '/aggregate',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
          selectedFields:[
@@ -162,7 +162,7 @@ var LIMIT = 10
 		.toss();
 		
 	frisby.create('volatility')
-		.post(IP01 + URL + '/volatility',
+		.post(QHTTP + URL + '/volatility',
 		{ topicIDs:[id], 
 		dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
@@ -171,7 +171,7 @@ var LIMIT = 10
 		.toss();
 	  
     frisby.create('trends')
-		.post(IP01 + URL + '/trends',
+		.post(QHTTP + URL + '/trends',
 		{ topicIDs:[id], dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
 		.inspectJSON()
@@ -179,7 +179,7 @@ var LIMIT = 10
 		.toss();
 		
 	frisby.create('details')
-		.post(IP01 + URL + '/details',
+		.post(QHTTP + URL + '/details',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
          selectedFields:[
@@ -206,7 +206,7 @@ var LIMIT = 10
 		.toss();
 
     frisby.create('clusters')
-		.post(IP01 + URL + '/clusters',
+		.post(QHTTP + URL + '/clusters',
 		{ topicIDs:[id], 
 		dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
@@ -215,14 +215,14 @@ var LIMIT = 10
 		.toss();
 		
     frisby.create('fieldsmap')
-		.post(IP01 + URL + '/fieldsmap')
+		.post(QHTTP + URL + '/fieldsmap')
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of fieldsmap<<<<<=====')})
 		.toss();
 		
 	frisby.create('Topic Delete')
-		.delete(IP01 + URX + '/'+ id )
+		.delete(QHTTP + URX + '/'+ id )
 	 	.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Topic Delete<<<<<=====')})

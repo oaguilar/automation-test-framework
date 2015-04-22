@@ -8,8 +8,8 @@ var fs, configurationFile;
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var HTTP = configuration.HTTP;
-var HTTPS = configuration.HTTPS;
+var QHTTP = configuration.QHTTP;
+var BOHTTP = configuration.BOHTTP;
 var URLACT = configuration.URL_RESTACT;
 var URLUSR = configuration.URL_RESTUSR;
 var usrnm = configuration.useraccount;
@@ -19,9 +19,11 @@ var qpsswd = configuration.password;
 var acctnm = configuration.accountName;
 var acctnr = configuration.accountnmbr;
 
+
+	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 //UToken Fetch//
 	frisby.create('UToken - Back Office Account')
-		.post(HTTP + URLACT + '/accountauth',
+		.post(BOHTTP + URLACT + '/accountauth',
 		{ username : usrnm, password: psswd},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }})
@@ -41,7 +43,7 @@ var acctnr = configuration.accountnmbr;
 
 //Verifies Username is invalid; Login Failed = true// 
 	    frisby.create('Account Username Invalid')
-		.post(HTTP + URLACT + '/accountauth',
+		.post(BOHTTP + URLACT + '/accountauth',
 		{
 		  username:'InvalidUsername',
 		  password: psswd
@@ -54,7 +56,7 @@ var acctnr = configuration.accountnmbr;
 		
 //Verifies Password is invalid; Login Failed = true// 
 	    frisby.create('Account Password Invalid')
-		.post(HTTP + URLACT + '/accountauth',
+		.post(BOHTTP + URLACT + '/accountauth',
 		{
 		  username: usrnm,
 		  password:'InvalidPassword'
@@ -67,7 +69,7 @@ var acctnr = configuration.accountnmbr;
 		
 //Verifies Back Office Username & Password is valid; Login Failed = false// 
 	    frisby.create('Account Login Valid')
-		.post(HTTP + URLACT + '/accountauth',
+		.post(BOHTTP + URLACT + '/accountauth',
 		{
 		  username: usrnm,
 		  password: psswd
@@ -80,7 +82,7 @@ var acctnr = configuration.accountnmbr;
 
 //Creation of Editor User//		
     frisby.create('User Editor Create New')
-		.post(HTTP + URLACT + '/user',	
+		.post(BOHTTP + URLACT + '/user',	
 {
 	username: 'frisbyEditor',
 	email: 'restapiEditor@attensity.com',
@@ -167,7 +169,7 @@ var acctnr = configuration.accountnmbr;
 //Attensity Q User UToken//		
 	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     frisby.create('UToken - User Attensity Q')
-		.post(HTTPS + URLUSR + '/auth',
+		.post(QHTTP + URLUSR + '/auth',
 		{
 		  username: qusrnm,
 		  password: qpsswd,
@@ -192,7 +194,7 @@ var acctnr = configuration.accountnmbr;
 	 
 //Create “FALSE” Unique Username//	 
 	frisby.create('User Unique (FALSE)')
-		.post(HTTPS + URLUSR + '/user/unique',
+		.post(QHTTP + URLUSR + '/user/unique',
 		{
 		  account: acctnr,
 		  username: qusrnm
@@ -205,7 +207,7 @@ var acctnr = configuration.accountnmbr;
 		
 //Create “FALSE” Unique Username//	 
 	frisby.create('User Unique (TRUE)')
-		.post(HTTPS + URLUSR + '/user/unique',
+		.post(QHTTP + URLUSR + '/user/unique',
 		{
 		  account: acctnr,
 		  username: 'apirest'
@@ -218,7 +220,7 @@ var acctnr = configuration.accountnmbr;
 	 
 //Verifies Username is invalid; Login Failed = true// 	
     frisby.create('Username Invalid')
-		.post(HTTPS + URLUSR + '/auth',
+		.post(QHTTP + URLUSR + '/auth',
 		{
 		  username: 'invalidusername',
 		  password: qpsswd,
@@ -232,7 +234,7 @@ var acctnr = configuration.accountnmbr;
 		
 //Verifies Password is invalid; Login Failed = true// 	
     frisby.create('Password Invalid')
-		.post(HTTPS + URLUSR + '/auth',
+		.post(QHTTP + URLUSR + '/auth',
 		{
 		  username: qusrnm,
 		  password: 'InvalidPassword',
@@ -246,7 +248,7 @@ var acctnr = configuration.accountnmbr;
 		
 //Verifies Account is invalid; Login Failed = true// 	
     frisby.create('Password Invalid')
-		.post(HTTPS + URLUSR + '/auth',
+		.post(QHTTP + URLUSR + '/auth',
 		{
 		  username: qusrnm,
 		  password: qpsswd,
@@ -260,7 +262,7 @@ var acctnr = configuration.accountnmbr;
 	
 //Verifies Attensity Q Username & Password is valid; Login Failed = false// 	
     frisby.create('Account User Valid Login')
-		.post(HTTPS + URLUSR + '/auth',
+		.post(QHTTP + URLUSR + '/auth',
 		{
 		  username: qusrnm,
 		  password: qpsswd,
@@ -274,7 +276,7 @@ var acctnr = configuration.accountnmbr;
 		
 //Deletion of Editor User//
 	frisby.create('User Editor Delete')
-		.delete(HTTPS + URLUSR + '/user/' + id )
+		.delete(QHTTP + URLUSR + '/user/' + id )
 	 	.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Editor User Delete<<<<<=====')})
@@ -283,7 +285,7 @@ var acctnr = configuration.accountnmbr;
 	
 //Creation of Ready-Only User//	
     frisby.create('User Ready-Only Create New')
-		.post(HTTP + URLACT + '/user',	
+		.post(BOHTTP + URLACT + '/user',	
 	{
 		username: 'frisbyReadOnly',
 		email: 'restapiReadOnly@attensity.com',
@@ -384,7 +386,7 @@ var acctnr = configuration.accountnmbr;
 
 //Deletion of Ready-Only User//		 
 	frisby.create('Ready-Only User Delete')
-		.delete(HTTPS + URLUSR + '/user/' + id )
+		.delete(QHTTP + URLUSR + '/user/' + id )
 	 	.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Ready-Only User Delete<<<<<=====')})
@@ -393,7 +395,7 @@ var acctnr = configuration.accountnmbr;
 		
 //Validates Weak Password Requirements//
     frisby.create('User Weak Password Create New')
-		.post(HTTP + URLACT + '/user',	
+		.post(BOHTTP + URLACT + '/user',	
 	{
 		username: 'WeakPassword',
 		email: 'restapi@attensity.com',
@@ -479,7 +481,7 @@ var acctnr = configuration.accountnmbr;
 
 //Creation of Admin User//		
     frisby.create('User Admin Create New')
-		.post(HTTP + URLACT + '/user',	
+		.post(BOHTTP + URLACT + '/user',	
 	{
 		username: 'frisbyAdmin',
 		email: 'restapi@attensity.com',
@@ -564,7 +566,7 @@ var acctnr = configuration.accountnmbr;
 
 //Edits Admin Role to Editor Role//		 
     frisby.create('User Edit Permissions')
-		.post(HTTPS + URLUSR + '/user',		
+		.post(QHTTP + URLUSR + '/user',		
 		{
 			id: id,
 			account: account,
@@ -588,7 +590,7 @@ var acctnr = configuration.accountnmbr;
 
 //Updates User's Email//		
     frisby.create('User Update Email')
-		.post(HTTPS + URLUSR + '/user',		
+		.post(QHTTP + URLUSR + '/user',		
 		{
 			id: id,
 			email: 'restapi.1@attensity.com'
@@ -601,7 +603,7 @@ var acctnr = configuration.accountnmbr;
 		
 //Udates User's Password//	
     frisby.create('User Update Password')
-		.post(HTTPS + URLUSR + '/user',		
+		.post(QHTTP + URLUSR + '/user',		
 		{
 			account: acctnr,
             oldpassword: 'P@ssword1',
@@ -617,7 +619,7 @@ var acctnr = configuration.accountnmbr;
 		
 //Deletion of Admin User//		
 	frisby.create('Admin User Delete')
-		.delete(HTTPS + URLUSR + '/user/' + id )
+		.delete(QHTTP + URLUSR + '/user/' + id )
 	 	.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Admin User Delete<<<<<=====')})

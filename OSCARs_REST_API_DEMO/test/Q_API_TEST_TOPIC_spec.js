@@ -15,7 +15,8 @@ var ed = moment().add(14, 'days');
 var em = moment.unix(ed);
 
 var IP01 = configuration.IP01;
-var HTTPS = configuration.HTTPS;
+var QHTTP = configuration.QHTTP;
+var BOHTTP = configuration.BOHTTP;
 var URL = configuration.URL_RESTTPC;
 var AUTH = configuration.URL_RESTUSR;
 var TOPIC_ID = -1
@@ -29,8 +30,9 @@ var LIMIT = 10
   console.log(em.unix())
 }
 
+	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 	frisby.create('UToken - User')
-		.post(IP01 + AUTH + '/auth',
+		.post(QHTTP + AUTH + '/auth',
 		{ username : configuration.username, password: configuration.password, accountName: configuration.accountName},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }})
@@ -49,14 +51,14 @@ var LIMIT = 10
 	
 	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 	frisby.create('Topic List')
-		.get(IP01 + URL)
+		.get(QHTTP + URL)
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Topic List<<<<<=====')})
 		.toss();
 	
     frisby.create('Topic Name Unique')
-		.post(IP01 + URL + '/unique',
+		.post(QHTTP + URL + '/unique',
 		{
 			name:'1 american idol'
 		})
@@ -66,7 +68,7 @@ var LIMIT = 10
 		.toss();	
 		
     frisby.create('Topic Sanity Checker')
-		.post(IP01 + URL + '/sanity',
+		.post(QHTTP + URL + '/sanity',
 		{ 		
 			jsonDefinition: {
 					includeAll: [],
@@ -110,7 +112,7 @@ var LIMIT = 10
 		.toss();
 		
 	frisby.create('Topic Create')
-		.post(IP01 + URL,
+		.post(QHTTP + URL,
 			{
 				id: TOPIC_ID,
 				name: TOPIC_NM,
@@ -182,7 +184,7 @@ var LIMIT = 10
 		 var id = json.id
 		
 	frisby.create('Topic Edit')
-		.post(IP01 + URL,
+		.post(QHTTP + URL,
 		{
 			id: id,
 			name: TOPIC_NM,
@@ -221,7 +223,7 @@ var LIMIT = 10
 		.toss();
 		
 	frisby.create('Topic Alerts')
-		.post(HTTPS + URL + '/update/alerts',		
+		.post(QHTTP + URL + '/update/alerts',		
 		{
 			id: id,
 			topicAlerts:
@@ -240,7 +242,7 @@ var LIMIT = 10
 		.toss();
 		
 	frisby.create('Topic Audit Trail')
-		.get(IP01 + URL + '/topicAudit/' + id )
+		.get(QHTTP + URL + '/topicAudit/' + id )
 	 	.expectStatus(200)
 		.inspectJSON()
 		.expectJSON('?', {'createdBy': 'restapi'})
@@ -250,7 +252,7 @@ var LIMIT = 10
 		.toss();
 			
 	frisby.create('Topic Delete')
-		.delete(IP01 + URL + '/'+ id )
+		.delete(QHTTP + URL + '/'+ id )
 	 	.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Topic Delete<<<<<=====')})
