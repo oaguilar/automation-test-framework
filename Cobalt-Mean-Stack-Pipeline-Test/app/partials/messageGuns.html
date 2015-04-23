@@ -1,0 +1,82 @@
+<div class="Message Guns view">
+	<div class="container">
+		<header>
+			<h3>Message Guns</h3>
+		</header>
+		<div class="row">
+			<div class="span3">
+				Message Gun Name:
+				<br />
+				<input ng-model="newmessageGun.messageGunName" type="text" placeholder="e.g. Staging">
+			</div>
+			<div class="span3">
+				Rabbit Host:
+				<br />
+				<input ng-model="newmessageGun.messageGunRabbitAddress" type="text" placeholder="#.#.#.# or localhost">
+			</div>
+			<div class="span3">
+				Rabbit Port:
+				<br />
+				<input ng-model="newmessageGun.messageGunRabbitPort" type="text" placeholder="####">
+			</div>
+			<div class="span3">
+				Rabbit User Name:
+				<br />
+				<input ng-model="newmessageGun.messageGunRabbitUsername" type="text" placeholder="guest">
+			</div>
+			<div class="span3">
+				Rabbit password:
+				<br />
+				<input ng-model="newmessageGun.messageGunRabbitPassword" type="text" placeholder="guest">
+			</div>
+			<div class="span3">
+				Data Type:
+				<br />
+				<input ng-model="newmessageGun.messageGunDataType" type="text" placeholder="staticData">
+			</div>
+			<div class="span3">
+				Data Location:
+				<br />
+				<input ng-model="newmessageGun.messageGunDataLocation" type="text" placeholder="/opt/Messageun/textFiles/twitterSampeData20.json">
+			</div>
+			<div class="span3">
+				Message Receiver:
+				<br />
+				<input ng-model="newmessageGun.messageGunMessageReceiver" type="text" placeholder="SocketServer">
+			</div>
+			<div class="span3">
+				Messages Per Second:
+				<br />
+				<input ng-model="newmessageGun.messageGunMessagesPerSecond" type="text" placeholder="#">
+			</div>
+			<div class="span3">
+				Max Messages:
+				<br />
+				<input ng-model="newmessageGun.messageGunMaxMessages" type="text" placeholder="#">
+			</div>
+			<div class="span6">
+				Optional Pipeline Parameters:
+				<br />
+				<input ng-model="newmessageGun.messageGunOptionalParams" type="text" placeholder="<JSON>">
+				<button id="submitmessageGun" class="btn btn-primary" type="button"
+					ng-disabled="!newmessageGun.messageGunName || 
+								!newmessageGun.messageGunAddress || 
+								!newmessageGun.messageGunPort || 
+								!newmessageGun.messageGunAccountID || 
+								!newmessageGun.messageGunApiKey"
+					ng-click="insertmessageGun()">Add Message Gun</button>
+			</div>
+		</div>
+		<br /><br />
+		<div>
+			<div class="row cardContainer"><!--Change this to a different bootstrap show device-->
+				<div class="span3 card" ng-repeat="messageGun in messageGuns | orderBy: 'messageGunName'">
+					<button class="btn close cardClose" ng-click="deletemessageGun(messageGun.messageGunID)">&times;</button>
+					<div class="cardHeader">{{messageGun.messageGunName}}</div>
+					<div class="cardBody">{{messageGun.messageGunAddress}}:{{messageGun.messageGunPort}}</div>
+					<a href="#/messageGun/{{messageGun.messageGunID}}" class="cardBody btn-link">View Gun</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

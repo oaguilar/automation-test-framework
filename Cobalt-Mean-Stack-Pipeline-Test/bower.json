@@ -1,0 +1,13 @@
+{
+	"name": "Cobalt",
+	"version": "1.0.0",
+	"dependencies": {
+		"font-awesome":"latest",
+		"animate.css": "latest",
+		"angular": "latest",
+		"angular-resource": "latest",
+		"angular-route": "latest",
+		"jquery":"latest",
+		"bootstrap":"latest"
+	}
+}

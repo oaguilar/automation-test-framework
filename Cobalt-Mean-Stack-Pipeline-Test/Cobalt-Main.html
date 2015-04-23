@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="cobaltApp">
+<head>
+	<title>Cobalt</title>
+	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="Content/bootstrap.min.css" rel="stylesheet" />-->
+    <link href="Content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="Content/customerManagementStyles.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+            <div class="container">
+                <a class="navbar-brand " href="#/">
+                    <img src="content/images/CobaltSteel-48x45.png" alt="logo"> Cobalt - The Pipeline Tester
+                </a>
+                <ul class="nav navbar-nav nav-pills" ng-controller="NavbarController">
+                    <li ng-class="{'active':getClass('/suites')}"><a href="#/suites">Test Suites</a></li>
+                    <li ng-class="{'active':getClass('/tests')}"><a href="#/tests">Tests</a></li>
+                    <li ng-class="{'active':getClass('/messageGun')}"><a href="#/messageGuns">Message Gun</a></li>
+                    <li ng-class="{'active':getClass('/socketMonitors')}"><a href="#/socketMonitors">Socket Monitors</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	
+	<div animated-view></div>
+	
+    <div id="footer">
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="navbar-footer">
+                <div class="container-fluid">
+                    <footer>
+                        <div class="navbar-text navbar-right">
+                            <div class="span4">
+                                created by beau nelford
+                            </div>
+                            <div class="span4">
+                                email: <a href="mailto:bnelford@attensity.com">bnelford@attensity.com</a>
+                            </div>
+                            <div class="span4">
+                                company home: <a href="http://www.attensity.com">www.attensity.com</a>
+                            </div>
+                        </div>
+                   </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Vendor Libs: jQuery only used for Bootstrap functionality -->
+    <!-- static libs--><!--
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>-->
+
+    <!--bower libs -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- UI Libs -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<!-- App libs -->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/maincontrollers.js"></script>
+    <script src="app/controllers/messagegunscontrollers.js"></script>
+    <script src="app/controllers/socketmonitorscontrollers.js"></script>
+    <script src="app/controllers/suitescontrollers.js"></script>
+    <script src="app/controllers/testscontrollers.js"></script>
+    <script src="app/services/suitesService.js"></script>
+    <script src="app/services/socketMonitorsService.js"></script>
+    <script src="app/services/messageGunsService.js"></script>
+    <script src="app/services/testsService.js"></script>
+    <script src="app/directives/animatedView.js"></script>
+
+</body>
+</html>
