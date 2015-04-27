@@ -1,5 +1,5 @@
 Prerequisites:
-MongoDB available (preferably locally, but a mongo instance must be ready for connections, and the address must be added to the Cobalt/Config/db.js file)
+Install MongoDB available (preferably locally, but a mongo instance must be ready for connections, and the address must be added to the Cobalt/Config/db.js file)
 
 
 Installation Instructions for Cobalt:
