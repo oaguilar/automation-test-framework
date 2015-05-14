@@ -1,18 +1,27 @@
 /* jasmine-node Q_API_TEST_ACCOUNT_spec.js */
 
-var frisby = require('frisby')
-var URL = 'http://stage-q01.attensity.com:8080'
-var accountService = 'SaasCoreAccountManager/rest/account'
-var accountAuthService = 'SaasCoreAccountManager/rest/accountauth'
-var accountUserService = 'SaasCoreAccountManager/rest/user/account'
-var accountUniqueService = 'SaasCoreAccountManager/rest/account/unique'
-var usernameVal = 'account'
-var passwordVal = 'account'
+var frisby = require('frisby');
+var moment = require('moment');
+var fs, configurationFile;
+	configurationFile = 'configuration.json';
+	fs = require('fs'); 
+var configuration = JSON.parse(
+    fs.readFileSync(configurationFile)
+	);
+	
+var userAccount = configuration.userAccount;
+var passwordAccount = configuration.passwordAccount;
+var BackofficeQA = configuration.BackofficeQA;
+var accountService = configuration.accountService;
+var accountAuthService = configuration.accountAuthService;
+var accountUserService = configuration.accountUserService;
+var accountUniqueService = configuration.accountUniqueService;
+var automationAccountID = configuration.automationAccountID;
 
 	frisby.create('AccountAuthentication')
 	//authenticates the user to Account Manager
-		.post(URL + '/' + accountAuthService,
-		{username : usernameVal, password: passwordVal},
+		.post(BackofficeQA + accountAuthService,
+		{username : userAccount, password: passwordAccount},
 		{json: true},
 		{headers: {'Content-Type': 'application/json' }}
 		)
@@ -33,12 +42,12 @@ var passwordVal = 'account'
       request: { 
 		headers: {	'utoken': res.authkey, 'Content-Type': 'application/json' },
 		json: true },
-		timeout: (400 * 1000 )   
+		timeout: (400 * 1000)   
 		});
 
 frisby.create('GetAccountList')
 //Retrieves list of all accounts
-	.get(URL + '/' + accountService)
+	.get(BackofficeQA + accountService)
 		.expectStatus(200)
 		.expectHeaderContains('Content-Type', 'application/json')
 		.expectJSONTypes([{
@@ -71,7 +80,7 @@ frisby.create('GetAccountList')
 	
 frisby.create('GetAccountReport')
 //Retrieves Account Management Report
-	.get(URL + '/' + accountService  + '/' + "accountreport")
+	.get(BackofficeQA + accountService  + '/' + "accountreport")
 		.expectStatus(200)
 		.expectHeaderContains('Content-Type', 'application/json')
 		.expectJSONTypes([{
@@ -98,7 +107,7 @@ frisby.create('GetAccountReport')
 		
 frisby.create('GetAccountType')
 //Retrieves list of the types of all current accounts
-	.get(URL + '/' + accountService + '/' + "accountInfo")
+	.get(BackofficeQA + accountService + '/' + "accountInfo")
 		.expectStatus(200)
 		.expectHeaderContains('Content-Type', 'application/json')
 		.expectJSONTypes([{
@@ -110,14 +119,14 @@ frisby.create('GetAccountType')
 
 frisby.create('GetAccountBrandList')
 //Retrieves list of all account brands
-	.get(URL + '/' + accountService + '/brands')
+	.get(BackofficeQA + '/' + accountService + '/brands')
 		.expectStatus(200)
 		.after(function() {console.log('=====>>>>>End Of Get Account Brand List<<<<<=====')})
 	.toss();
 	
 frisby.create('Create Account')
 //Creates a new account
-	.post(URL + '/' + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: -1,
 		name: 'FrisbyTestAccount',
 		accountType: 0,
@@ -248,7 +257,7 @@ frisby.create('Create Account')
 	
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + '/' + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		accountLanguages:[{name: "English", abbreviation: "en"},{name: "French", abbreviation: "fr"}],
@@ -276,7 +285,7 @@ frisby.create('Edit Account Post')
 	
 frisby.create('Edit Account Put')
 //Edits an existing account using put
-	.put(URL + '/' + accountService + '/' + json.id, {
+	.put(BackofficeQA + accountService + '/' + json.id, {
 		maxVolumeLimit: 1000,
 		maxUserLimit: 10,
 		maxTopicLimit: 10
@@ -320,7 +329,7 @@ frisby.create('Account Name Unique')
 
 frisby.create('GetAccountUsers')
 //Retrieves list of users for a specified account
-	.get(URL + '/' + accountUserService + '/' + 10020)
+	.get(BackofficeQA + accountUserService + '/' + automationAccountID)
 	.expectStatus(200)
 	.expectJSONTypes([{
 		username: String,
@@ -352,11 +361,18 @@ frisby.create('GetAccountUsers')
 	
 frisby.create('Delete Account')
 //Deletes account created during test
-	.delete(URL + '/' + accountService + '/' + json.id)
+	.delete(BackofficeQA + accountService + '/' + json.id)
 	.expectStatus(200)
 	.after(function() {console.log('=====>>>>>End Of Delete Account<<<<<=====')})
+	.toss();
+	
+frisby.create('Verify Account Deleted')
+//Tries to retrieve deleted account (expected to fail)
+.get(BackofficeQA + accountService + '/' + json.id)
+.expectStatus(500)
+.after(function(){console.log('============End of Verify Account Deleted========')})
 	.toss();
 	}).toss();
 	}).toss();
 		}).toss();
-		}).toss();
+				}).toss();

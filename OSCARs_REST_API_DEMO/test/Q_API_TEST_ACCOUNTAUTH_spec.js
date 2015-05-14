@@ -7,21 +7,27 @@ var fs, configurationFile;
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var URL = configuration.BOHTTP
-var accountAuthService = 'SaasCoreAccountManager/rest/accountauth'
-var accountService = 'SaasCoreAccountManager/rest/account'
-var usernameVal = 'account'
-var invalidUserName = 'squirrel'
-var passwordVal = 'account'
-var invalidPassword = 'squirrel'
+var BackofficeQA = configuration.BackofficeQA;
+var accountAuthService = configuration.accountAuthService;
+var accountService = configuration.accountService;
+var userAccount = configuration.userAccount;
+var passwordAccount = configuration.passwordAccount;
+var usernameVal = configuration.usernameVal;
+var passwordVal = configuration.passwordVal;
+var invalidUserName = configuration.invalidUserName;
+var invalidPassword = configuration.invalidPassword;
+var BackofficeQA = configuration.BackofficeQA;
+
 
 frisby.create('AccountAuth Invalid User Name')
-		.post(URL + '/' + accountAuthService,{ 
+		.post(BackofficeQA + accountAuthService,{ 
 			username : invalidUserName, 
 			password: passwordVal
 			},
 		{ json: true },
-		{ headers: { 'Content-Type': 'application/json' }})
+		{ headers: { 'Content-Type': 'application/json' },
+		timeout:24000
+		})
 		.expectStatus(200)
 		.expectHeader('Content-Type', 'application/json')
 		.expectJSON({
@@ -34,7 +40,7 @@ frisby.create('AccountAuth Invalid User Name')
 		.toss();	
 		
 	frisby.create('AccountAuth Invalid Account Name')
-		.post(URL + '/' + accountAuthService,{ 
+		.post(BackofficeQA + accountAuthService,{ 
 			username : usernameVal, 
 			password: invalidPassword
 			},
@@ -42,20 +48,17 @@ frisby.create('AccountAuth Invalid User Name')
 		{ headers: { 'Content-Type': 'application/json' }})
 		.expectStatus(200)
 		.expectHeader('Content-Type', 'application/json')
-		.expectJSON({
-				enabled: true,
-				loginFailed: true,
-				id: -1,
-		})
 		.inspectJSON()
 	    .after(function() {console.log('=====>>>>>End Of AccountAuth Invalid Account Name<<<<<=====')})
 		.toss();	
 
 	frisby.create('Valid Account AuthToken')
-		.post(URL + '/' + accountAuthService,
-		{username : usernameVal, password: passwordVal},
-		{ json: true },
-		{ headers: { 'Content-Type': 'application/json' }})
+	//authenticates the user to Account Manager
+		.post(BackofficeQA + accountAuthService,
+		{username : userAccount, password: passwordAccount},
+		{json: true},
+		{headers: {'Content-Type': 'application/json' }}
+		)
 		.expectStatus(200)
 		.expectHeader('Content-Type', 'application/json')
 		.expectJSON({
@@ -66,19 +69,18 @@ frisby.create('AccountAuth Invalid User Name')
 				authkey: String,
 				account: Number
 		})
-		.inspectJSON()
-	    .after(function() {console.log('=====>>>>>End Of Valid Account AuthToken<<<<<=====')})
-        .afterJSON(function (res) {
+	    .after(function() {console.log('=====>>>>>End Of Account Authentication<<<<<=====')})
+		.afterJSON(function (res) {
 	/* include auth token in the header of all future requests (Callback function to run after test is completed. )*/
     frisby.globalSetup({
       request: { 
 		headers: {	'utoken': res.authkey, 'Content-Type': 'application/json' },
 		json: true },
-		timeout: 24000
-    });
+		timeout: (400 * 1000)   
+		});
 	
 	frisby.create('Get Account Auth Session')
-	.get(URL + '/' + accountAuthService)
+	.get(BackofficeQA + '/' + accountAuthService)
 		.expectStatus(200)
 		.expectHeader('Content-Type', 'application/json')
 		.expectJSONTypes({
@@ -100,7 +102,7 @@ frisby.create('AccountAuth Invalid User Name')
 		 
 	frisby.create('GetAccountList')
 	//Retrieves list of all accounts
-	.get(URL + '/' + accountService)
+	.get(BackofficeQA + '/' + accountService)
 		.expectStatus(200)
 		.expectHeaderContains('Content-Type', 'application/json')
 	.inspectJSON()
@@ -108,7 +110,7 @@ frisby.create('AccountAuth Invalid User Name')
 	.toss();
 		
 	frisby.create('Delete Auth Session')
-		.delete(URL + '/' + accountAuthService + '/' + account)
+		.delete(BackofficeQA + '/' + accountAuthService + '/' + account)
 		.expectStatus(200)
 		.expectHeader('Content-Type', 'application/json')
 		.expectJSONTypes({
@@ -129,10 +131,9 @@ frisby.create('AccountAuth Invalid User Name')
 		.toss();
 		
 	frisby.create('GetAccountList')
-	//Retrieves list of all accounts - normally this should fail, because of a bug it is currently successful.  Once ART-3014 is fixed, update test to expect failure
-	.get(URL + '/' + accountService)
-		.expectStatus(200)
-		.expectHeaderContains('Content-Type', 'application/json')
+	//Retrieves list of all accounts - this should fail because auth session is no longer valid
+	.get(BackofficeQA + '/' + accountService)
+		.expectStatus(401)
 	.inspectJSON()
 	.after(function() {console.log('=====>>>>>End Of Get Account List<<<<<=====')})
 	.toss();

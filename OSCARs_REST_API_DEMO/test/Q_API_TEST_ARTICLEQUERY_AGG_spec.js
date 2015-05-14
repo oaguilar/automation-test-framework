@@ -13,11 +13,15 @@ var configuration = JSON.parse(
 
 var endDate = moment();
 var em = moment.unix(endDate);
-var startDate = moment().subtract(2, 'days');
+var startDate = moment().subtract(7, 'days');
 var sm = moment.unix(startDate);
-
-var QHTTP = configuration.QHTTP;
-var URL = configuration.URL_RESTQRY;
+var URL = configuration.QQA;
+var AuthURL = configuration.URL_QQAAuth;
+var IP01 = configuration.IP01;
+var HTTPS = configuration.HTTPS;
+var aggQuery = configuration.restAggregate;
+var AUTH = configuration.URL_restUser;
+var topic = configuration.autoLongRunTopicID;
 var START_DT = sm.unix()
 var END_DT = em.unix()
 
@@ -28,7 +32,7 @@ var END_DT = em.unix()
 
 //Generates UToken for User//
 	frisby.create('UToken - User')
-		.post(configuration.AUTH_URL,
+		.post(AuthURL,
 		{ username : configuration.autoUsername, password: configuration.autoPassword, accountName: configuration.autoAccountName},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }})
@@ -46,9 +50,10 @@ var END_DT = em.unix()
 		timeout: 24000
     });
 
+	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     frisby.create('Aggregate - Overview Sources')
-		.post(QHTTP + URL + '/aggregate',
-		{ topicIDs: [configuration.autoLongRunTopicID], 
+		.post(QQA + aggQuery,
+		{ topicIDs: [topic], 
 		limit: 10,
 		filters:[],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
@@ -63,8 +68,8 @@ var END_DT = em.unix()
 		.toss();
 		
 	frisby.create('Aggregate - Sentiment Ratio')
-		.post(QHTTP + URL + '/aggregate',
-		{ topicIDs: [configuration.autoLongRunTopicID], 
+		.post(QQA + aggQuery,
+		{ topicIDs: [topic], 
 		limit: 10,
 		filters:[],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
@@ -78,8 +83,8 @@ var END_DT = em.unix()
 		.toss();
 						
 	frisby.create('Aggregate - Overview Location of Mentions')
-		.post(QHTTP + URL + '/aggregate',
-		{ topicIDs: [configuration.autoLongRunTopicID], 
+		.post(QQA + aggQuery,
+		{ topicIDs: [topic], 
 		limit: 0,
 		filters:[],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
@@ -93,8 +98,8 @@ var END_DT = em.unix()
 		.toss();
 	
 	frisby.create('Aggregate - Reach')
-		.post(QHTTP + URL + '/aggregate',
-		{ topicIDs: [configuration.autoLongRunTopicID], 
+		.post(QQA + aggQuery,
+		{ topicIDs: [topic], 
 		limit: 1,
 		filters:[{"field":"article_content_type","comparison":"EQ","values":["blogpost","forumpost"]}],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
@@ -106,8 +111,8 @@ var END_DT = em.unix()
 		.toss();
 		
 	frisby.create('Aggregate - Impressions')
-		.post(QHTTP + URL + '/aggregate',
-		{ topicIDs: [configuration.autoLongRunTopicID], 
+		.post(QQA + aggQuery,
+		{ topicIDs: [topic], 
 		limit: 1,
 		filters:[],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
@@ -119,8 +124,8 @@ var END_DT = em.unix()
 		.toss();
 		
 	frisby.create('Aggregate - Followers')
-		.post(QHTTP + URL + '/aggregate',
-		{ topicIDs: [configuration.autoLongRunTopicID], 
+		.post(QQA + aggQuery,
+		{ topicIDs: [topic], 
 		limit: 1,
 		filters:[{"field":"article_content_subtype","comparison":"EQ","values":["twitter"]}],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
@@ -132,8 +137,8 @@ var END_DT = em.unix()
 		.toss();
 
 	frisby.create('Aggregate - Demographics - Location - TopLevel')
-		.post(QHTTP + URL + '/aggregate',
-		{ topicIDs: [configuration.autoLongRunTopicID], 
+		.post(QQA + aggQuery,
+		{ topicIDs: [topic], 
 		limit: 0,
 		filters:[],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
@@ -145,8 +150,8 @@ var END_DT = em.unix()
 		.toss();
 
 	frisby.create('Aggregate - Demographics - Location - DrillDown')
-		.post(QHTTP + URL + '/aggregate',
-		{ topicIDs: [configuration.autoLongRunTopicID], 
+		.post(QQA + aggQuery,
+		{ topicIDs: [topic], 
 		limit: 0,
 		filters:[{"field":"author_country","comparison":"CO_OCCURS","values":["us"]}],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
@@ -162,8 +167,8 @@ var END_DT = em.unix()
 		.toss();
 	
 	frisby.create('Aggregate - Demographics - Gender')
-		.post(QHTTP + URL + '/aggregate',
-		{ topicIDs: [configuration.autoLongRunTopicID], 
+		.post(QQA + aggQuery,
+		{ topicIDs: [topic], 
 		limit: 0,
 		filters:[],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
@@ -175,8 +180,8 @@ var END_DT = em.unix()
 		.toss();
 		
 		frisby.create('Aggregate - Company Sentiment - Sentiment')
-		.post(QHTTP + URL + '/aggregate',
-		{ topicIDs: [configuration.autoLongRunTopicID], 
+		.post(QQA + aggQuery,
+		{ topicIDs: [topic], 
 		limit: 0,
 		filters:[],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
@@ -186,6 +191,4 @@ var END_DT = em.unix()
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Aggregate - Company Sentiment - Sentiment<<<<<=====')})
 		.toss();		
-		
-	
 }).toss();

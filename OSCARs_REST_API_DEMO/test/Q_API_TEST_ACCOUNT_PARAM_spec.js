@@ -2,24 +2,29 @@
 //This test creates an edits an account repeatedly, testing all supported accountType, accountLanguage, maxTopicLimit, and maxTopicVolume values.
 
 var frisby = require('frisby');
+var moment = require('moment');
 var fs, configurationFile;
 	configurationFile = 'configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var URL = configuration.BOHTTP;
-var accountService = configuration.URL_RESTACT + '/account'
-var accountAuthService = configuration.URL_RESTACT + '/accountauth'
-var accountUserService = 'SaasCoreAccountManager/rest/user/account'
-var accountUniqueService = 'SaasCoreAccountManager/rest/account/unique'
-var usernameVal = 'account'
-var passwordVal = 'account'
+	
+var BackofficeQA = configuration.BackofficeQA;
+var accountAuthService = configuration.accountAuthService;
+var accountService = configuration.accountService;
+var userAccount = configuration.userAccount;
+var passwordAccount = configuration.passwordAccount;
+var usernameVal = configuration.usernameVal;
+var passwordVal = configuration.passwordVal;
+var invalidUserName = configuration.invalidUserName;
+var invalidPassword = configuration.invalidPassword;
+var BackofficeQA = configuration.BackofficeQA;
 
 	frisby.create('AccountAuthentication')
 	//authenticates the user to Account Manager
-		.post(URL + accountAuthService,
-		{username : usernameVal, password: passwordVal},
+		.post(BackofficeQA + accountAuthService,
+		{username : userAccount, password: passwordAccount},
 		{json: true},
 		{headers: {'Content-Type': 'application/json' }}
 		)
@@ -38,14 +43,14 @@ var passwordVal = 'account'
 	/* include auth token in the header of all future requests (Callback function to run after test is completed. )*/
     frisby.globalSetup({
       request: { 
-		headers: {'utoken': res.authkey, 'Content-Type': 'application/json' },
+		headers: {	'utoken': res.authkey, 'Content-Type': 'application/json' },
 		json: true },
-		timeout: (400 * 1000 )   
+		timeout: (400 * 1000)   
 		});
 
 frisby.create('Create Account')
 //Creates a new account
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: -1,
 		name: 'FrisbyTestAccount',
 		accountType: 0,
@@ -175,7 +180,7 @@ frisby.create('Create Account')
 		
 frisby.create('Edit Account Post')
 //Edits an existing account using Post 
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		accountType: 1,
@@ -207,7 +212,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		accountLanguages:[{name: "English", abbreviation: "en"},{name: "French", abbreviation: "fr"}, {name: "German", abbreviation: "de"}],
@@ -243,7 +248,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		accountLanguages:[{name: "English", abbreviation: "en"},{name: "French", abbreviation: "fr"}, {name: "German", abbreviation: "de"},{name: "Spanish", abbreviation: "es"}],
@@ -281,7 +286,7 @@ frisby.create('Edit Account Post')
 	
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + '/' + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		accountType: 4,
@@ -301,7 +306,7 @@ frisby.create('Edit Account Post')
 	
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxVolumeLimit: 80000,
@@ -319,7 +324,7 @@ frisby.create('Edit Account Post')
 	
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxVolumeLimit: 160000,
@@ -337,7 +342,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxVolumeLimit: 320000,
@@ -355,7 +360,7 @@ frisby.create('Edit Account Post')
 	
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxVolumeLimit: 640000,
@@ -373,7 +378,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 50
@@ -389,7 +394,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 60
@@ -405,7 +410,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 70
@@ -421,7 +426,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 80
@@ -437,7 +442,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 90
@@ -453,7 +458,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Edit Account Post')
 //Edits an existing account using Post
-	.post(URL + accountService, {
+	.post(BackofficeQA + accountService, {
 		id: json.id,
 		name: "FrisbyTestAccountEdited",
 		maxTopicLimit: 100
@@ -469,7 +474,7 @@ frisby.create('Edit Account Post')
 
 frisby.create('Delete Account')
 //Deletes account created during test
-	.delete(URL + accountService + '/' + json.id)
+	.delete(BackofficeQA + accountService + '/' + json.id)
 	.expectStatus(200)
 	.after(function() {console.log('=====>>>>>End Of Delete Account<<<<<=====')})
 	.toss();
