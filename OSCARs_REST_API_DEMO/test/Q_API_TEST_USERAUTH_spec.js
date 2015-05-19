@@ -8,23 +8,26 @@ var fs, configurationFile;
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var QHTTP = configuration.QHTTP;
-var BOHTTP = configuration.BOHTTP;
-var URLACT = configuration.URL_RESTACT;
-var URLUSR = configuration.URL_RESTUSR;
-var usrnm = configuration.useraccount;
-var psswd = configuration.passwordaccount;
-var qusrnm = configuration.username;
-var qpsswd = configuration.password;
-var acctnm = configuration.accountName;
-var acctnr = configuration.accountnmbr;
+var BackofficeQA = configuration.BackofficeQA;
+var accountAuthService = configuration.accountAuthService;
+var userAccount = configuration.userAccount;
+var passwordAccount = configuration.passwordAccount;
+var automationAccountID = configuration.automationAccountID;
+var autoPassword = configuration.autoPassword;
+var autoAccountName = configuration.autoAccountName;
+var restAccount = configuration.restAccount;
+var QQA = configuration.QQA;
+var restUser = configuration.restUser;
+var autoUsername = configuration.autoUsername;
+var autoPassword = configuration.autoPassword;
+var autoAccountName = configuration.autoAccountName;
 
 
 	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 //UToken Fetch//
 	frisby.create('UToken - Back Office Account')
-		.post(BOHTTP + URLACT + '/accountauth',
-		{ username : usrnm, password: psswd},
+		.post(BackofficeQA + accountAuthService,
+		{ username : userAccount, password: passwordAccount},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }})
 		.expectStatus(200)
@@ -40,13 +43,13 @@ var acctnr = configuration.accountnmbr;
 		json: true },
 		timeout: 24000
 	 });
-
+	 
 //Verifies Username is invalid; Login Failed = true// 
 	    frisby.create('Account Username Invalid')
-		.post(BOHTTP + URLACT + '/accountauth',
+		.post(BackofficeQA + accountAuthService,
 		{
 		  username:'InvalidUsername',
-		  password: psswd
+		  password: passwordAccount
 		})
 		.expectStatus(200)
 		.expectJSON({loginFailed: true})
@@ -56,9 +59,9 @@ var acctnr = configuration.accountnmbr;
 		
 //Verifies Password is invalid; Login Failed = true// 
 	    frisby.create('Account Password Invalid')
-		.post(BOHTTP + URLACT + '/accountauth',
+		.post(BackofficeQA + accountAuthService,
 		{
-		  username: usrnm,
+		  username: userAccount,
 		  password:'InvalidPassword'
 		})
 		.expectStatus(200)
@@ -69,30 +72,30 @@ var acctnr = configuration.accountnmbr;
 		
 //Verifies Back Office Username & Password is valid; Login Failed = false// 
 	    frisby.create('Account Login Valid')
-		.post(BOHTTP + URLACT + '/accountauth',
+		.post(BackofficeQA + accountAuthService,
 		{
-		  username: usrnm,
-		  password: psswd
+		  username: userAccount,
+		  password: passwordAccount
 		})
 		.expectStatus(200)
 		.expectJSON({loginFailed: false})
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Account Login Valid<<<<<=====')})
 		.toss();
-
+		
 //Creation of Editor User//		
     frisby.create('User Editor Create New')
-		.post(BOHTTP + URLACT + '/user',	
+		.post(BackofficeQA + restAccount + '/user',	
 {
 	username: 'frisbyEditor',
 	email: 'restapiEditor@attensity.com',
-	password: qpsswd,
-	account: acctnr,
+	password: autoPassword,
+	account: automationAccountID,
 	enabled: true,
 	accountAdminUser: false,
 	loginFailed: false,
 	id: -1,
-	accountName: acctnm,
+	accountName: autoAccountName,
 	preferences: {
 		timeZoneString: 'America/Denver',
 		timeZoneOffset: -21600000
@@ -164,16 +167,15 @@ var acctnr = configuration.accountnmbr;
 		 var id = json.id
 		 var accountName = json.accountName
 		 var username = json.username
-			
-		
+
 //Attensity Q User UToken//		
 	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     frisby.create('UToken - User Attensity Q')
-		.post(QHTTP + URLUSR + '/auth',
+		.post(QQA + restUser + '/auth',
 		{
-		  username: qusrnm,
-		  password: qpsswd,
-		  accountName: acctnm
+		  username: autoUsername,
+		  password: autoPassword,
+		  accountName: autoAccountName
 		},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }})
@@ -191,13 +193,13 @@ var acctnr = configuration.accountnmbr;
 		json: true },
 		timeout: 24000
 	 });
-	 
+
 //Create “FALSE” Unique Username//	 
 	frisby.create('User Unique (FALSE)')
-		.post(QHTTP + URLUSR + '/user/unique',
+		.post(QQA + restUser +  '/user/unique',
 		{
-		  account: acctnr,
-		  username: qusrnm
+		  account: automationAccountID,
+		  username: autoUsername
 		})
 		.expectStatus(200)
 		.expectJSON({unique: false})
@@ -207,9 +209,9 @@ var acctnr = configuration.accountnmbr;
 		
 //Create “FALSE” Unique Username//	 
 	frisby.create('User Unique (TRUE)')
-		.post(QHTTP + URLUSR + '/user/unique',
+		.post(QQA + restUser +  '/user/unique',
 		{
-		  account: acctnr,
+		  account: automationAccountID,
 		  username: 'apirest'
 		})
 		.expectStatus(200)
@@ -220,11 +222,11 @@ var acctnr = configuration.accountnmbr;
 	 
 //Verifies Username is invalid; Login Failed = true// 	
     frisby.create('Username Invalid')
-		.post(QHTTP + URLUSR + '/auth',
+		.post(QQA + restUser +  '/auth',
 		{
 		  username: 'invalidusername',
-		  password: qpsswd,
-		  accountName: acctnm
+		  password: autoPassword,
+		  accountName: autoAccountName
 		})
 		.expectStatus(200)
 		.expectJSON({loginFailed: true})
@@ -234,11 +236,11 @@ var acctnr = configuration.accountnmbr;
 		
 //Verifies Password is invalid; Login Failed = true// 	
     frisby.create('Password Invalid')
-		.post(QHTTP + URLUSR + '/auth',
+		.post(QQA + restUser +  '/auth',
 		{
-		  username: qusrnm,
+		  username: autoUsername,
 		  password: 'InvalidPassword',
-		  accountName: acctnm
+		  accountName: autoAccountName
 		})
 		.expectStatus(200)
 		.expectJSON({loginFailed: true})
@@ -248,10 +250,10 @@ var acctnr = configuration.accountnmbr;
 		
 //Verifies Account is invalid; Login Failed = true// 	
     frisby.create('Password Invalid')
-		.post(QHTTP + URLUSR + '/auth',
+		.post(QQA + restUser +  '/auth',
 		{
-		  username: qusrnm,
-		  password: qpsswd,
+		  username: autoUsername,
+		  password: autoPassword,
 		  accountName: 'Invalidaccount'
 		})
 		.expectStatus(200)
@@ -262,11 +264,11 @@ var acctnr = configuration.accountnmbr;
 	
 //Verifies Attensity Q Username & Password is valid; Login Failed = false// 	
     frisby.create('Account User Valid Login')
-		.post(QHTTP + URLUSR + '/auth',
+		.post(QQA + restUser +  '/auth',
 		{
-		  username: qusrnm,
-		  password: qpsswd,
-		  accountName: acctnm
+		  username: autoUsername,
+		  password: autoPassword,
+		  accountName: autoAccountName
 		})
 		.expectStatus(200)
 		.expectJSON({loginFailed: false})
@@ -276,354 +278,11 @@ var acctnr = configuration.accountnmbr;
 		
 //Deletion of Editor User//
 	frisby.create('User Editor Delete')
-		.delete(QHTTP + URLUSR + '/user/' + id )
+		.delete(QQA + restUser +  '/user/' + id )
 	 	.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Editor User Delete<<<<<=====')})
 		.toss();
+		}).toss();
 	}).toss();
-	
-//Creation of Ready-Only User//	
-    frisby.create('User Ready-Only Create New')
-		.post(BOHTTP + URLACT + '/user',	
-	{
-		username: 'frisbyReadOnly',
-		email: 'restapiReadOnly@attensity.com',
-		password: 'P@ssword1',
-		account: acctnr,
-		enabled: true,
-		accountAdminUser: false,
-		loginFailed: false,
-		id: -1,
-		accountName: acctnm,
-		preferences: {
-			timeZoneString: 'America/Denver',
-			timeZoneOffset: -21600000
-		},
-		accountType: 0,
-		brandName: 'attensity',
-		expirationDate: 1451601777000,
-		userRole: {
-			id: 3,
-			description: 'Ready-Only',
-			roleName: 'Ready-Only',
-			userPermissions: [
-			{
-				permissionName: 'create_users',
-				permissionDesc: 'Able to create users'
-			},
-			{
-				permissionName: 'edit_users',
-				permissionDesc: 'Able to edit users'
-			},
-			{
-				permissionName: 'set_account_level_preferences',
-				permissionDesc: 'Able to set Account level preferences'
-			},
-			{
-				permissionName: 'view_account_reports',
-				permissionDesc: 'Able to view account reports'
-			},
-			{
-				permissionName: 'create_edit_topics',
-				permissionDesc: 'Able to create/edit topics'
-			},
-			{
-				permissionName: 'create_custom_entities',
-				permissionDesc: 'Able to create custom entities'
-			},
-			{
-				permissionName: 'apply_filters',
-				permissionDesc: 'Able to apply filters'
-			},
-			{
-				permissionName: 'drill_down_article',
-				permissionDesc: 'Able to drill down the article'
-			},
-			{
-				permissionName: 'export',
-				permissionDesc: 'Able to export the data'
-			},
-			{
-				permissionName: 'share_data_dashboards',
-				permissionDesc: 'Able to share the data \u0026 dashboards'
-			},
-			{
-				permissionName: 'access_eli',
-				permissionDesc: 'Access ELI'
-			},
-			{
-				permissionName: 'access_temp_editor_eli',
-				permissionDesc: 'Access Temporary Editor ELI'
-			}]
-		},
-		maxTopicLimit: 80
-	})
-		.expectStatus(200)
-		.expectJSON ({userRole:
-					   { id: 3,
-						 description: 'Read-Only',
-						 roleName: 'read_only',
-						 userPermissions:
-						  [ { permissionName: 'apply_filters',
-							  permissionDesc: 'Able to apply filters' },
-							{ permissionName: 'drill_down_article',
-							  permissionDesc: 'Able to drill down the article' },
-							{ permissionName: 'export',
-							  permissionDesc: 'Able to export the data' },
-							{ permissionName: 'share_data_dashboards',
-							  permissionDesc: 'Able to share the data & dashboards' },
-							{ permissionName: 'edit_users',
-							  permissionDesc: 'Able to edit users' } ] },
-							maxTopicLimit: 80 })
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of User Ready-Only Create New<<<<<=====')})
-		.afterJSON(function(json) {
-		 var account = json.account
-		 var id = json.id
-		 var accountName = json.accountName
-		 var username = json.username
-
-//Deletion of Ready-Only User//		 
-	frisby.create('Ready-Only User Delete')
-		.delete(QHTTP + URLUSR + '/user/' + id )
-	 	.expectStatus(200)
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of Ready-Only User Delete<<<<<=====')})
-		.toss();
-	}).toss();		
-		
-//Validates Weak Password Requirements//
-    frisby.create('User Weak Password Create New')
-		.post(BOHTTP + URLACT + '/user',	
-	{
-		username: 'WeakPassword',
-		email: 'restapi@attensity.com',
-		password: 'password1',
-		account: acctnr,
-		enabled: true,
-		accountAdminUser: false,
-		loginFailed: false,
-		id: -1,
-		accountName: acctnm,
-		preferences: {
-			timeZoneString: 'America/Denver',
-			timeZoneOffset: -21600000
-		},
-		accountType: 0,
-		brandName: 'attensity',
-		expirationDate: 1451601777000,
-		userRole: {
-			id: 1,
-			description: 'Admin',
-			roleName: 'admin',
-			userPermissions: [
-			{
-				permissionName: 'create_users',
-				permissionDesc: 'Able to create users'
-			},
-			{
-				permissionName: 'edit_users',
-				permissionDesc: 'Able to edit users'
-			},
-			{
-				permissionName: 'set_account_level_preferences',
-				permissionDesc: 'Able to set Account level preferences'
-			},
-			{
-				permissionName: 'view_account_reports',
-				permissionDesc: 'Able to view account reports'
-			},
-			{
-				permissionName: 'create_edit_topics',
-				permissionDesc: 'Able to create/edit topics'
-			},
-			{
-				permissionName: 'create_custom_entities',
-				permissionDesc: 'Able to create custom entities'
-			},
-			{
-				permissionName: 'apply_filters',
-				permissionDesc: 'Able to apply filters'
-			},
-			{
-				permissionName: 'drill_down_article',
-				permissionDesc: 'Able to drill down the article'
-			},
-			{
-				permissionName: 'export',
-				permissionDesc: 'Able to export the data'
-			},
-			{
-				permissionName: 'share_data_dashboards',
-				permissionDesc: 'Able to share the data \u0026 dashboards'
-			},
-			{
-				permissionName: 'access_eli',
-				permissionDesc: 'Access ELI'
-			},
-			{
-				permissionName: 'access_temp_editor_eli',
-				permissionDesc: 'Access Temporary Editor ELI'
-			}]
-		},
-		maxTopicLimit: 80
-	})
-		.expectStatus(500)
-		.expectJSON (
-						{ type: 'VALIDATION_FAIL',
-						  parameters: { messages: [ 'WEAK_PASSWORD_NOT_VALID' ] },
-						  key: 'WEAK_PASSWORD_NOT_VALID' }
-					)
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of User Weak Password Create New<<<<<=====')})
-		.toss();
-
-//Creation of Admin User//		
-    frisby.create('User Admin Create New')
-		.post(BOHTTP + URLACT + '/user',	
-	{
-		username: 'frisbyAdmin',
-		email: 'restapi@attensity.com',
-		password: 'P@ssword1',
-		account: acctnr,
-		enabled: true,
-		accountAdminUser: false,
-		loginFailed: false,
-		id: -1,
-		accountName: acctnm,
-		preferences: {
-			timeZoneString: 'America/Denver',
-			timeZoneOffset: -21600000
-		},
-		accountType: 0,
-		brandName: 'attensity',
-		expirationDate: 1451601777000,
-		userRole: {
-			id: 1,
-			description: 'Admin',
-			roleName: 'admin',
-			userPermissions: [
-			{
-				permissionName: 'create_users',
-				permissionDesc: 'Able to create users'
-			},
-			{
-				permissionName: 'edit_users',
-				permissionDesc: 'Able to edit users'
-			},
-			{
-				permissionName: 'set_account_level_preferences',
-				permissionDesc: 'Able to set Account level preferences'
-			},
-			{
-				permissionName: 'view_account_reports',
-				permissionDesc: 'Able to view account reports'
-			},
-			{
-				permissionName: 'create_edit_topics',
-				permissionDesc: 'Able to create/edit topics'
-			},
-			{
-				permissionName: 'create_custom_entities',
-				permissionDesc: 'Able to create custom entities'
-			},
-			{
-				permissionName: 'apply_filters',
-				permissionDesc: 'Able to apply filters'
-			},
-			{
-				permissionName: 'drill_down_article',
-				permissionDesc: 'Able to drill down the article'
-			},
-			{
-				permissionName: 'export',
-				permissionDesc: 'Able to export the data'
-			},
-			{
-				permissionName: 'share_data_dashboards',
-				permissionDesc: 'Able to share the data \u0026 dashboards'
-			},
-			{
-				permissionName: 'access_eli',
-				permissionDesc: 'Access ELI'
-			},
-			{
-				permissionName: 'access_temp_editor_eli',
-				permissionDesc: 'Access Temporary Editor ELI'
-			}]
-		},
-		maxTopicLimit: 80
-	})
-		.expectStatus(200)
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of User Admin Create New<<<<<=====')})
-		.afterJSON(function(json) {
-		 var account = json.account
-		 var id = json.id
-		 var accountName = json.accountName
-		 var username = json.username		
-
-//Edits Admin Role to Editor Role//		 
-    frisby.create('User Edit Permissions')
-		.post(QHTTP + URLUSR + '/user',		
-		{
-			id: id,
-			account: account,
-			accountName: accountName,
-			username: username,
-			enabled: true,
-			accountType: 0,
-			brandName: 'attensity',
-			userRole: {
-						roleName: 'editor'
-					  },
-			preferences: {
-							timeZoneString: 'America/New_York',
-							timeZoneOffset: -14400000
-						 }
-		})
-		.expectStatus(200)
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of User Edit Permissions<<<<<=====')})
-		.toss();		
-
-//Updates User's Email//		
-    frisby.create('User Update Email')
-		.post(QHTTP + URLUSR + '/user',		
-		{
-			id: id,
-			email: 'restapi.1@attensity.com'
-		})
-		.expectStatus(200)
-		.expectJSON({email: 'restapi.1@attensity.com'})
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of User Update Email<<<<<=====')})
-		.toss();	
-		
-//Udates User's Password//	
-    frisby.create('User Update Password')
-		.post(QHTTP + URLUSR + '/user',		
-		{
-			account: acctnr,
-            oldpassword: 'P@ssword1',
-			id: id,
-			password: 'P@ssword2',
-			updatePassword: true
-		})
-		.expectStatus(200)
-		.expectJSON({password: 'P@ssword2'})
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of User Update Password<<<<<=====')})
-		.toss();	
-		
-//Deletion of Admin User//		
-	frisby.create('Admin User Delete')
-		.delete(QHTTP + URLUSR + '/user/' + id )
-	 	.expectStatus(200)
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of Admin User Delete<<<<<=====')})
-		.toss();
-		}).toss();	
-	}).toss();	
 }).toss();
