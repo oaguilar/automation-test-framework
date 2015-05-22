@@ -451,7 +451,7 @@ frisby.create('Delete Account')
 	.delete(BackofficeQA + accountService + '/' + json.id)
 	.expectStatus(200)
 	.after(function() {console.log('=====>>>>>End Of Delete Account<<<<<=====')})
-	.toss();
+
 	}).toss();
 	}).toss();
 		}).toss();

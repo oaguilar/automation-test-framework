@@ -117,31 +117,31 @@ var autoAccountName = configuration.autoAccountName;
 		.after(function() {console.log('=====>>>>>End Of Ready-only User Delete<<<<<=====')})
 		.toss();
 		
-//Attensity Q User UToken//		
-	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-    frisby.create('UToken - User Attensity Q')
-		.post(QQA + restUser + '/auth',
-		{
-		  username: autoUsername,
-		  password: autoPassword,
-		  accountName: autoAccountName
-		},
-		{ json: true },
-		{ headers: { 'Content-Type': 'application/json' }})
-		.expectStatus(200)
-		.expectHeader('Content-Type', 'application/json')
-		.expectJSONTypes({authkey: String})
-		.expectStatus(200)
-		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of UToken - User Attensity Q<<<<<=====')})
-		.afterJSON(function (res) {
-	/* include auth token in the header of all future requests (Callback function to run after test is completed. )*/
-    frisby.globalSetup({
-      request: { 
-		headers: { 'utoken': res.authkey, 'Content-Type': 'application/json' },
-		json: true },
-		timeout: 24000
-	 });
+/*  //Attensity Q User UToken//		
+ 	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+     frisby.create('UToken - User Attensity Q')
+ 		.post(QQA + restUser + '/auth',
+ 		{
+ 		  username: autoUsername,
+ 		  password: autoPassword,
+ 		  accountName: autoAccountName
+ 		},
+ 		{ json: true },
+ 		{ headers: { 'Content-Type': 'application/json' }})
+ 		.expectStatus(200)
+ 		.expectHeader('Content-Type', 'application/json')
+ 		.expectJSONTypes({authkey: String})
+ 		.expectStatus(200)
+ 		.inspectJSON()
+ 		.after(function() {console.log('=====>>>>>End Of UToken - User Attensity Q<<<<<=====')})
+ 		.afterJSON(function (res) { */
+ 	/* include auth token in the header of all future requests (Callback function to run after test is completed. )*/
+/*      frisby.globalSetup({
+       request: { 
+ 		headers: { 'utoken': res.authkey, 'Content-Type': 'application/json' },
+ 		json: true },
+ 		timeout: 24000
+ 	 }); */
 
 //Verifying Termination of Authkey//
 	frisby.create('TermAuthKey')
@@ -155,6 +155,6 @@ var autoAccountName = configuration.autoAccountName;
 		.after(function() {console.log('=====>>>>>End Of TermAuthKey<<<<<=====')})
 		.toss();
 	}).toss();
-	}).toss();
+
 
 
