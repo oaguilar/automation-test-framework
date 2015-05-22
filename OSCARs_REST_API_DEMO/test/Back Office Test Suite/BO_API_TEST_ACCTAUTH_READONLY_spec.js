@@ -3,7 +3,7 @@
 
 var frisby = require('frisby')
 var fs, configurationFile;
-	configurationFile = 'configuration.json';
+	configurationFile = 'BO_configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
@@ -23,27 +23,6 @@ var autoUsername = configuration.autoUsername;
 var autoPassword = configuration.autoPassword;
 var autoAccountName = configuration.autoAccountName;
 
-
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-//UToken Fetch//
-	frisby.create('UToken - Back Office Account')
-		.post(BackofficeQA + accountAuthService,
-		{ username : userAccount, password: passwordAccount},
-		{ json: true },
-		{ headers: { 'Content-Type': 'application/json' }})
-		.expectStatus(200)
-		.expectHeader('Content-Type', 'application/json')
-		.expectJSONTypes({authkey: String})
-		.inspectJSON()
-	    .after(function() {console.log('=====>>>>>UToken - Back Office Account Completed<<<<<=====')})
-		.afterJSON(function (res) {
-	/* include auth token in the header of all future requests (Callback function to run after test is completed. )*/
-    frisby.globalSetup({
-      request: { 
-		headers: { 'utoken': res.authkey, 'Content-Type': 'application/json' },
-		json: true },
-		timeout: 24000
-	 });
 
 //Creation of Ready-only User//		
     frisby.create('User Ready-only Create New')
@@ -177,5 +156,5 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 		.toss();
 	}).toss();
 	}).toss();
-}).toss();
+
 
