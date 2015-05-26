@@ -4,7 +4,7 @@
 var frisby = require('frisby')
 var moment = require('moment');
 var fs, configurationFile;
-	configurationFile = 'configuration.json';
+	configurationFile = 'Q_configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
@@ -14,6 +14,14 @@ var sd = moment();
 var sm = moment.unix(sd);
 var ed = moment().add(14, 'days');
 var em = moment.unix(ed);
+
+
+var BackofficeQA = configuration.BackofficeQA;
+var accountAuthService = configuration.accountAuthService;
+
+var username = configuration.autoUsername;
+var password = configuration.autoPassword;
+var autoAccountName = configuration.autoAccountName;
 
 var QHTTP = configuration.QHTTP;
 var URL = configuration.URL_RESTQRY;
@@ -29,15 +37,25 @@ var LIMIT = 10
   console.log(em.unix())
 }
 
+
 //Generates UToken for User//
 	frisby.create('UToken - User')
-		.post(configuration.AUTH_URL,
-		{ username : configuration.username, password: configuration.password, accountName: configuration.accountName},
+		.post(BackofficeQA + accountAuthService,
+		{ username : username, password: password, accountName: autoAccountName},
 		{ json: true },
-		{ headers: { 'Content-Type': 'application/json' }})
+		{ headers: { 'Content-Type': 'application/json' }}
+		)
 		.expectStatus(200)
 		.expectHeader('Content-Type', 'application/json')
-		.expectJSONTypes({authkey: String})
+				.expectJSON({
+				enabled: true,
+				loginFailed: false
+		})
+		.expectJSONTypes({
+				authkey: String,
+				account: Number
+		})
+		.inspectJSON()
 	    .after(function() {console.log('=====>>>>>UToken - User Completed<<<<<=====')})
         .afterJSON(function (res) {
 
@@ -46,9 +64,8 @@ var LIMIT = 10
       request: { 
 		headers: { 'utoken': res.authkey, 'Content-Type': 'application/json' },
 		json: true },
-		timeout: 24000
+		timeout: (400 * 1000)  
     });
-
 //Creates a Topic//	
 	frisby.create('Topic Create')
 		.post(QHTTP + URX,

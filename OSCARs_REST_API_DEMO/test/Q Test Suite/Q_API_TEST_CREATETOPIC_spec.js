@@ -33,8 +33,8 @@ var LIMIT = 10
   console.log(sm.unix())
   console.log(em.unix())
 }
-	
-		
+
+
 //Generates UToken for User//
 	frisby.create('UToken - User')
 		.post(QQA + restUser + '/auth',
@@ -63,7 +63,7 @@ var LIMIT = 10
 		json: true },
 		timeout: (400 * 1000)  
     });
-
+	
 //Creates a Topic//	
 	frisby.create('Topic Create')
 		.post(QQA + restTopic,
@@ -100,18 +100,6 @@ var LIMIT = 10
 //Callback Topic ID for REST API Service Calls//
 		.afterJSON(function(json) {
 		 var id = json.id
-
-		
-//Q TESTSUITE//
-
-	//require('./Q_API_TEST_EntitySentiment_spec.js');
-	//require('./Q_API_TEST_FiltersGenderExample_spec.js');
-	//require('./Q_API_TEST_TopicMetrics_spec.js');
-	//require('./Q_API_TEST_TimeSeries_spec.js');
-	//require('./Q_API_TEST_TSRelevantArticles_spec.js');
-	//require('./Q_API_TEST_Aggregate_spec.js');
-	//require('./Q_API_TEST_Volatility_spec.js');
-	require('./Q_API_TEST_Trends_spec.js');
-	require('./Q_API_TEST_TopicDelete_spec.js');
 		}).toss();
 }).toss();
+		
