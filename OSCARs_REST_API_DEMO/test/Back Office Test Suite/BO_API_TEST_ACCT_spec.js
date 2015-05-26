@@ -251,8 +251,7 @@ frisby.create('Edit Account Post')
 		})
 	.inspectJSON()
     .after(function() {console.log('=====>>>>>End Of Edit Account Post<<<<<=====')})		
-	.afterJSON(function(json) {
-	var id = json.id	
+	.toss();
 	
 frisby.create('Edit Account Put')
 //Edits an existing account using put
@@ -345,4 +344,4 @@ frisby.create('Verify Account Deleted')
 	.toss();
 	}).toss();
 	}).toss();
-		}).toss();
+

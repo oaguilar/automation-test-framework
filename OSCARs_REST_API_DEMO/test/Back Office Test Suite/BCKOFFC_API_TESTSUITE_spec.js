@@ -45,14 +45,14 @@ var passwordAccount = configuration.passwordAccount;
 
 //BACK OFFICE TESTSUITE//
 
-//require('./BO_API_TEST_ACCT_spec.js');
-
-//require('./BO_API_TEST_ACCTAUTH_spec.js');
-//require('./BO_API_TEST_ACCTAUTH_ADMIN_spec.js');
-//require('./BO_API_TEST_ACCTAUTH_EDITOR_spec.js');
+require('./BO_API_TEST_ACCT_spec.js');
+require('./BO_API_TEST_ACCTAUTH_spec.js');
+require('./BO_API_TEST_ACCTAUTH_ADMIN_spec.js');
+require('./BO_API_TEST_ACCTAUTH_EDITOR_spec.js');
 require('./BO_API_TEST_ACCTAUTH_READONLY_spec.js');
-//require('./BO_API_TEST_ACCTAUTH_LOGIN_spec.js');
-//require('./BO_API_TEST_ACCT_PARAM_spec.js');
+require('./BO_API_TEST_ACCTAUTH_LOGIN_spec.js');
+require('./BO_API_TEST_ACCT_PARAM_spec.js');
+require('./BO_API_TEST_ACCTTERM_spec.js');
 
 
 

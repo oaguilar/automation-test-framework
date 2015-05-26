@@ -117,8 +117,8 @@ var autoAccountName = configuration.autoAccountName;
 		.after(function() {console.log('=====>>>>>End Of Ready-only User Delete<<<<<=====')})
 		.toss();
 		
-/*  //Attensity Q User UToken//		
- 	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+ //Attensity Q User UToken//		
+/*  	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
      frisby.create('UToken - User Attensity Q')
  		.post(QQA + restUser + '/auth',
  		{
@@ -135,7 +135,7 @@ var autoAccountName = configuration.autoAccountName;
  		.inspectJSON()
  		.after(function() {console.log('=====>>>>>End Of UToken - User Attensity Q<<<<<=====')})
  		.afterJSON(function (res) { */
- 	/* include auth token in the header of all future requests (Callback function to run after test is completed. )*/
+ //include auth token in the header of all future requests (Callback function to run after test is completed. )*/
 /*      frisby.globalSetup({
        request: { 
  		headers: { 'utoken': res.authkey, 'Content-Type': 'application/json' },
@@ -144,7 +144,7 @@ var autoAccountName = configuration.autoAccountName;
  	 }); */
 
 //Verifying Termination of Authkey//
-	frisby.create('TermAuthKey')
+/* 	frisby.create('TermAuthKey')
 		.get(QQA02 + restUser + '/user/' + id)
 		.expectStatus(500)
 		.inspectJSON()
@@ -153,8 +153,9 @@ var autoAccountName = configuration.autoAccountName;
 				key: 'UserNotFound'
 		})
 		.after(function() {console.log('=====>>>>>End Of TermAuthKey<<<<<=====')})
-		.toss();
+		.toss(); */
 	}).toss();
+//}).toss();
 
 
 
