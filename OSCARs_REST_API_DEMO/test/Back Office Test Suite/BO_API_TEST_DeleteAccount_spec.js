@@ -11,44 +11,13 @@ var configuration = JSON.parse(
 	);
 	
 var BackofficeQA = configuration.BackofficeQA;
-var accountAuthService = configuration.accountAuthService;
 var accountService = configuration.accountService;
-var userAccount = configuration.userAccount;
-var passwordAccount = configuration.passwordAccount;
-var usernameVal = configuration.usernameVal;
-var passwordVal = configuration.passwordVal;
-var invalidUserName = configuration.invalidUserName;
-var invalidPassword = configuration.invalidPassword;
-var BackofficeQA = configuration.BackofficeQA;
 require('./BCKOFFC_API_TESTSUITE_spec.js');
 var id = json.id
 
-		
-	
-	
-	
-	
-	
-		
-
-
-	
-	
-
-
-
-	
-
-	
-
-	
-
-
-
-			
-
-
-
-
-	
-
+frisby.create('Delete Account')
+//Deletes account created during test
+	.delete(BackofficeQA + accountService + '/' + json.id)
+	.expectStatus(200)
+	.after(function() {console.log('=====>>>>>End Of Delete Account<<<<<=====')})
+	.toss();

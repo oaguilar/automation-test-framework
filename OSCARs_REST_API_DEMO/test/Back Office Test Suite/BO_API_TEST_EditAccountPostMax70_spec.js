@@ -11,44 +11,21 @@ var configuration = JSON.parse(
 	);
 	
 var BackofficeQA = configuration.BackofficeQA;
-var accountAuthService = configuration.accountAuthService;
 var accountService = configuration.accountService;
-var userAccount = configuration.userAccount;
-var passwordAccount = configuration.passwordAccount;
-var usernameVal = configuration.usernameVal;
-var passwordVal = configuration.passwordVal;
-var invalidUserName = configuration.invalidUserName;
-var invalidPassword = configuration.invalidPassword;
-var BackofficeQA = configuration.BackofficeQA;
 require('./BCKOFFC_API_TESTSUITE_spec.js');
 var id = json.id
 
-		
-	
-	
-	
-	
-	
-		
-
-
-	
-	
-
-
-
-	
-
-	
-
-	
-
-
-
-			
-
-
-
-
-	
-
+frisby.create('Edit Account Post')
+//Edits an existing account using Post
+	.post(BackofficeQA + accountService, {
+		id: json.id,
+		name: "FrisbyTestAcctPARAMEdited",
+		maxTopicLimit: 70
+	})
+	.expectStatus(200)
+	.expectJSON({
+		maxTopicLimit: 70
+		})
+	.inspectJSON()
+    .after(function() {console.log('=====>>>>>End Of Edit Account Post<<<<<=====')})		
+	.toss();	
