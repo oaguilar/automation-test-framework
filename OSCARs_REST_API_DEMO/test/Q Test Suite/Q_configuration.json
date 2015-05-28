@@ -6,7 +6,7 @@
  "autoUsername" : "AdminUser",
  "autoPassword": "Admin1234",
  "automationAccountID": 10012,
- "autoLongRunTopicID" : 6000593,
+ "autoLongRunTopicID" : 100023,
  "userAccount" : "account",
  "passwordAccount" : "account",
  "invalidUserName" : "squirrel",

@@ -3,7 +3,7 @@
 
 var frisby = require('frisby')
 var fs, configurationFile;
-	configurationFile = 'configuration.json';
+	configurationFile = 'Q_configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
@@ -105,7 +105,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 		.toss();
 		
 //Verifies Account is invalid; Login Failed = true// 	
-    frisby.create('Password Invalid')
+    frisby.create('Account Invalid')
 		.post(QQA + restUser +  '/auth',
 		{
 		  username: autoUsername,
