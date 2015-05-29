@@ -238,6 +238,7 @@ var passwordAccount = configuration.passwordAccount;
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of User Update Password<<<<<=====')})
 		.toss();
+		
 //Deletion of Admin User//		
 	frisby.create('Admin User Delete')
 		.delete(BackofficeQA + restAccount + '/user/' + id )

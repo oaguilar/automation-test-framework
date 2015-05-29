@@ -1,6 +1,7 @@
-/* jasmine-node Q_API_TEST_BOUSERAUTH_EDITOR_spec.js */
+/* jasmine-node Q_API_TEST_BOUSERAUTH_READONLY_spec.js */
 /* https://jira.attensity.com/browse/CO-42 */
-var frisby = require('frisby');
+
+var frisby = require('frisby')
 var fs, configurationFile;
 	configurationFile = 'BO_configuration.json';
 	fs = require('fs'); 
@@ -8,17 +9,26 @@ var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
 var BackofficeQA = configuration.BackofficeQA;
-var restAccount = configuration.restAccount;
-var autoPassword = configuration.autoPassword;
+var accountAuthService = configuration.accountAuthService;
+var userAccount = configuration.userAccount;
+var passwordAccount = configuration.passwordAccount;
 var automationAccountID = configuration.automationAccountID;
+var autoPassword = configuration.autoPassword;
+var autoAccountName = configuration.autoAccountName;
+var restAccount = configuration.restAccount;
+var QQA = configuration.QQA;
+var QQA02 = configuration.QQA02;
+var restUser = configuration.restUser;
+var autoUsername = configuration.autoUsername;
+var autoPassword = configuration.autoPassword;
 var autoAccountName = configuration.autoAccountName;
 
 
-//Creation of Editor User//		
-    frisby.create('User Editor Create New')
+//Creation of Ready-only User//		
+    frisby.create('User Ready-only Create New')
 	.post(BackofficeQA + restAccount + '/user',	
 {
-	username: 'frisbyEditor',
+	username: 'frisbyReadOnly',
 	email: 'restapiEditor@attensity.com',
 	password: autoPassword,
 	account: automationAccountID,
@@ -35,9 +45,9 @@ var autoAccountName = configuration.autoAccountName;
 	brandName: 'attensity',
 	expirationDate: 1451601777000,
 	userRole: {
-		id: 2,
-		description: 'Editor',
-		roleName: 'editor',
+		id: 3,
+		description: 'Ready-only',
+		roleName: 'Ready-only',
 		userPermissions: [
 		{
 			permissionName: 'create_users',
@@ -92,20 +102,20 @@ var autoAccountName = configuration.autoAccountName;
 })
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of User Editor Create New<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of User Ready-only Create New<<<<<=====')})
 		.afterJSON(function(json) {
 		 var account = json.account
 		 var id = json.id
-		 var accountName = json.accountName
-		 var username = json.username
 		 
 //Deletion of Editor User//
-	frisby.create('User Editor Delete')
+	frisby.create('User Ready-only Delete')
 		.delete(BackofficeQA + restAccount + '/user/' + id )
 	 	.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of Editor User Delete<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Ready-only User Delete<<<<<=====')})
 		.toss();
 	}).toss();
+
+
 
 

@@ -26,7 +26,7 @@ var autoAccountName = configuration.autoAccountName;
 
  
  
-require('./BO_API_TEST_ACCTAUTH_READONLY_spec.js');
+require('./BO_API_TEST_AccountAuthReadyOnly_spec.js');
 var id = json.id
 
  //Attensity Q User UToken//		

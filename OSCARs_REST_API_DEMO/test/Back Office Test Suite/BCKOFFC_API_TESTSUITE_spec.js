@@ -14,6 +14,8 @@ var accountService = configuration.accountService;
 var userAccount = configuration.userAccount;
 var passwordAccount = configuration.passwordAccount;
 
+	
+
 	frisby.create('AccountAuthentication')
 	//authenticates the user to Account Manager
 		.post(BackofficeQA + accountAuthService,
@@ -170,17 +172,38 @@ frisby.create('Create Account')
 	    .after(function() {console.log('=====>>>>>End Of Create Account<<<<<=====')})		
 		.afterJSON(function(json) {
 		 var id = json.id
+		 var username = json.username
+		 var account = json.account
+		 var name = json.name
 
 
 
-	//BACK OFFICE TESTSUITE//
+	//B A C K  O F F I C E  T E S T S U I T E//
 
-	//require('./BO_API_TEST_ACCT_spec.js');
-	//require('./BO_API_TEST_ACCTAUTH_spec.js');
-	//require('./BO_API_TEST_ACCTAUTH_ADMIN_spec.js');
-	//require('./BO_API_TEST_ACCTAUTH_EDITOR_spec.js');
-	//require('./BO_API_TEST_ACCTAUTH_READONLY_spec.js');
-	//require('./BO_API_TEST_ACCTAUTH_LOGIN_spec.js');
+	//Account Authentication Admin//
+	require('./BO_API_TEST_AccountUserEdits_spec.js');
+	//require('./BO_API_TEST_UserWeakPasswordCreateNew_spec.js');
+	//require('./BO_API_TEST_UserAdminCreateNew_spec.js');
+	//require('./BO_API_TEST_UserEditPermissions_spec.js');
+	//require('./BO_API_TEST_UserUpdateEmail_spec.js');
+
+	//Account//
+	require('./BO_API_TEST_GetAccountList_spec.js');
+	require('./BO_API_TEST_GetAccountReport_spec.js');
+	require('./BO_API_TEST_GetAccountType_spec.js');
+	require('./BO_API_TEST_GetAccountBrandList_spec.js');
+	require('./BO_API_TEST_EditAccountPut_spec.js');
+	require('./BO_API_TEST_GetAccountUsers_spec.js');
+
+	//Account Authentication Integrity//
+	require('./BO_API_TEST_AccountAuthInvalidUserName_spec.js');
+	require('./BO_API_TEST_AccountAuthInvalidAccountName_spec.js');
+	require('./BO_API_TEST_GetAccountAuthSession_spec.js');
+	
+	//Account Users//
+	require('./BO_API_TEST_AccountAuthEditor_spec.js');
+	require('./BO_API_TEST_AccountAuthReadyOnly_spec.js');
+	require('./BO_API_TEST_AccountAuthLogin_spec.js');
 	
 	//Account PARAM//
 	require('./BO_API_TEST_EditAccountPost_spec.js');
@@ -197,10 +220,10 @@ frisby.create('Create Account')
 	require('./BO_API_TEST_EditAccountPostMax90_spec.js');
 	require('./BO_API_TEST_EditAccountPostMax100_spec.js');
 	require('./BO_API_TEST_DeleteAccount_spec.js');
-
 	
+	//Account Termination//
+	require('./BO_API_TEST_AccountTermination_spec.js');
+	require('./BO_API_TEST_VerifyAccountDeleted_spec.js');
 	
-	
-	//require('./BO_API_TEST_ACCTTERM_spec.js');
-		}).toss();
+	}).toss();
 }).toss();
