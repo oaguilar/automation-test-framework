@@ -181,11 +181,12 @@ frisby.create('Create Account')
 	//B A C K  O F F I C E  T E S T S U I T E//
 
 	//Account Authentication Admin//
+	require('./BO_API_TEST_UserWeakPasswordCreateNew_spec.js');
 	require('./BO_API_TEST_AccountUserEdits_spec.js');
-	//require('./BO_API_TEST_UserWeakPasswordCreateNew_spec.js');
 	//require('./BO_API_TEST_UserAdminCreateNew_spec.js');
 	//require('./BO_API_TEST_UserEditPermissions_spec.js');
 	//require('./BO_API_TEST_UserUpdateEmail_spec.js');
+	//require('./BO_API_TEST_UserUpdatePassword_spec.js');
 
 	//Account//
 	require('./BO_API_TEST_GetAccountList_spec.js');
@@ -196,8 +197,10 @@ frisby.create('Create Account')
 	require('./BO_API_TEST_GetAccountUsers_spec.js');
 
 	//Account Authentication Integrity//
-	require('./BO_API_TEST_AccountAuthInvalidUserName_spec.js');
+	require('./BO_API_TEST_AccountUsernameInvalid_spec.js');
 	require('./BO_API_TEST_AccountAuthInvalidAccountName_spec.js');
+	require('./BO_API_TEST_AccountPasswordInvalid_spec.js');
+	require('./BO_API_TEST_AccountLoginValid_spec.js');
 	require('./BO_API_TEST_GetAccountAuthSession_spec.js');
 	
 	//Account Users//

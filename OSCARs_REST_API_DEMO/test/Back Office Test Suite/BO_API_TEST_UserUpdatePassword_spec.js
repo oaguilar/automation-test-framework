@@ -19,26 +19,18 @@ require('./BCKOFFC_API_TESTSUITE_spec.js');
 		 var account = json.account
 		 var name = json.name
 
-//Edits Admin Role to Editor Role//	
-    frisby.create('User Edit Permissions')
-		.post(BackofficeQA + restAccount + '/user',	
+//Udates User's Password//	
+    frisby.create('User Update Password')
+		.post(BackofficeQA + restAccount + '/user',		
 		{
-			id: json.id,
-			account: json.account,
-			accountName: "frisbytestacctparam",
-			username: "AdminUser",
-			enabled: true,
-			accountType: 0,
-			brandName: 'attensity',
-			userRole: {
-						roleName: 'editor'
-					  },
-			preferences: {
-							timeZoneString: 'America/New_York',
-							timeZoneOffset: -14400000
-						 }
+			account: automationAccountID,
+            oldpassword: 'P@ssword1',
+			id: id,
+			password: 'P@ssword2',
+			updatePassword: true
 		})
 		.expectStatus(200)
+		.expectJSON({password: 'P@ssword2'})
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of User Edit Permissions<<<<<=====')})
-		.toss();
+		.after(function() {console.log('=====>>>>>End Of User Update Password<<<<<=====')})
+		.toss();		 

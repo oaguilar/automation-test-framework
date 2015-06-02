@@ -88,7 +88,7 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 //Q TESTSUITE//
 
 	//Article Query//
-/* 	require('./Q_API_TEST_EntitySentiment_spec.js');
+	require('./Q_API_TEST_EntitySentiment_spec.js');
 	require('./Q_API_TEST_FiltersGenderExample_spec.js');
 	require('./Q_API_TEST_TopicMetrics_spec.js');
 	require('./Q_API_TEST_TimeSeries_spec.js');
@@ -97,12 +97,12 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_Volatility_spec.js');
 	require('./Q_API_TEST_Trends_spec.js');
 	require('./Q_API_TEST_Details_spec.js');
-	require('./Q_API_TEST_Clusters_spec.js'); */
+	require('./Q_API_TEST_Clusters_spec.js');
 	require('./Q_API_TEST_FieldsMap_spec.js');
 	//require('./Q_API_TEST_TopicDelete_spec.js');
 	
 	//Article Query AGG//
-/* 	require('./Q_API_TEST_AggregateOverviewSources_spec.js');
+	require('./Q_API_TEST_AggregateOverviewSources_spec.js');
 	require('./Q_API_TEST_AggregateSentimentRatio_spec.js');
 	require('./Q_API_TEST_AggregateOverviewLocationMentions_spec.js');
 	require('./Q_API_TEST_AggregateReach_spec.js');
@@ -110,23 +110,23 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_AggregateFollowers_spec.js');
 	require('./Q_API_TEST_AggregateDemographicsLocationTopLevel_spec.js');
 	require('./Q_API_TEST_AggregateDemographicsLocationDrillDown_spec.js');
-	require('./Q_API_TEST_AggregateDemographicsGender_spec.js'); */
+	require('./Q_API_TEST_AggregateDemographicsGender_spec.js');
 	require('./Q_API_TEST_AggregateCompanySentimentSentiment_spec.js');
 	
 	//Topic//
-	//require('./Q_API_TEST_TopicList_spec.js');
+	require('./Q_API_TEST_TopicList_spec.js');
 	//require('./Q_API_TEST_TopicNameUnique_spec.js');
-	//require('./Q_API_TEST_TopicSanityChecker_spec.js');
+	require('./Q_API_TEST_TopicSanityChecker_spec.js');
 	require('./Q_API_TEST_TopicEdit_spec.js');
-	//require('./Q_API_TEST_TopicAuditTrail_spec.js');
+	require('./Q_API_TEST_TopicAuditTrail_spec.js');
 	require('./Q_API_TEST_TopicDelete_spec.js');
 	
 	//User Login Authorization//
-/* 	require('./Q_API_TEST_UserUniqueFALSE_spec.js');
+	require('./Q_API_TEST_UserUniqueFALSE_spec.js');
 	require('./Q_API_TEST_UserUniqueTRUE_spec.js');
 	require('./Q_API_TEST_UsernameInvalid_spec.js');
 	require('./Q_API_TEST_PasswordInvalid_spec.js');
-	require('./Q_API_TEST_AccountInvalid_spec.js'); */
+	require('./Q_API_TEST_AccountInvalid_spec.js');
 	require('./Q_API_TEST_AccountUserValidLogin_spec.js');
 	
 	}).toss();
