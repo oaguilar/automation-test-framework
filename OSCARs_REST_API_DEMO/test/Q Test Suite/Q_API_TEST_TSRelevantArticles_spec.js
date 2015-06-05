@@ -9,21 +9,20 @@ var fs, configurationFile;
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var sd = moment();
+var sd = moment().subtract(14, 'days');
 var sm = moment.unix(sd);
 var ed = moment().add(14, 'days');
 var em = moment.unix(ed);
-var START_DT = sm.unix()
-var END_DT = em.unix()
-var LIMIT = 10
+var START_DT = sm.unix();
+var END_DT = em.unix();
+var LIMIT = 10;
 var QQA = configuration.QQA;
 var restQuery = configuration.restQuery;
-require('./Q_API_TESTSUITE_spec.js');
-var id = json.id
+var topic = configuration.autoLongRunTopicID;
 
     frisby.create('tsrelevantarticles')
 		.post(QQA + restQuery + '/tsrelevantarticles',
-		{ topicIDs:[id], 
+		{ topicIDs:[topic], 
 		 limit:LIMIT,
          selectedFields:[
         { field:'content_volume()', sortDirection: 'DESCENDING'},

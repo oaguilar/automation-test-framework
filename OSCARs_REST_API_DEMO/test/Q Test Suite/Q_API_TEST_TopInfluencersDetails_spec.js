@@ -9,7 +9,7 @@ var fs, configurationFile;
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var sd = moment();
+var sd = moment().subtract(14, 'days');
 var sm = moment.unix(sd);
 var ed = moment().add(14, 'days');
 var em = moment.unix(ed);
@@ -18,12 +18,11 @@ var END_DT = em.unix()
 var LIMIT = 10
 var QQA = configuration.QQA;
 var restQuery = configuration.restQuery;
-require('./Q_API_TESTSUITE_spec.js');
-var id = json.id
+var topic = configuration.autoLongRunTopicID;
 
-	frisby.create('details')
+	frisby.create('Top Influencers Details')
 		.post(QQA + restQuery + '/details',
-		{ topicIDs:[id], 
+		{ topicIDs:[topic], 
 		 limit:LIMIT,
          selectedFields:[
         { field:'article_published_at', sortDirection: 'DESCENDING'},
@@ -45,5 +44,5 @@ var id = json.id
 		timeSlice:'HOUR'})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of details<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Top Influencers Details<<<<<=====')})
 		.toss();

@@ -18,11 +18,15 @@ var END_DT = em.unix()
 var LIMIT = 10
 var QQA = configuration.QQA;
 var restQuery = configuration.restQuery;
+var topic = configuration.autoLongRunTopicID;
 
-    frisby.create('topicmetrics')
-		.get(QQA + restQuery + '/topicmetrics')
+
+    frisby.create('Overview Bubble Chart')
+		.post(QQA + restQuery + '/entitysentiment',
+		{ topicIDs:[topic],
+		limit:LIMIT,
+		dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of topicmetrics<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of Overview Bubble Chart<<<<<=====')})
 		.toss();
-
