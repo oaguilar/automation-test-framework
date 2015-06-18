@@ -21,17 +21,29 @@ var restQuery = configuration.restQuery;
 require('./Q_API_TESTSUITE_spec.js');
 var id = json.id
 
-    frisby.create('tsrelevantarticles')
-		.post(QQA + restQuery + '/tsrelevantarticles',
+	frisby.create('details')
+		.post(QQA + restQuery + '/details',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
          selectedFields:[
-        { field:'content_volume()', sortDirection: 'DESCENDING'},
-        { field:'article_sentiment', sortDirection:'ASCENDING'}
+        { field:'article_published_at', sortDirection: 'DESCENDING'},
+        { field:'article_publisher'},
+		{ field:'article_screen_name'},
+		{ field:'article_title'},
+		{ field:'article_topic'},
+		{ field:'article_uri'},
+		{ field:'article_content_subtype'},
+		{ field:'article_content_type'},
+		{ field:'author_name'},
+		{ field:'author_image_url'},
+		{ field:'body'},
+		{ field:'article_followers'},
+		{ field:'article_klout'},
+		{ field:'article_sentiment'},
 		],
 		dateRange:{ startDate:START_DT, endDate:END_DT},
-		timeSlice:'DAY'})
+		timeSlice:'HOUR'})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of tsrelevantarticles<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of details<<<<<=====')})
 		.toss();

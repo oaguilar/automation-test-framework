@@ -23,7 +23,8 @@ var id = json.id
 
     frisby.create('trends')
 		.post(QQA + restQuery + '/trends',
-		{ topicIDs:[id], dateRange:{ startDate:START_DT, endDate:END_DT}})
+		{ topicIDs:[id],
+		dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of trends<<<<<=====')})

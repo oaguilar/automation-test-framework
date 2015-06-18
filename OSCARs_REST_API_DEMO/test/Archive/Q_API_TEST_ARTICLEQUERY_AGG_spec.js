@@ -11,10 +11,10 @@ var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
 
-var sd = moment().subtract(14, 'days');
-var sm = moment.unix(sd);
-var ed = moment().add(14, 'days');
-var em = moment.unix(ed);
+var endDate = moment();
+var em = moment.unix(endDate);
+var startDate = moment().subtract(7, 'days');
+var sm = moment.unix(startDate);
 var URL = configuration.QQA;
 var AuthURL = configuration.URL_QQAAuth;
 var IP01 = configuration.IP01;

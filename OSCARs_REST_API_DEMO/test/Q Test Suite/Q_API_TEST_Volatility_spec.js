@@ -9,7 +9,7 @@ var fs, configurationFile;
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var sd = moment().subtract(14, 'days');
+var sd = moment();
 var sm = moment.unix(sd);
 var ed = moment().add(14, 'days');
 var em = moment.unix(ed);
@@ -18,11 +18,12 @@ var END_DT = em.unix()
 var LIMIT = 10
 var QQA = configuration.QQA;
 var restQuery = configuration.restQuery;
-var topic = configuration.autoLongRunTopicID;
+require('./Q_API_TESTSUITE_spec.js');
+var id = json.id
 
 	frisby.create('volatility')
 		.post(QQA + restQuery + '/volatility',
-		{ topicIDs:[topic], 
+		{ topicIDs:[id], 
 		dateRange:{ startDate:START_DT, endDate:END_DT}})
 		.expectStatus(200)
 		.inspectJSON()
