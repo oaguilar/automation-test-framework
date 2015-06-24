@@ -193,6 +193,7 @@ frisby.create('Create Account')
 	require('./BO_API_TEST_GetAccountReport_spec.js');
 	require('./BO_API_TEST_GetAccountType_spec.js');
 	require('./BO_API_TEST_GetAccountBrandList_spec.js');
+	require('./BO_API_TEST_AverageAndMonthlyVolume_spec.js');
 	require('./BO_API_TEST_EditAccountPut_spec.js');
 	require('./BO_API_TEST_GetAccountUsers_spec.js');
 

@@ -95,11 +95,12 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_TSRelevantArticles_spec.js');
 	require('./Q_API_TEST_Aggregate_spec.js');
 	require('./Q_API_TEST_Volatility_spec.js');
-	//require('./Q_API_TEST_Trends_spec.js');
+	require('./Q_API_TEST_Trends_spec.js');
 	require('./Q_API_TEST_Details_spec.js');
-	//require('./Q_API_TEST_Clusters_spec.js');
+	require('./Q_API_TEST_Clusters_spec.js');
 	require('./Q_API_TEST_FieldsMap_spec.js');
 	require('./Q_API_TEST_TopicDelete_spec.js');
+	require('./Q_API_TEST_StreamDetails_spec.js');
 	
 	//Article Query AGG//
 	require('./Q_API_TEST_AggregateOverviewSources_spec.js');
@@ -112,13 +113,14 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_AggregateDemographicsLocationDrillDown_spec.js');
 	require('./Q_API_TEST_AggregateDemographicsGender_spec.js');
 	require('./Q_API_TEST_AggregateCompanySentimentSentiment_spec.js');
+	require('./Q_API_TEST_AggregateDemographicsLocationMentions_spec.js');
 	
 	//Topic//
 	require('./Q_API_TEST_TopicList_spec.js');
 	require('./Q_API_TEST_TopicNameUnique_spec.js');
-	//require('./Q_API_TEST_TopicNameNotUnique_spec.js'); https://jira.attensity.com/browse/ART-3409
+	require('./Q_API_TEST_TopicNameNOTUnique_spec.js'); //https://jira.attensity.com/browse/ART-3409
 	require('./Q_API_TEST_TopicSanityChecker_spec.js');
-	//require('./Q_API_TEST_TopicEdit_spec.js');
+	require('./Q_API_TEST_TopicEdit_spec.js');
 	require('./Q_API_TEST_TopicAuditTrail_spec.js');
 	require('./Q_API_TEST_TopicDelete_spec.js');
 	
