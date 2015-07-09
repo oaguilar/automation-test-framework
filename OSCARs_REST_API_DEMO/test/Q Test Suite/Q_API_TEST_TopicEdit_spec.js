@@ -52,7 +52,13 @@ var id = json.id
 						values: [
 							'en'
 						]
-					}
+					},
+					{
+						type: 'content_subtype',
+						values: [
+							'twitter'
+						]
+					}	
 				],
 		   results:{}
 			}

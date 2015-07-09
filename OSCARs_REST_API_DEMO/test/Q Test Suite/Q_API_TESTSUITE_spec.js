@@ -71,7 +71,13 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 					values: [
                     'en'
 					]
-				}
+				},
+				{
+					type: 'content_subtype',
+					values: [
+					'Twitter'
+					]
+				}		
 			],
 		results:{}
 			}
@@ -98,8 +104,8 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_Trends_spec.js');
 	require('./Q_API_TEST_Details_spec.js');
 	require('./Q_API_TEST_Clusters_spec.js');
-	require('./Q_API_TEST_FieldsMap_spec.js');
-	require('./Q_API_TEST_TopicDelete_spec.js');
+	//require('./Q_API_TEST_FieldsMap_spec.js');
+	//require('./Q_API_TEST_TopicDelete_spec.js');
 	require('./Q_API_TEST_StreamDetails_spec.js');
 	
 	//Article Query AGG//

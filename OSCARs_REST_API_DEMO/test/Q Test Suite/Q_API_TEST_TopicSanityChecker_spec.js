@@ -54,7 +54,13 @@ var END_DT = em.unix();
 							values: [
 								'en'
 							]
-						}
+						},
+						{
+							type: 'content_subtype',
+							values: [
+								'Twitter'
+							]
+						}	
 					],
 			   results:{}
 				}

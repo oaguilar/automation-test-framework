@@ -27,7 +27,7 @@ var END_DT = em.unix();
 			name:'Topic Create through API NODE.JS'
 		})
 		.expectStatus(200)
-		.expectJSON({unique: true})
+		.expectJSON({unique: false})
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Topic Name NOT Unique<<<<<=====')})
 		.toss();
