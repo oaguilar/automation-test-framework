@@ -13,25 +13,25 @@ var restPipeline = configuration.restPipeline;
 
 frisby.create('Data Source Data Ingest Input')
 //Retrieves Data Source ID
-	.post(INGEST_URL + restPipeline + '/datasources/3',
+	.post(INGEST_URL + restPipeline + '/datasets/',
 	{
 	dataSourceId: 122,
 	rowCount: 1,
-	records: [['obama title', 'some name1', 'OSCAR3', 'OSCAR3 first comment, Alexander first message', 'OSCAR3 some answer','', '6/9/2015', '6/10/2015',
+	records: [['obama title', 'some name1', 'OSCAR5', 'OSCAR5 first comment, Alexander first message', 'OSCAR5 some answer','', '6/9/2015', '6/10/2015',
 	'Sunnyvale', 40, 'pass through stuff', '37.452960:-132.181725'],
 	['this is second nice title',
-	'some name1",
-	'Elisabeth1",
-	'Elisabeth1 first comment, Elisabeth second message",
-	'Elisabeth1 some answer too",
+	'some name1',
+	'Elisabeth1',
+	'Elisabeth1 first comment, Elisabeth second message',
+	'Elisabeth1 some answer too',
 	'',
 	'6/9/2015',
 	'6/10/2015',
 	'Palo Alto',
 	20,
-	"more pass through stuff",
-	"47.452960:-132.181725"]]
-})
+	'more pass through stuff',
+	'47.452960:-132.181725']]
+	})
 		.expectStatus(200)
 		.expectHeaderContains('Content-Type', 'application/json')
 		.inspectJSON()
