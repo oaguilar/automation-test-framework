@@ -25,6 +25,7 @@
  "restQuery" : "/sidekick-articles/rest/query",
  "restAggregate" : "/sidekick-articles/rest/query/aggregate",
  "restDash" : "/sidekick-dashboards/rest",
+ "restPipeline" : "/sidekick-pipeline/rest",
  "accountService" : "/sidekick-account/rest/account",
  "accountAuthService" : "/sidekick-account/rest/accountauth",
  "accountUserService" : "/sidekick-account/rest/user/account",

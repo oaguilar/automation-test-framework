@@ -9,11 +9,11 @@ var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
 var INGEST_URL = configuration.INGEST_URL;
-var restTopic = configuration.restTopic;
+var restPipeline = configuration.restPipeline;
 
 frisby.create('Get Data Source ID')
 //Retrieves Data Source ID
-	.get(INGEST_URL + restTopic + '/datasources/3')
+	.get(INGEST_URL + restPipeline + '/datasources/3')
 		.expectStatus(200)
 		.expectHeaderContains('Content-Type', 'application/json')
 		.inspectJSON()

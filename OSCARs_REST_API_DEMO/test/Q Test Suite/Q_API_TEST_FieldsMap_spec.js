@@ -22,7 +22,7 @@ require('./Q_API_TESTSUITE_spec.js');
 var id = json.id
 
     frisby.create('fieldsmap')
-		.post(QQA + restQuery +  '/fieldsmap')
+		.get(QQA + restQuery +  '/fieldsmap')
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of fieldsmap<<<<<=====')})
