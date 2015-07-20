@@ -13,7 +13,7 @@ var restPipeline = configuration.restPipeline;
 
 frisby.create('Get Data Source ID')
 //Retrieves Data Source ID
-	.get(INGEST_URL + restPipeline + '/datasources/3')
+	.get(INGEST_URL + restPipeline + '/datasources/122')
 		.expectStatus(200)
 		.expectHeaderContains('Content-Type', 'application/json')
 		.inspectJSON()

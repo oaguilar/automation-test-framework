@@ -11,12 +11,18 @@ var configuration = JSON.parse(
 var INGEST_URL = configuration.INGEST_URL;
 var restPipeline = configuration.restPipeline;
 
+require('./INGEST_DataSourceDataIngestInput_spec.js');
+var dataSetId = json.dataSetId
+
+require('./INGEST_TESTSUITE_spec.js');
+var id = json.id
+
 frisby.create('Data Set Messages')
 //Retrieves Data Source ID
 	.post(INGEST_URL + restPipeline + '/datasets/messages',
-	{dataSourceId :122, dataSetId:11926})
-		.expectStatus(200)
-		.expectHeaderContains('Content-Type', 'application/json')
-		.inspectJSON()
-	.after(function() {console.log('=====>>>>>End Of Data Set Messages<<<<<=====')})
+	{dataSourceId:id, dataSetId:dataSetId})
+	.expectStatus(200)
+	.expectHeaderContains('Content-Type', 'application/json')
+	.inspectJSON()
+	.after(function() {console.log('=====>>>>>End Of Data Set Messages oca<<<<<=====')})
 .toss();
