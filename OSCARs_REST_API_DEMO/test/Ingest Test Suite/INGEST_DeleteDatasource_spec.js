@@ -14,8 +14,6 @@ var restPipeline = configuration.restPipeline;
 require('./INGEST_TESTSUITE_spec.js');
 var id = json.id
 
-//Retrieves All Data Source IDs
-
 frisby.create('Delete Datasource')
 	.delete(INGEST_URL + restPipeline + '/datasources',
 	{

@@ -52,8 +52,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 	.post(INGEST_URL + restPipeline + '/datasources/',
 {
 	id: -1,
-	name: 'AutomationIngest',
-	description: 'AutomationIngest',
+	name: 'AutomationIngest1',
+	description: 'AutomationIngest1',
 	type: 'comment',
 	account: 10012,
 	fields: [{
@@ -132,16 +132,16 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 		.after(function() {console.log('=====>>>>>End Of Create New Datasource<<<<<=====')})
 		//Callback Topic ID for REST API Service Calls//
 		.afterJSON(function(json) {
-		 var id = json.id
+		var id = json.id
 		
 //INGEST TESTSUITE//
 
 	//Ingest Data Sources//
-	require('./INGEST_GetDataSourceID_spec.js');
-	require('./INGEST_GetAllDataSourceID_spec.js');
 	//require('./INGEST_CreateNewDatasource_spec.js');
+	//require('./INGEST_GetDataSourceID_spec.js');
+	//require('./INGEST_GetAllDataSourceID_spec.js');
 	require('./INGEST_DataSourceDataIngestInput_spec.js');
-	require('./INGEST_DataSetMessages_spec.js');
-	require('./INGEST_DeleteDatasource_spec.js');
+	//require('./INGEST_DataSetMessages_spec.js');
+	//require('./INGEST_DeleteDatasource_spec.js');
 	}).toss();
 }).toss();

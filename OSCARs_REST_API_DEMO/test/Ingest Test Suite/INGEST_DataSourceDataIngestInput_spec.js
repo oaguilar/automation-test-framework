@@ -15,10 +15,9 @@ require('./INGEST_TESTSUITE_spec.js');
 var id = json.id
 
 frisby.create('Data Source Data Ingest Input')
-//Retrieves Data Source ID
 	.post(INGEST_URL + restPipeline + '/datasets/',
 	{
-	dataSourceId:122,
+	dataSourceId: 209,
 	rowCount: 1,
 	records: [['obama title', 'some name1', 'OSCAR5', 'OSCAR5 first comment, Alexander first message', 'OSCAR5 some answer','', '6/9/2015', '6/10/2015',
 	'Sunnyvale', 40, 'pass through stuff', '37.452960:-132.181725'],
@@ -39,7 +38,4 @@ frisby.create('Data Source Data Ingest Input')
 		.expectHeaderContains('Content-Type', 'application/json')
 		.inspectJSON()
 	.after(function() {console.log('=====>>>>>End Of Data Source Data Ingest Input<<<<<=====')})
-	//Callback Topic ID for REST API Service Calls//
-	.afterJSON(function(json) {
-	var dataSetId = json.dataSetId
-	}).toss();
+	.toss();

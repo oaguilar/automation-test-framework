@@ -11,6 +11,8 @@
  "passwordAccount" : "account",
  "invalidUserName" : "squirrel",
  "invalidPassword" : "squirrel",
+ "dataSourceIdField1" : "121.name",
+ "dataSourceIdField2" : "122.name",
  "QQA02"  : "http://qa-q02.attensity.com:8080",
  "BackofficeStage"  : "http://stage-q01.attensity.com:8080/",
  "QStage" : "https://stage-q02.attensity.com:8443",

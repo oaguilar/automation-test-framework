@@ -13,16 +13,14 @@ var restPipeline = configuration.restPipeline;
 
 require('./INGEST_DataSourceDataIngestInput_spec.js');
 var dataSetId = json.dataSetId
-
-require('./INGEST_TESTSUITE_spec.js');
-var id = json.id
+var dataSourceId = json.dataSourceId
 
 frisby.create('Data Set Messages')
 //Retrieves Data Source ID
 	.post(INGEST_URL + restPipeline + '/datasets/messages',
-	{dataSourceId:id, dataSetId:dataSetId})
+	{dataSourceId:dataSourceId, dataSetId:dataSetId})
 	.expectStatus(200)
 	.expectHeaderContains('Content-Type', 'application/json')
 	.inspectJSON()
-	.after(function() {console.log('=====>>>>>End Of Data Set Messages oca<<<<<=====')})
+	.after(function() {console.log('=====>>>>>End Of Data Set Messages<<<<<=====')})
 .toss();
