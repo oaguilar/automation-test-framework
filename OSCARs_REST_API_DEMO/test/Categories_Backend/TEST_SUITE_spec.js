@@ -42,8 +42,7 @@ var auth_url = configuration.AUTH_URL;
 		headers: { 'utoken': res.authkey, 'Content-Type': 'application/json' },
 		json: true },
 		timeout: (400 * 1000)  
-	 });	
-		require('./POST_rest_categorization_spec.js')
-   
-
-}).toss();
+	 });
+	 
+		require('./POST_rest_categorization_spec.js');
+   }).toss();

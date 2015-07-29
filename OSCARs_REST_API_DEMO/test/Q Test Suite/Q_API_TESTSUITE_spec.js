@@ -126,8 +126,8 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_TopicNameUnique_spec.js');
 	require('./Q_API_TEST_TopicNameNOTUnique_spec.js'); //https://jira.attensity.com/browse/ART-3409
 	require('./Q_API_TEST_TopicSanityChecker_spec.js');
-	require('./Q_API_TEST_TopicEdit_spec.js');
-	require('./Q_API_TEST_TopicAuditTrail_spec.js'); */
+	require('./Q_API_TEST_TopicEdit_spec.js');*/
+	require('./Q_API_TEST_TopicAuditTrail_spec.js'); 
 	require('./Q_API_TEST_TopicDelete_spec.js');
 	
 	//User Login Authorization//
