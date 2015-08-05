@@ -52,8 +52,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 	.post(INGEST_URL + restPipeline + '/datasources/',
 {
 	id: -1,
-	name: 'AutomationIngest1',
-	description: 'AutomationIngest1',
+	name: 'QA_Auto_Ingest11',
+	description: 'AutomationIngest',
 	type: 'comment',
 	account: 10012,
 	fields: [{
@@ -68,7 +68,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 		display_name: 'name',
 		title: 'name',
 		type: 'string',
-		usage: ['pass-through']
+		usage: ['structured']
 	},
 	{
 		name: 'author',
@@ -79,13 +79,6 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 	},
 	{
 		name: 'comment',
-		display_name: 'survey',
-		title: 'survey question',
-		type: 'string',
-		usage: ['annotate']
-	},
-	{
-		name: 'answer',
 		display_name: 'survey',
 		title: 'survey question',
 		type: 'string',
@@ -113,18 +106,11 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 		usage: ['age']
 	},
 	{
-		name: 'pas',
-		display_name: 'pass',
-		title: 'passo',
-		type: 'int',
-		usage: ['pass-through']
-	},
-	{
 		name: 'latlongpass',
 		display_name: 'latlongpass',
 		title: 'latlongpass',
 		type: 'int',
-		usage: ['latitude_longitude', 'pass-through']
+		usage: ['latitude_longitude', 'structured']
 	}]
 })
 		.expectStatus(200)

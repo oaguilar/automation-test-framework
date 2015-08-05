@@ -18,7 +18,7 @@
  "QQA" : "https://qa-q.attensity.com",
  "AUTH_URL": "https://stage-q02.attensity.com:8443/SaasCoreUserManager/rest/auth",
  "URL_QQAAuth": "https://qa-q.attensity.com:8443/sidekick-user/rest/auth",
- "INGEST_URL": "http://54.172.81.242:8080",
+ "INGEST_URL": "http://52.2.232.118:8080",
  "restAccount" : "/sidekick-account/rest",
  "restUser" : "/sidekick-user/rest",
  "restTopic" : "/sidekick-topic/rest/topic",
