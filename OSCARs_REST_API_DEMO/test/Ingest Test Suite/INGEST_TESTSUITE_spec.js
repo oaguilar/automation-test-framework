@@ -52,7 +52,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 	.post(INGEST_URL + restPipeline + '/datasources/',
 {
 	id: -1,
-	name: 'QA_Auto_Ingest11',
+	name: 'QA_Auto_Ingest14',
 	description: 'AutomationIngest',
 	type: 'comment',
 	account: 10012,

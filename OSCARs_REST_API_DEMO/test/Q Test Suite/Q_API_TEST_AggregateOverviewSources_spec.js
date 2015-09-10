@@ -33,7 +33,7 @@ var END_DT = em.unix();
 		dateRange:{ startDate:START_DT, endDate:END_DT},
 		selectedFields:[
 		{'field':'article_content_subtype'},
-		{'field': 'article_content_type'},
+		{'field':'article_content_type'},
 		{'field':'content_volume()', 'sortDirection':'DESCENDING'}]
 		})
 		.expectStatus(200)

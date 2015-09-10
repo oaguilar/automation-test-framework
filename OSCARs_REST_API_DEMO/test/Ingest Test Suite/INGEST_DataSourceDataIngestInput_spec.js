@@ -35,6 +35,14 @@ frisby.create('Data Source Data Ingest Input')
 	'',
 	'6/10/2015',
 	20,
+	'47.452960:-132.181725'],
+	['this is second nice title',
+	'some name1',
+	'superday',
+	'superday US Constitution 1st comment, Elisabeth 2nd A message',
+	'',
+	'6/10/2015',
+	20,
 	'47.452960:-132.181725']]
 	})
 		.expectStatus(200)
@@ -46,7 +54,8 @@ frisby.create('Data Source Data Ingest Input')
 		var dataSetId = json.dataSetId
 		var dataSourceId = json.dataSourceId
 		
-		require ('./INGEST_DataSetMessages_spec.js');
+		require('./INGEST_DataSetMessages_spec.js');
+
 		
 	}).toss();
 

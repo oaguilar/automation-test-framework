@@ -1,7 +1,6 @@
 /* jasmine-node Q_API_TEST_ACCOUNT_spec.js */
 
 var frisby = require('frisby');
-var moment = require('moment');
 var fs, configurationFile;
 	configurationFile = 'INGST_configuration.json';
 	fs = require('fs'); 
@@ -18,7 +17,7 @@ var dataSourceId = json.dataSourceId
 frisby.create('Data Set Messages')
 //Retrieves Data Source ID
 	.post(INGEST_URL + restPipeline + '/datasets/messages',
-	{dataSourceId:dataSourceId, dataSetId:dataSetId})
+	{dataSourceId:280, dataSetId:22100})
 	.expectStatus(200)
 	.expectHeaderContains('Content-Type', 'application/json')
 	.inspectJSON()
