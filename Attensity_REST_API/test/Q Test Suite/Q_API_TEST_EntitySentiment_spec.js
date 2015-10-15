@@ -1,5 +1,6 @@
-/* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js */
-/* Updated on April 20, 2015 */
+/* jasmine-node Q_API_TEST_EntitySentiment_spec.js
+   ARTSA-4980
+   Updated on April 20, 2015 */
 
 var frisby = require('frisby')
 var moment = require('moment');
@@ -16,7 +17,7 @@ var em = moment.unix(ed);
 var START_DT = sm.unix()
 var END_DT = em.unix()
 var LIMIT = 10
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var autoLongRunTopicID = configuration.autoLongRunTopicID;
 var dataSourceIdField1 = configuration.dataSourceIdField1;
 var dataSourceIdField2 = configuration.dataSourceIdField2;
@@ -25,7 +26,7 @@ require('./Q_API_TESTSUITE_spec.js');
 var id = json.id
 
     frisby.create('entitysentiment')
-		.post(QQA + restQuery + '/entitysentiment',
+		.post(xURL + restQuery + '/entitysentiment',
 		{ topicIDs:[autoLongRunTopicID],
 		  limit: 75,
 		  filters:[

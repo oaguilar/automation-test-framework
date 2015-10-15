@@ -1,5 +1,6 @@
-/* jasmine-node Q_API_TEST_QUSERAUTH_LOGIN_spec.js */
-/* https://jira.attensity.com/browse/CO-42 */
+/* jasmine-node Q_API_TEST_UserUniqueTRUE_spec.js
+   ARTSA-5000
+   https://jira.attensity.com/browse/CO-42 */
 
 var frisby = require('frisby')
 var fs, configurationFile;
@@ -8,7 +9,7 @@ var fs, configurationFile;
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restUser = configuration.restUser;
 var autoUsername = configuration.autoUsername;
 var autoPassword = configuration.autoPassword;
@@ -17,7 +18,7 @@ var automationAccountID = configuration.automationAccountID;
 
 //Create “FALSE” Unique Username//	 
 	frisby.create('User Unique (TRUE)')
-		.post(QQA + restUser +  '/user/unique',
+		.post(xURL + restUser +  '/user/unique',
 		{
 		  account: automationAccountID,
 		  username: 'apirest'

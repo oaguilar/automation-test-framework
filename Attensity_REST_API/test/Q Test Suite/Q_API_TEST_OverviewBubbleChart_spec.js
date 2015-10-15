@@ -1,5 +1,6 @@
-/* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js */
-/* Updated on April 20, 2015 */
+/* jasmine-node Q_API_TEST_OverviewBubbleChart_spec.js
+   ARTSA-4983
+   Updated on April 20, 2015 */
 
 var frisby = require('frisby')
 var moment = require('moment');
@@ -16,13 +17,13 @@ var em = moment.unix(ed);
 var START_DT = sm.unix()
 var END_DT = em.unix()
 var LIMIT = 10
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restQuery = configuration.restQuery;
 var topic = configuration.autoLongRunTopicID;
 
 
     frisby.create('Overview Bubble Chart')
-		.post(QQA + restQuery + '/entitysentiment',
+		.post(xURL + restQuery + '/entitysentiment',
 		{ topicIDs:[topic],
 		limit:LIMIT,
 		dateRange:{ startDate:START_DT, endDate:END_DT}})

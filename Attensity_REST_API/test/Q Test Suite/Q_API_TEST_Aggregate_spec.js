@@ -16,13 +16,13 @@ var em = moment.unix(ed);
 var START_DT = sm.unix()
 var END_DT = em.unix()
 var LIMIT = 10
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restQuery = configuration.restQuery;
 require('./Q_API_TESTSUITE_spec.js');
 var id = json.id
 
 	frisby.create('aggregate')
-		.post(QQA + restQuery + '/aggregate',
+		.post(xURL + restQuery + '/aggregate',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
          selectedFields:[

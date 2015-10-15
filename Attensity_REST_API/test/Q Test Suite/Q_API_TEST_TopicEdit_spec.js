@@ -1,5 +1,6 @@
-/* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js */
-/* Updated on April 20, 2015 */
+/* jasmine-node Q_API_TEST_TopicEdit_spec.js
+   ARTSA-4989
+   Updated on April 20, 2015 */
 
 var frisby = require('frisby');
 var moment = require('moment');
@@ -14,7 +15,7 @@ var sm = moment.unix(sd);
 var ed = moment().add(14, 'days');
 var em = moment.unix(ed);
 var LIMIT = 10
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restQuery = configuration.restQuery;
 var restTopic = configuration.restTopic;
 var topic = configuration.autoLongRunTopicID;
@@ -24,7 +25,7 @@ require('./Q_API_TESTSUITE_spec.js');
 var id = json.id
 
 	frisby.create('Topic Edit')
-		.post(QQA + restTopic,
+		.post(xURL + restTopic,
 		{
 			id: id,
 			name: 'myTopicEdit',

@@ -8,7 +8,7 @@ var fs, configurationFile;
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restUser = configuration.restUser;
 var autoUsername = configuration.autoUsername;
 var autoPassword = configuration.autoPassword;
@@ -20,7 +20,7 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 
 //Generates UToken for User//
 	frisby.create('UToken - User')
-		.post(QQA + restUser + '/auth',
+		.post(xURL + restUser + '/auth',
 		{ username : autoUsername, password: autoPassword, accountName: autoAccountName},
 		{ json: true },
 		{ headers: { 'Content-Type': 'application/json' }}
@@ -49,7 +49,7 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 
 //Creates a Topic//	
 	frisby.create('Topic Create')
-		.post(QQA + restTopic,
+		.post(xURL + restTopic,
 		{
 			id: TOPIC_ID,
 				name: TOPIC_NM,
@@ -104,12 +104,12 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_Trends_spec.js');
 	require('./Q_API_TEST_Details_spec.js');
 	require('./Q_API_TEST_Clusters_spec.js');
-	//require('./Q_API_TEST_FieldsMap_spec.js');
+	require('./Q_API_TEST_FieldsMap_spec.js');
 	//require('./Q_API_TEST_TopicDelete_spec.js');
-	//require('./Q_API_TEST_StreamDetails_spec.js');
+	require('./Q_API_TEST_StreamDetails_spec.js');
 	
 	//Article Query AGG//
-	/* require('./Q_API_TEST_AggregateOverviewSources_spec.js');
+	require('./Q_API_TEST_AggregateOverviewSources_spec.js');
 	require('./Q_API_TEST_AggregateSentimentRatio_spec.js');
 	require('./Q_API_TEST_AggregateOverviewLocationMentions_spec.js');
 	require('./Q_API_TEST_AggregateReach_spec.js');
@@ -119,24 +119,24 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_AggregateDemographicsLocationDrillDown_spec.js');
 	require('./Q_API_TEST_AggregateDemographicsGender_spec.js');
 	require('./Q_API_TEST_AggregateCompanySentimentSentiment_spec.js');
-	require('./Q_API_TEST_AggregateDemographicsLocationMentions_spec.js'); */
+	require('./Q_API_TEST_AggregateDemographicsLocationMentions_spec.js');
 	
 	//Topic//
-/* 	require('./Q_API_TEST_TopicList_spec.js');
+ 	require('./Q_API_TEST_TopicList_spec.js');
 	require('./Q_API_TEST_TopicNameUnique_spec.js');
-	require('./Q_API_TEST_TopicNameNOTUnique_spec.js'); //https://jira.attensity.com/browse/ART-3409
+	//require('./Q_API_TEST_TopicNameNOTUnique_spec.js'); //https://jira.attensity.com/browse/ART-3409
 	require('./Q_API_TEST_TopicSanityChecker_spec.js');
-	require('./Q_API_TEST_TopicEdit_spec.js');*/
+	require('./Q_API_TEST_TopicEdit_spec.js');
 	require('./Q_API_TEST_TopicAuditTrail_spec.js'); 
 	require('./Q_API_TEST_TopicDelete_spec.js');
 	
 	//User Login Authorization//
-/* 	require('./Q_API_TEST_UserUniqueFALSE_spec.js');
+	require('./Q_API_TEST_UserUniqueFALSE_spec.js');
 	require('./Q_API_TEST_UserUniqueTRUE_spec.js');
 	require('./Q_API_TEST_UsernameInvalid_spec.js');
 	require('./Q_API_TEST_PasswordInvalid_spec.js');
 	require('./Q_API_TEST_AccountInvalid_spec.js');
-	require('./Q_API_TEST_AccountUserValidLogin_spec.js'); */
+	require('./Q_API_TEST_AccountUserValidLogin_spec.js');
 	
 	}).toss();
 }).toss();

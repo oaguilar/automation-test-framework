@@ -1,5 +1,6 @@
-/* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js */
-/* Updated on April 20, 2015 */
+/* jasmine-node Q_API_TEST_TopicDelete_spec.js
+   ARTSA-4988
+   Updated on April 20, 2015 */
 
 var frisby = require('frisby')
 var moment = require('moment');
@@ -16,14 +17,14 @@ var em = moment.unix(ed);
 var START_DT = sm.unix()
 var END_DT = em.unix()
 var LIMIT = 10
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restQuery = configuration.restQuery;
 var restTopic = configuration.restTopic;
 require('./Q_API_TESTSUITE_spec.js');
 var id = json.id
 
 	frisby.create('Topic Delete')
-		.delete(QQA + restTopic + '/'+ id )
+		.delete(xURL + restTopic + '/'+ id )
 	 	.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Topic Delete<<<<<=====')})

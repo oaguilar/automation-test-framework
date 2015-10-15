@@ -1,5 +1,6 @@
-/* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js */
-/* Updated on April 20, 2015 */
+/* jasmine-node Q_API_TEST_TopicSanityChecker_spec.js
+   ARTSA-4994
+   Updated on April 20, 2015 */
 
 var frisby = require('frisby');
 var moment = require('moment');
@@ -14,7 +15,7 @@ var sm = moment.unix(sd);
 var ed = moment().add(14, 'days');
 var em = moment.unix(ed);
 var LIMIT = 10
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restQuery = configuration.restQuery;
 var restTopic = configuration.restTopic;
 var topic = configuration.autoLongRunTopicID;
@@ -22,7 +23,7 @@ var START_DT = sm.unix();
 var END_DT = em.unix();
 
     frisby.create('Topic Sanity Checker')
-		.post(QQA + restTopic + '/sanity',
+		.post(xURL + restTopic + '/sanity',
 		{ 		
 			jsonDefinition: {
 					includeAll: [],

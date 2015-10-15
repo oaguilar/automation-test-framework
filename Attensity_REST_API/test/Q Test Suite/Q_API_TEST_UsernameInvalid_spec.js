@@ -1,5 +1,6 @@
-/* jasmine-node Q_API_TEST_QUSERAUTH_LOGIN_spec.js */
-/* https://jira.attensity.com/browse/CO-42 */
+/* jasmine-node Q_API_TEST_UsernameInvalid_spec.js
+   ARTSA-4998
+   https://jira.attensity.com/browse/CO-42 */
 
 var frisby = require('frisby')
 var fs, configurationFile;
@@ -8,7 +9,7 @@ var fs, configurationFile;
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restUser = configuration.restUser;
 var autoUsername = configuration.autoUsername;
 var autoPassword = configuration.autoPassword;
@@ -17,7 +18,7 @@ var automationAccountID = configuration.automationAccountID;
 
 //Verifies Username is invalid; Login Failed = true// 	
     frisby.create('Username Invalid')
-		.post(QQA + restUser +  '/auth',
+		.post(xURL + restUser +  '/auth',
 		{
 		  username: 'invalidusername',
 		  password: autoPassword,

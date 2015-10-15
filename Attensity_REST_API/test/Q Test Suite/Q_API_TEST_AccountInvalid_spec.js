@@ -9,7 +9,7 @@ var fs, configurationFile;
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restUser = configuration.restUser;
 var autoUsername = configuration.autoUsername;
 var autoPassword = configuration.autoPassword;
@@ -18,7 +18,7 @@ var automationAccountID = configuration.automationAccountID;
 
 //Verifies Account is invalid; Login Failed = true// 	
     frisby.create('Account Invalid')
-		.post(QQA + restUser +  '/auth',
+		.post(xURL + restUser +  '/auth',
 		{
 		  username: autoUsername,
 		  password: autoPassword,

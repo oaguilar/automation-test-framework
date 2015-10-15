@@ -1,5 +1,6 @@
-/* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js */
-/* Updated on April 20, 2015 */
+/* jasmine-node Q_API_TEST_FiltersGenderExample_spec.js
+   ARTSA-4982
+   Updated on April 20, 2015 */
 
 var frisby = require('frisby')
 var moment = require('moment');
@@ -16,13 +17,13 @@ var em = moment.unix(ed);
 var START_DT = sm.unix()
 var END_DT = em.unix()
 var LIMIT = 10
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restQuery = configuration.restQuery;
 require('./Q_API_TESTSUITE_spec.js');
 var id = json.id
 
 	frisby.create('Filters - Gender Example')
-		.post(QQA + restQuery + '/entitysentiment',
+		.post(xURL + restQuery + '/entitysentiment',
 		{ topicIDs:[id], 
 		 limit:LIMIT,
 		 filters:[

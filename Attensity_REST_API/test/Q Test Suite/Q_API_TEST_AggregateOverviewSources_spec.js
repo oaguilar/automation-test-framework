@@ -1,5 +1,6 @@
-/* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js */
-/* Updated on April 20, 2015 */
+/* jasmine-node Q_API_TEST_AggregateOverviewSources_spec.js
+   ARTSA-4975
+   Updated on April 20, 2015 */
 
 var frisby = require('frisby');
 var moment = require('moment');
@@ -14,7 +15,7 @@ var sm = moment.unix(sd);
 var ed = moment().add(14, 'days');
 var em = moment.unix(ed);
 var LIMIT = 10
-var QQA = configuration.QQA;
+var xURL = configuration.xURL;
 var restQuery = configuration.restQuery;
 var topic = configuration.autoLongRunTopicID;
 var START_DT = sm.unix();
@@ -26,7 +27,7 @@ var END_DT = em.unix();
 }
 	
     frisby.create('Aggregate - Overview Sources')
-		.post(QQA + restQuery + '/aggregate',
+		.post(xURL + restQuery + '/aggregate',
 		{ topicIDs:[topic], 
 		limit: 10,
 		filters:[],
