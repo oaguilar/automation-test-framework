@@ -23,5 +23,6 @@
  "accountUserService" : "/sidekick-account/rest/user/account",
  "accountUniqueService" : "/sidekick-account/rest/account/unique",
  "accountUserRoleService" : "/sidekick-account/rest/user/roles",
- "accountUserTimeZoneService" :"/sidekick-account/rest/user/timezones"
+ "accountUserTimeZoneService" :"/sidekick-account/rest/user/timezones",
+ "accountAlerts" : "/sidekick-alerts/rest"
  }
