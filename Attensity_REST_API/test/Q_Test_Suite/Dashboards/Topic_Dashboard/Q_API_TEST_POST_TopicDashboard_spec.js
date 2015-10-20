@@ -16,11 +16,8 @@ var restDash = configuration.restDash;
 		.post(xURL + restDash + '/dashboards/topic-dashboards/102580',
 	{
     topicId: 102580,
-    jsonDefinition: '[{"id":1700,"name":"tititabonita3","widgets":[{"directive":"overview-bar","attrs":"mini","col":1,"row":1,"size_x":2,"size_y":2}]]'
+    jsonDefinition: '[{"id":1700,"name":"tititabonita3","widgets":[{"directive":"overview-bar","attrs":"mini","col":1,"row":1,"size_x":2,"size_y":2},{"directive":"article-stream","col":1,"row":3,"size_x":2,"size_y":10}],"editName":null} ]'
 	})
 		.expectStatus(204)
-		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of dashboard<<<<<=====')})
-		.afterJSON(function(json) {
-		 var id = id
-		 }).toss();
+		.toss();
