@@ -12,7 +12,6 @@ var configuration = JSON.parse(
 	);
 	
 var xURL = configuration.xURL;
-var restQuery = configuration.restQuery;
 var restTopic = configuration.restTopic;
 require('../Q_API_TESTSUITE_spec.js');
 var id = json.id

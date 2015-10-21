@@ -1,0 +1,4 @@
+{
+ "INGEST_URL": "https://stage-dnapi.attensity.com",
+ "restPipeline" : "/sidekick-pipeline/rest"
+}
