@@ -1,5 +1,5 @@
 /* jasmine-node Q_API_TEST_AlertTypes_spec.js
-   ARTSA-3862
+   ARTSA-5019
    Updated on October 19, 2015 */
 
 var frisby = require('frisby')

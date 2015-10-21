@@ -153,19 +153,19 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_AggregateDemographicsLocationMentions_spec.js'); */
 	
 	//Topic//
-    //require('./Topic_Manager/Q_API_TEST_TopicList_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_TopicReport_spec.js');
+    require('./Topic_Manager/Q_API_TEST_TopicList_spec.js');
+	require('./Topic_Manager/Q_API_TEST_TopicReport_spec.js');
 	require('./Topic_Manager/Q_API_TEST_UpdateTopicAlert_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_GET_TopicID_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_PUT_TopicID_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_TopicNameUnique_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_TopicNameNOTUnique_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_TopicSanityChecker_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_TopicEdit_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_TopicAuditTrail_spec.js'); 
-	//require('./Topic_Manager/Q_API_TEST_Get_TOPICDataSource_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_DataSourceUI_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_CreateDatasource_spec.js'); //Sub-Test Scripts: GET Dashboard ID; DELETE Dashboard ID//
+	require('./Topic_Manager/Q_API_TEST_GET_TopicID_spec.js');
+	require('./Topic_Manager/Q_API_TEST_PUT_TopicID_spec.js');
+	require('./Topic_Manager/Q_API_TEST_TopicNameUnique_spec.js');
+	require('./Topic_Manager/Q_API_TEST_TopicNameNOTUnique_spec.js');
+	require('./Topic_Manager/Q_API_TEST_TopicSanityChecker_spec.js');
+	require('./Topic_Manager/Q_API_TEST_TopicEdit_spec.js');
+	require('./Topic_Manager/Q_API_TEST_TopicAuditTrail_spec.js'); 
+	require('./Topic_Manager/Q_API_TEST_Get_TOPICDataSource_spec.js');
+	require('./Topic_Manager/Q_API_TEST_DataSourceUI_spec.js');
+	require('./Topic_Manager/Q_API_TEST_CreateDatasource_spec.js'); //Sub-Test Scripts: GET Dashboard ID; DELETE Dashboard ID//
 	
 	//require('./Topic_Manager/Q_API_TEST_Get_TOPICDataSourceID_spec.js');
 	require('./Topic_Manager/Q_API_TEST_TopicDelete_spec.js');

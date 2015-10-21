@@ -8,7 +8,7 @@
  "restTopic" : "/sidekick-topic/rest/topic",
  "restQuery" : "/sidekick-articles-qx/rest/query",
  "restAggregate" : "/sidekick-articles-qx/rest/query/aggregate",
- "restDash" : "/sidekick-dashboard/rest",
+ "restDash" : "/sidekick-dashboard /rest",
  "accountService" : "/sidekick-account/rest/account",
  "accountAuthService" : "/sidekick-account/rest/accountauth",
  "accountUserService" : "/sidekick-account/rest/user/account",

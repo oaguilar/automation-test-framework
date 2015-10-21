@@ -1,5 +1,5 @@
-/* jasmine-node Q_API_TEST_Get_TOPICDataSourceID_spec.js
-   ARTSA-xxxx
+/* jasmine-node Q_API_TEST_GET_TOPICDataSourceID_spec.js
+   ARTSA-5009
    Updated on October 21, 2015 */
 
 var frisby = require('frisby');

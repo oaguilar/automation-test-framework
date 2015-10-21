@@ -1,5 +1,5 @@
 /* jasmine-node Q_API_TEST_TopicReport_spec.js
-   ARTSA-xxxx
+   ARTSA-5012
    Updated on October 21, 2015 */
 
 var frisby = require('frisby');
@@ -16,8 +16,8 @@ var restTopic = configuration.restTopic;
 var topic = configuration.autoLongRunTopicID;
 
 	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-	frisby.create('Topic Report' + '/topicreport')
-		.get(xURL + restTopic)  
+	frisby.create('Topic Report')
+		.get(xURL + restTopic + '/topicreport')  
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of Topic Report<<<<<=====')})

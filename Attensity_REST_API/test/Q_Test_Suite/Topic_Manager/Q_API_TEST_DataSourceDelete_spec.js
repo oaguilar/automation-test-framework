@@ -1,5 +1,5 @@
 /* jasmine-node Q_API_TEST_DataSourceDelete_spec.js
-   ARTSA-xxxx
+   ARTSA-5006
    Updated on October 21, 2015 */
 
 var frisby = require('frisby');

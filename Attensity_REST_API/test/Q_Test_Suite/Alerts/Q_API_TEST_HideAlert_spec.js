@@ -1,5 +1,5 @@
 /* jasmine-node Q_API_TEST_HideAlert_spec.js
-   ARTSA-3861
+   ARTSA-5015
    Updated on October 19, 2015 */
 
 var frisby = require('frisby')
