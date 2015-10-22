@@ -1,4 +1,4 @@
-/* jasmine-node Q_API_TEST_QUSERAUTH_LOGIN_spec.js 
+/* jasmine-node Q_API_TEST_UserAuth_spec.js 
    ARTSA-xxxx
    Updated on October 21, 2015 */
 
@@ -24,7 +24,7 @@ var autoPassword = credentials.autoPassword;
 var autoAccountName = credentials.autoAccountName;
 
 //Verifies Attensity Q Username & Password is valid; Login Failed = false// 	
-    frisby.create('Account User Valid Login')
+    frisby.create('User Auth')
 		.post(xURL + restUser +  '/auth',
 		{
 		  username: autoUsername,
@@ -34,5 +34,9 @@ var autoAccountName = credentials.autoAccountName;
 		.expectStatus(200)
 		.expectJSON({loginFailed: false})
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of Account User Valid Login<<<<<=====')})
-		.toss();
+		.after(function() {console.log('=====>>>>>End Of User Auth<<<<<=====')})
+				.afterJSON(function(json) {
+		var id = json.id
+		//require('./Q_API_TEST_GET_UserAuthID_spec.js');
+		//require('/Q_API_TEST_DELETE_UserAuthID_spec.js');
+		}).toss();

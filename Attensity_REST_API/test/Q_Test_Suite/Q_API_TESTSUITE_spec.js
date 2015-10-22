@@ -26,7 +26,6 @@ var restTopic = configuration.restTopic;
 var TOPIC_ID = -1
 var TOPIC_NM = 'Topic Create through API NODE.JS'
 
-
 //Generates UToken for User//
 	frisby.create('UToken - User')
 		.post(xURL + restUser + '/auth',
@@ -67,7 +66,7 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 				{
 					extraction: 'ENTITY',
 					type: 'COMPANY',
-					text: 'Apple',
+					text: 'Yahoo',
 					alias: 'Company'
 				}
 					],
@@ -152,31 +151,43 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_AggregateCompanySentimentSentiment_spec.js');
 	require('./Q_API_TEST_AggregateDemographicsLocationMentions_spec.js'); */
 	
-	//Topic//
-    require('./Topic_Manager/Q_API_TEST_TopicList_spec.js');
+	//Topic_Manager//
+/*     require('./Topic_Manager/Q_API_TEST_TopicList_spec.js');
 	require('./Topic_Manager/Q_API_TEST_TopicReport_spec.js');
 	require('./Topic_Manager/Q_API_TEST_UpdateTopicAlert_spec.js');
 	require('./Topic_Manager/Q_API_TEST_GET_TopicID_spec.js');
-	require('./Topic_Manager/Q_API_TEST_PUT_TopicID_spec.js');
-	require('./Topic_Manager/Q_API_TEST_TopicNameUnique_spec.js');
-	require('./Topic_Manager/Q_API_TEST_TopicNameNOTUnique_spec.js');
-	require('./Topic_Manager/Q_API_TEST_TopicSanityChecker_spec.js');
+	require('./Topic_Manager/Q_API_TEST_PUT_TopicID_spec.js'); */
+	//require('./Topic_Manager/Q_API_TEST_TopicNameUnique_spec.js');
+	//require('./Topic_Manager/Q_API_TEST_TopicNameNOTUnique_spec.js');
+/* 	require('./Topic_Manager/Q_API_TEST_TopicSanityChecker_spec.js');
 	require('./Topic_Manager/Q_API_TEST_TopicEdit_spec.js');
 	require('./Topic_Manager/Q_API_TEST_TopicAuditTrail_spec.js'); 
 	require('./Topic_Manager/Q_API_TEST_Get_TOPICDataSource_spec.js');
 	require('./Topic_Manager/Q_API_TEST_DataSourceUI_spec.js');
-	require('./Topic_Manager/Q_API_TEST_CreateDatasource_spec.js'); //Sub-Test Scripts: GET Dashboard ID; DELETE Dashboard ID//
+	require('./Topic_Manager/Q_API_TEST_CreateDatasource_spec.js'); */ //Sub-Test Scripts: GET Dashboard ID; DELETE Dashboard ID//
 	
 	//require('./Topic_Manager/Q_API_TEST_Get_TOPICDataSourceID_spec.js');
 	require('./Topic_Manager/Q_API_TEST_TopicDelete_spec.js');
 	
-	//User Login Authorization//
-/* 	require('./Q_API_TEST_UserUniqueFALSE_spec.js');
-	require('./Q_API_TEST_UserUniqueTRUE_spec.js');
-	require('./Q_API_TEST_UsernameInvalid_spec.js');
-	require('./Q_API_TEST_PasswordInvalid_spec.js');
-	require('./Q_API_TEST_AccountInvalid_spec.js');
-	require('./Q_API_TEST_AccountUserValidLogin_spec.js'); */
+	//User_Manager//
+	//require('./User_Manager/Q_API_TEST_POST_UserProfile_spec.js');
+	//require('./User_Manager/Q_API_TEST_PUT_UserProfileID_spec.js');
+	//require('./User_Manager/Q_API_TEST_POST_UserProfilePassword_spec.js');
+	//require('./User_Manager/Q_API_TEST_POST_UserProfilePasswordx_spec.js'); //reverse is back to previous password//
+	require('./User_Manager/Q_API_TEST_GET_User_spec.js');
+	require('./User_Manager/Q_API_TEST_GET_UserID_spec.js');
+/* 	require('./User_Manager/Q_API_TEST_UserUniqueFALSE_spec.js');
+	require('./User_Manager/Q_API_TEST_UserUniqueTRUE_spec.js');
+	require('./User_Manager/Q_API_TEST_UsernameInvalid_spec.js');*/
+	//require('./User_Manager/Q_API_TEST_UserAuth_spec.js'); //Sub-Test Scripts: Q_API_TEST_GET_UserAuthID_spec.js//
+	//require('./User_Manager/Q_API_TEST_GET_UserAuthID_spec.js');
+	//require('./User_Manager/Q_API_TEST_GET_UserAuth_spec.js');
+	require('./User_Manager/Q_API_TEST_DELETE_UserAuthID_spec.js');
 	
+	
+	
+
 	}).toss();
 }).toss();
+	
+	//require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
