@@ -152,7 +152,7 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Q_API_TEST_AggregateDemographicsLocationMentions_spec.js'); */
 	
 	//Topic_Manager//
-/*     require('./Topic_Manager/Q_API_TEST_TopicList_spec.js');
+/*  require('./Topic_Manager/Q_API_TEST_TopicList_spec.js');
 	require('./Topic_Manager/Q_API_TEST_TopicReport_spec.js');
 	require('./Topic_Manager/Q_API_TEST_UpdateTopicAlert_spec.js');
 	require('./Topic_Manager/Q_API_TEST_GET_TopicID_spec.js');
@@ -168,14 +168,15 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	
 	//require('./Topic_Manager/Q_API_TEST_Get_TOPICDataSourceID_spec.js');
 	require('./Topic_Manager/Q_API_TEST_TopicDelete_spec.js');
+	//require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
 	
 	//User_Manager//
 	//require('./User_Manager/Q_API_TEST_POST_UserProfile_spec.js');
 	//require('./User_Manager/Q_API_TEST_PUT_UserProfileID_spec.js');
 	//require('./User_Manager/Q_API_TEST_POST_UserProfilePassword_spec.js');
 	//require('./User_Manager/Q_API_TEST_POST_UserProfilePasswordx_spec.js'); //reverse is back to previous password//
-	require('./User_Manager/Q_API_TEST_GET_User_spec.js');
-	require('./User_Manager/Q_API_TEST_GET_UserID_spec.js');
+	//require('./User_Manager/Q_API_TEST_GET_User_spec.js');
+	//require('./User_Manager/Q_API_TEST_GET_UserID_spec.js');
 /* 	require('./User_Manager/Q_API_TEST_UserUniqueFALSE_spec.js');
 	require('./User_Manager/Q_API_TEST_UserUniqueTRUE_spec.js');
 	require('./User_Manager/Q_API_TEST_UsernameInvalid_spec.js');*/
@@ -184,10 +185,8 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	//require('./User_Manager/Q_API_TEST_GET_UserAuth_spec.js');
 	require('./User_Manager/Q_API_TEST_DELETE_UserAuthID_spec.js');
 	
-	
-	
-
 	}).toss();
+	require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
 }).toss();
 	
-	//require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
+	

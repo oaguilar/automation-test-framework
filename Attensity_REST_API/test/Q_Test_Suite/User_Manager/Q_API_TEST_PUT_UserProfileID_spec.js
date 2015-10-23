@@ -26,8 +26,8 @@ var autoAccountName = credentials.autoAccountName;
 var automationAccountID = credentials.automationAccountID;
 
     frisby.create('PUT User Profile ID')
-		.put(xURL + restUser + '/profile/100452',
-{
+	.put(xURL + restUser + '/profile/100452',
+	{	
     username: autoUsername,
     email: 'oaguilar@attensity.com',
     apikey: '853c3fda',
