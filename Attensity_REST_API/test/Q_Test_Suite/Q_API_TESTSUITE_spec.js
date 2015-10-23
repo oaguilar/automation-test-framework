@@ -109,48 +109,46 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Alerts/Q_API_TEST_AlertTypes_spec.js');
 	require('./Alerts/Q_API_TEST_DismissAlert_spec.js');
 	require('./Alerts/Q_API_TEST_HideAlert_spec.js'); */
-	//require('./Alerts/
-
 	
 	//Dashboards//
-	//require('./Dashboards/Q_API_TEST_Dashboards_spec.js');
-	//require('./Dashboards/Q_API_TEST_DashboardsIncludeWidgets_spec.js');
-	//require('./Dashboards/Q_API_TEST_DashboardId_spec.js');
-	//require('./Dashboards/Q_API_TEST_Dashboard_spec.js');
-	//require('./Dashboards/Q_API_TEST_DashboardDelete_spec.js');
-	//require('./Dashboards/Templates/Q_API_TEST_GET_DashboardTemplates_spec.js');
-	//require('./Dashboards/Templates/Q_API_TEST_POST_DashboardTemplates_spec.js');
-	//require('./Dashboards/Topic_Dashboard/Q_API_TEST_TopicDashboards_spec.js');
-	//require('./Dashboards/Topic_Dashboard/Q_API_TEST_POST_TopicDashboard_spec.js');
+/* 	require('./Dashboards/Q_API_TEST_Dashboards_spec.js');
+	require('./Dashboards/Q_API_TEST_DashboardsIncludeWidgets_spec.js');
+	require('./Dashboards/Q_API_TEST_DashboardId_spec.js');  */
+	//require('./Dashboards/Q_API_TEST_Dashboard_spec.js'); //Sub-Test Scripts: Q_API_TEST_DashboardDelete_spec.js//
+/* 	require('./Dashboards/Templates/Q_API_TEST_GET_DashboardTemplates_spec.js');
+	require('./Dashboards/Templates/Q_API_TEST_POST_DashboardTemplates_spec.js'); */
+/* 	require('./Dashboards/Q_API_TEST_TopicDashboards_spec.js');
+	require('./Dashboards/Q_API_TEST_POST_TopicDashboard_spec.js'); */
 
 	//Article Query//
 	//require('./Q_API_TEST_EntitySentiment_spec.js');
-/* 	require('./Q_API_TEST_FiltersGenderExample_spec.js');
-	require('./Q_API_TEST_TopicMetrics_spec.js');
-	require('./Q_API_TEST_TimeSeries_spec.js');
-	require('./Q_API_TEST_TSRelevantArticles_spec.js');
-	require('./Q_API_TEST_Aggregate_spec.js');
-	require('./Q_API_TEST_Volatility_spec.js');
-	require('./Q_API_TEST_Trends_spec.js');
-	require('./Q_API_TEST_Details_spec.js');
-	require('./Q_API_TEST_Clusters_spec.js');
-	require('./Q_API_TEST_FieldsMap_spec.js'); */
+	//require('./Article_Query/Q_API_TEST_StreamDetails_spec.js');
+/* 	require('./Article_Query/Q_API_TEST_FiltersGenderExample_spec.js');
+	require('./Article_Query/Q_API_TEST_TopicMetrics_spec.js');
+	require('./Article_Query/Q_API_TEST_TimeSeries_spec.js');
+	require('./Article_Query/Q_API_TEST_TSRelevantArticles_spec.js');
+	require('./Article_Query/Q_API_TEST_Aggregate_spec.js');
+	require('./Article_Query/Q_API_TEST_Volatility_spec.js');
+	require('./Article_Query/Q_API_TEST_Trends_spec.js');
+	require('./Article_Query/Q_API_TEST_Details_spec.js');
+	require('./Article_Query/Q_API_TEST_Clusters_spec.js');
+	require('./Article_Query/Q_API_TEST_FieldsMap_spec.js'); */
 	//require('./Q_API_TEST_TopicDelete_spec.js');
-	//require('./Q_API_TEST_StreamDetails_spec.js');
+
 	
 	//Article Query AGG//
-/* 	require('./Q_API_TEST_AggregateOverviewSources_spec.js');
-	require('./Q_API_TEST_AggregateSentimentRatio_spec.js');
-	require('./Q_API_TEST_AggregateOverviewLocationMentions_spec.js');
-	require('./Q_API_TEST_AggregateReach_spec.js');
-	require('./Q_API_TEST_AggregateImpressions_spec.js');
-	require('./Q_API_TEST_AggregateFollowers_spec.js');
-	require('./Q_API_TEST_AggregateDemographicsLocationTopLevel_spec.js');
-	require('./Q_API_TEST_AggregateDemographicsLocationDrillDown_spec.js');
-	require('./Q_API_TEST_AggregateDemographicsGender_spec.js');
-	require('./Q_API_TEST_AggregateCompanySentimentSentiment_spec.js');
-	require('./Q_API_TEST_AggregateDemographicsLocationMentions_spec.js'); */
-	
+	require('./Article_Query/Q_API_TEST_AggregateOverviewSources_spec.js');
+/* 	require('./Article_Query/Q_API_TEST_AggregateSentimentRatio_spec.js');
+	require('./Article_Query/Q_API_TEST_AggregateOverviewLocationMentions_spec.js');
+	require('./Article_Query/Q_API_TEST_AggregateReach_spec.js');
+	require('./Article_Query/Q_API_TEST_AggregateImpressions_spec.js');
+	require('./Article_Query/Q_API_TEST_AggregateFollowers_spec.js');
+	require('./Article_Query/Q_API_TEST_AggregateDemographicsLocationTopLevel_spec.js');
+	require('./Article_Query/Q_API_TEST_AggregateDemographicsLocationDrillDown_spec.js');
+	require('./Article_Query/Q_API_TEST_AggregateDemographicsGender_spec.js');
+	require('./Article_Query/Q_API_TEST_AggregateCompanySentimentSentiment_spec.js');
+	require('./Article_Query/Q_API_TEST_AggregateDemographicsLocationMentions_spec.js');
+	 */
 	//Topic_Manager//
 /*  require('./Topic_Manager/Q_API_TEST_TopicList_spec.js');
 	require('./Topic_Manager/Q_API_TEST_TopicReport_spec.js');
@@ -183,10 +181,10 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	//require('./User_Manager/Q_API_TEST_UserAuth_spec.js'); //Sub-Test Scripts: Q_API_TEST_GET_UserAuthID_spec.js//
 	//require('./User_Manager/Q_API_TEST_GET_UserAuthID_spec.js');
 	//require('./User_Manager/Q_API_TEST_GET_UserAuth_spec.js');
-	require('./User_Manager/Q_API_TEST_DELETE_UserAuthID_spec.js');
+	//require('./User_Manager/Q_API_TEST_DELETE_UserAuthID_spec.js');
 	
 	}).toss();
-	require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
+	//require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
 }).toss();
 	
 	

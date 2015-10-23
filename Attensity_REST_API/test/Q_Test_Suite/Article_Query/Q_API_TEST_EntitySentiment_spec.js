@@ -22,7 +22,7 @@ var autoLongRunTopicID = configuration.autoLongRunTopicID;
 var dataSourceIdField1 = configuration.dataSourceIdField1;
 var dataSourceIdField2 = configuration.dataSourceIdField2;
 var restQuery = configuration.restQuery;
-require('./Q_API_TESTSUITE_spec.js');
+require('../Q_API_TESTSUITE_spec.js');
 var id = json.id
 
     frisby.create('entitysentiment')

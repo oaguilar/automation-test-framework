@@ -12,11 +12,10 @@ var configuration = JSON.parse(
 var xURL = configuration.xURL;
 var restDash = configuration.restDash;
 require('./Q_API_TEST_Dashboard_spec.js');
-var id = id
+var id = json.id
 
     frisby.create('dashboard Delete')
-		.delete(xURL + restDash + '/dashboards' + '/'+ id)
+		.delete(xURL + restDash + '/dashboards/'+ id)
 		.expectStatus(200)
-		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of dashboard Delete<<<<<=====')})
 		.toss();

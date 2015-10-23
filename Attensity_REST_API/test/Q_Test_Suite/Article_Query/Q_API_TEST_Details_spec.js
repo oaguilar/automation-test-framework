@@ -18,7 +18,7 @@ var END_DT = em.unix()
 var LIMIT = 10
 var xURL = configuration.xURL;
 var restQuery = configuration.restQuery;
-require('./Q_API_TESTSUITE_spec.js');
+require('../Q_API_TESTSUITE_spec.js');
 var id = json.id
 
 	frisby.create('details')

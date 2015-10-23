@@ -47,4 +47,7 @@ var restDash = configuration.restDash;
 		.expectStatus(200)
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of [POST]dashboard templates<<<<<=====')})
-		.toss();
+		.afterJSON(function(json) {
+		 var id = json.id
+		 require('./Q_API_TEST_DashboardTemplateDelete_spec.js');
+		 }).toss();
