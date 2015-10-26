@@ -1,4 +1,4 @@
-/* jasmine-node Q_API_TEST_ACCOUNTAUTH_spec.js */
+/* jasmine-node BO_API_TEST_GetAccountAuthSession_spec.js */
 
 var frisby = require('frisby');
 var fs, configurationFile;

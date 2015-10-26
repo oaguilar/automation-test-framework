@@ -1,4 +1,4 @@
-/* jasmine-node Q_API_TEST_Dashboard_spec.js
+/* jasmine-node Q_API_TEST_POST_TopicDashboard_spec.js
    ARTSA-3835
    Updated on October 19, 2015 */
 

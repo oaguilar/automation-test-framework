@@ -1,5 +1,5 @@
-/* jasmine-node Q_API_TEST_GET_DashboardTemplates_spec.js
-   ARTSA-3834
+/* jasmine-node Q_API_TEST_DashboardDelete_spec.js
+   ARTSA-3838
    Updated on October 19, 2015 */
 
 var frisby = require('frisby')
@@ -11,10 +11,12 @@ var configuration = JSON.parse(
 	);
 var xURL = configuration.xURL;
 var restDash = configuration.restDash;
+require('./Q_API_TEST_POST_Dashboard_spec.js');
+var id = id
 
-    frisby.create('dashboard templates')
-		.get(xURL + restDash + '/dashboards/templates')
+    frisby.create('dashboard Delete')
+		.delete(xURL + restDash + '/dashboards/' + id)
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of dashboard templates<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of dashboard Delete<<<<<=====')})
 		.toss();

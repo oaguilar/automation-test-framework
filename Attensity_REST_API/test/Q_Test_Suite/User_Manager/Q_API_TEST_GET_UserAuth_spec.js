@@ -1,5 +1,5 @@
 /* jasmine-node Q_API_TEST_GET_UserAuth_spec.js 
-   ARTSA-xxxx
+   ARTSA-5064
    Updated on October 21, 2015 */
 
 var frisby = require('frisby')

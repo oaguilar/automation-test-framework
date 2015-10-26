@@ -1,4 +1,4 @@
-/* jasmine-node Q_API_TEST_ACCOUNT_spec.js */
+/* jasmine-node BO_API_TEST_DeleteAccount_spec.js */
 //This test creates an edits an account repeatedly, testing all supported accountType, accountLanguage, maxTopicLimit, and maxTopicVolume values.
 
 var frisby = require('frisby');

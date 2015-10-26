@@ -1,4 +1,4 @@
-/* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js */
+/* jasmine-node Q_API_TEST_Aggregate_spec.js */
 /* Updated on April 20, 2015 */
 
 var frisby = require('frisby')

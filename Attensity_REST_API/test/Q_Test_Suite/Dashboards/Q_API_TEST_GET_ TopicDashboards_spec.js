@@ -1,5 +1,5 @@
-/* jasmine-node Q_API_TEST_GET_DashboardTemplates_spec.js
-   ARTSA-3834
+/* jasmine-node Q_API_TEST_GET_ TopicDashboards_spec.js
+   ARTSA-4260
    Updated on October 19, 2015 */
 
 var frisby = require('frisby')
@@ -11,10 +11,12 @@ var configuration = JSON.parse(
 	);
 var xURL = configuration.xURL;
 var restDash = configuration.restDash;
+require('../Q_API_TESTSUITE_spec.js');
+var id = json.id
 
-    frisby.create('dashboard templates')
-		.get(xURL + restDash + '/dashboards/templates')
+    frisby.create('topic-dashboards')
+		.get(xURL + restDash + '/dashboards/topic-dashboards/' + id)
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of dashboard templates<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of topic-dashboards<<<<<=====')})
 		.toss();

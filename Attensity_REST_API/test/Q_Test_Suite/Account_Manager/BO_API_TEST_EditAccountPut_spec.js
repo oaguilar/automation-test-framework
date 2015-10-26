@@ -1,4 +1,4 @@
-/* jasmine-node Q_API_TEST_ACCOUNT_spec.js */
+/* jasmine-node BO_API_TEST_EditAccountPut_spec.js */
 
 var frisby = require('frisby');
 var moment = require('moment');

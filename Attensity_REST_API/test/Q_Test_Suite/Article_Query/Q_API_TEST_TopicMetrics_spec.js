@@ -1,4 +1,4 @@
-/* jasmine-node Q_API_TEST_ARTICLEQUERY_spec.js
+/* jasmine-node Q_API_TEST_TopicMetrics_spec.js
    ARTSA-4991
    Updated on April 20, 2015 */
 

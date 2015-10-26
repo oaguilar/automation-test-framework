@@ -1,4 +1,4 @@
-/* jasmine-node Q_API_TEST_USERAUTH_LOGIN_spec.js */
+/* jasmine-node BO_API_TEST_AccountAuthLogin_spec.js */
 /* https://jira.attensity.com/browse/CO-42 */
 
 var frisby = require('frisby')
