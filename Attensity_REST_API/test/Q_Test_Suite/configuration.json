@@ -1,0 +1,18 @@
+ {
+	 "xURL" : "https://stage-q.attensity.com",
+	 "xURL_AUTH" : "http://stage-q-admin.attensity.com",
+	 "xBO_URL"  : "http://stage-q01.attensity.stg:8080",
+	 "xBO_AUTH_URL": "http://stage-q-admin.attensity.com/",
+	 "restAccount" : "/sidekick-account/rest/",
+	 "restAlerts" : "/sidekick-alerts/rest/",
+	 "restArticles" : "/sidekick-articles-qx/rest/",
+	 "restCategorization" : "/sidekick-categorization/rest/",
+	 "restDashboard" : "/sidekick-dashboard/rest",
+	 "restInternal" : "/sidekick-internal/rest/",
+	 "restKermit" : "/sidekick-kermit/rest/",
+	 "restLocator" : "/sidekick-locator/rest/",
+	 "restPipeline" : "/sidekick-pipeline/rest/",
+	 "restPRM" : "/sidekick-prm/rest/",
+	 "restTopic" : "/sidekick-topic/rest/",
+	 "restUser" : "/sidekick-user/rest/"
+ }

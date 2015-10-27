@@ -169,7 +169,7 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Topic_Manager/Q_API_TEST_CreateDatasource_spec.js'); */ //Sub-Test Scripts: GET Dashboard ID; DELETE Dashboard ID//
 	
 	//require('./Topic_Manager/Q_API_TEST_Get_TOPICDataSourceID_spec.js');
-	require('./Topic_Manager/Q_API_TEST_TopicDelete_spec.js');
+	require('./Topic_Manager/DELETE_topicId_spec.js');
 	//require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
 	
 	//User_Manager//
