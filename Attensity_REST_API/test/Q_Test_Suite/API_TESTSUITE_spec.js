@@ -102,27 +102,17 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 //Q TESTSUITE//
 
 	//Alerts//
-/*  	require('./Alerts/GET_Alerts_accountAlerts_spec.js');
+/*  require('./Alerts/GET_Alerts_accountAlerts_spec.js');
 	require('./Alerts/GET_Alerts_allAlerts_spec.js');
 	require('./Alerts/GET_Alerts_alertTypes_spec.js');
 	require('./Alerts/PUT_Alerts_dismissAlert_spec.js');
 	require('./Alerts/PUT_ALerts_hideAlert_spec.js');
 	require('./Alerts/GET_Topic_topicAlerts_spec.js');
 	require('./Alerts/GET_Alerts_accountUser_spec.js'); */
-	
-	//Dashboards//
-/* 	require('./Dashboards/Q_API_TEST_Dashboards_spec.js');
-	require('./Dashboards/Q_API_TEST_DashboardsIncludeWidgets_spec.js');
-	require('./Dashboards/Q_API_TEST_DashboardId_spec.js');  */
-	//require('./Dashboards/Q_API_TEST_Dashboard_spec.js'); //Sub-Test Scripts: Q_API_TEST_DashboardDelete_spec.js//
-/* 	require('./Dashboards/Templates/Q_API_TEST_GET_DashboardTemplates_spec.js');
-	require('./Dashboards/Templates/Q_API_TEST_POST_DashboardTemplates_spec.js'); */
-/* 	require('./Dashboards/Q_API_TEST_TopicDashboards_spec.js');
-	require('./Dashboards/Q_API_TEST_POST_TopicDashboard_spec.js'); */
 
 	//Article Query//
 	//require('./Q_API_TEST_EntitySentiment_spec.js');
-	require('./Article_Query/POST_Articles_streamDetails_spec.js');
+/* 	require('./Article_Query/POST_Articles_streamDetails_spec.js');
  	require('./Article_Query/POST_Articles_filtersGenderExample_spec.js');
 	require('./Article_Query/GET_Articles_topicMetrics_spec.js');
 	require('./Article_Query/POST_Articles_timeSeries_spec.js');
@@ -144,30 +134,38 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Article_Query/POST_Articles_aggregateDemographicsGender_spec.js');
 	require('./Article_Query/POST_Articles_aggregateCompanySentimentSentiment_spec.js');
 	require('./Article_Query/POST_Articles_aggregateDemographicsLocationMentions_spec.js');
-	require('./Article_Query/POST_Articles_overviewBubbleChart_spec.js');
+	require('./Article_Query/POST_Articles_overviewBubbleChart_spec.js'); */
 	
-	
+	//Dashboards//
+/* 	require('./Dashboards/Q_API_TEST_Dashboards_spec.js');
+	require('./Dashboards/Q_API_TEST_DashboardsIncludeWidgets_spec.js');
+	require('./Dashboards/Q_API_TEST_DashboardId_spec.js');  */
+	//require('./Dashboards/Q_API_TEST_Dashboard_spec.js'); //Sub-Test Scripts: Q_API_TEST_DashboardDelete_spec.js//
+/* 	require('./Dashboards/Templates/Q_API_TEST_GET_DashboardTemplates_spec.js');
+	require('./Dashboards/Templates/Q_API_TEST_POST_DashboardTemplates_spec.js'); */
+/* 	require('./Dashboards/Q_API_TEST_TopicDashboards_spec.js');
+	require('./Dashboards/Q_API_TEST_POST_TopicDashboard_spec.js'); */
+
  
-	 
 	//Internal//
 	//require('./Internal/Q_API_TEST_InternalTopicStatus_spec.js');
 	
 	 
 	 
 	//Topic_Manager//
-/*  require('./Topic_Manager/Q_API_TEST_TopicList_spec.js');
-	require('./Topic_Manager/Q_API_TEST_TopicReport_spec.js');
-	require('./Topic_Manager/Q_API_TEST_UpdateTopicAlert_spec.js');
-	require('./Topic_Manager/Q_API_TEST_GET_TopicID_spec.js');
-	require('./Topic_Manager/Q_API_TEST_PUT_TopicID_spec.js'); */
-	//require('./Topic_Manager/Q_API_TEST_TopicNameUnique_spec.js');
-	//require('./Topic_Manager/Q_API_TEST_TopicNameNOTUnique_spec.js');
-/* 	require('./Topic_Manager/Q_API_TEST_TopicSanityChecker_spec.js');
-	require('./Topic_Manager/Q_API_TEST_TopicEdit_spec.js');
-	require('./Topic_Manager/Q_API_TEST_TopicAuditTrail_spec.js'); 
-	require('./Topic_Manager/Q_API_TEST_Get_TOPICDataSource_spec.js');
-	require('./Topic_Manager/Q_API_TEST_DataSourceUI_spec.js');
-	require('./Topic_Manager/Q_API_TEST_CreateDatasource_spec.js'); */ //Sub-Test Scripts: GET Dashboard ID; DELETE Dashboard ID//
+    require('./Topic_Manager/GET_Topic_articleQuery_spec.js');
+	require('./Topic_Manager/GET_Topic_topicReport_spec.js');
+	require('./Topic_Manager/POST_Topic_updateTopicAlert_spec.js');
+	require('./Topic_Manager/GET_Topic_topicId_spec.js');
+	require('./Topic_Manager/PUT_Topic_topicId_spec.js');
+	require('./Topic_Manager/POST_Topic_topicNameUnique_spec.js');
+	require('./Topic_Manager/POST_Topic_topicNameNOTUnique_spec.js');
+ 	require('./Topic_Manager/POST_Topic_topicSanityChecker_spec.js');
+	require('./Topic_Manager/POST_Topic_topicEdit_spec.js');
+	require('./Topic_Manager/GET_Topic_topicAuditTrail_spec.js'); 
+	require('./Topic_Manager/GET_Topic_topicDataSource_spec.js');
+	require('./Topic_Manager/GET_Topic_dataSourceUI_spec.js');
+	require('./Topic_Manager/POST_Topic_createDatasource_spec.js');  //Sub-Test Scripts: GET_Topic_topicDataSourceId_spec.js; DELETE_Topic_dataSource_spec.js//
 	
 	//require('./Topic_Manager/Q_API_TEST_Get_TOPICDataSourceID_spec.js');
 	require('./Topic_Manager/DELETE_topicId_spec.js');
