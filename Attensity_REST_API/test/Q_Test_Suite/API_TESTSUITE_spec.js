@@ -102,13 +102,13 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 //Q TESTSUITE//
 
 	//Alerts//
-/* 	require('./Alerts/Q_API_TEST_AccountAlerts_spec.js');
-	require('./Alerts/Q_API_TEST_TopicAlerts_spec.js');
-	require('./Alerts/Q_API_TEST_UserAlerts_spec.js');
-	require('./Alerts/Q_API_TEST_AllAlerts_spec.js');
-	require('./Alerts/Q_API_TEST_AlertTypes_spec.js');
-	require('./Alerts/Q_API_TEST_DismissAlert_spec.js');
-	require('./Alerts/Q_API_TEST_HideAlert_spec.js'); */
+/*  	require('./Alerts/GET_Alerts_accountAlerts_spec.js');
+	require('./Alerts/GET_Alerts_allAlerts_spec.js');
+	require('./Alerts/GET_Alerts_alertTypes_spec.js');
+	require('./Alerts/PUT_Alerts_dismissAlert_spec.js');
+	require('./Alerts/PUT_ALerts_hideAlert_spec.js');
+	require('./Alerts/GET_Topic_topicAlerts_spec.js');
+	require('./Alerts/GET_Alerts_accountUser_spec.js'); */
 	
 	//Dashboards//
 /* 	require('./Dashboards/Q_API_TEST_Dashboards_spec.js');
@@ -122,31 +122,32 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 
 	//Article Query//
 	//require('./Q_API_TEST_EntitySentiment_spec.js');
-	//require('./Article_Query/Q_API_TEST_StreamDetails_spec.js');
-/* 	require('./Article_Query/Q_API_TEST_FiltersGenderExample_spec.js');
-	require('./Article_Query/Q_API_TEST_TopicMetrics_spec.js');
-	require('./Article_Query/Q_API_TEST_TimeSeries_spec.js');
-	require('./Article_Query/Q_API_TEST_TSRelevantArticles_spec.js');
-	require('./Article_Query/Q_API_TEST_Aggregate_spec.js');
-	require('./Article_Query/Q_API_TEST_Volatility_spec.js');
-	require('./Article_Query/Q_API_TEST_Trends_spec.js');
-	require('./Article_Query/Q_API_TEST_Details_spec.js');
-	require('./Article_Query/Q_API_TEST_Clusters_spec.js');
-	require('./Article_Query/Q_API_TEST_FieldsMap_spec.js'); */
-
-	//Article Query AGG//
-	//require('./Article_Query/Q_API_TEST_AggregateOverviewSources_spec.js');
-/* 	require('./Article_Query/Q_API_TEST_AggregateSentimentRatio_spec.js');
-	require('./Article_Query/Q_API_TEST_AggregateOverviewLocationMentions_spec.js');
-	require('./Article_Query/Q_API_TEST_AggregateReach_spec.js');
-	require('./Article_Query/Q_API_TEST_AggregateImpressions_spec.js');
-	require('./Article_Query/Q_API_TEST_AggregateFollowers_spec.js');
-	require('./Article_Query/Q_API_TEST_AggregateDemographicsLocationTopLevel_spec.js');
-	require('./Article_Query/Q_API_TEST_AggregateDemographicsLocationDrillDown_spec.js');
-	require('./Article_Query/Q_API_TEST_AggregateDemographicsGender_spec.js');
-	require('./Article_Query/Q_API_TEST_AggregateCompanySentimentSentiment_spec.js');
-	require('./Article_Query/Q_API_TEST_AggregateDemographicsLocationMentions_spec.js');
-	 */
+	require('./Article_Query/POST_Articles_streamDetails_spec.js');
+ 	require('./Article_Query/POST_Articles_filtersGenderExample_spec.js');
+	require('./Article_Query/GET_Articles_topicMetrics_spec.js');
+	require('./Article_Query/POST_Articles_timeSeries_spec.js');
+	require('./Article_Query/POST_Articles_tsRelevantArticles_spec.js');
+	require('./Article_Query/POST_Articles_aggregate_spec.js');
+	require('./Article_Query/POST_Articles_volatility_spec.js');
+	require('./Article_Query/POST_Articles_trends_spec.js');
+	require('./Article_Query/POST_Articles_details_spec.js' );
+	require('./Article_Query/POST_Articles_clusters_spec.js');
+	require('./Article_Query/GET_Articles_fieldsMap_spec.js'); 
+	require('./Article_Query/POST_Articles_aggregateOverviewSources_spec.js');
+    require('./Article_Query/POST_Articles_aggregateSentimentRatio_spec.js');
+	require('./Article_Query/POST_Articles_aggregateOverviewLocationMentions_spec.js');
+	require('./Article_Query/POST_Articles_aggregateReach_spec.js');
+	require('./Article_Query/POST_Articles_aggregateImpressions_spec.js');
+	require('./Article_Query/POST_Articles_aggregateFollowers_spec.js');
+	require('./Article_Query/POST_Articles_aggregateDemographicsLocationTopLevel_spec.js');
+	require('./Article_Query/POST_Articles_aggregateDemographicsLocationDrillDown_spec.js');
+	require('./Article_Query/POST_Articles_aggregateDemographicsGender_spec.js');
+	require('./Article_Query/POST_Articles_aggregateCompanySentimentSentiment_spec.js');
+	require('./Article_Query/POST_Articles_aggregateDemographicsLocationMentions_spec.js');
+	require('./Article_Query/POST_Articles_overviewBubbleChart_spec.js');
+	
+	
+ 
 	 
 	//Internal//
 	//require('./Internal/Q_API_TEST_InternalTopicStatus_spec.js');
