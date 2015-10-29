@@ -7,7 +7,7 @@
 	 "restAlerts" : "/sidekick-alerts/rest/",
 	 "restArticles" : "/sidekick-articles-qx/rest/",
 	 "restCategorization" : "/sidekick-categorization/rest/",
-	 "restDashboard" : "/sidekick-dashboard/rest",
+	 "restDashboard" : "/sidekick-dashboard/rest/",
 	 "restInternal" : "/sidekick-internal/rest/",
 	 "restKermit" : "/sidekick-kermit/rest/",
 	 "restLocator" : "/sidekick-locator/rest/",

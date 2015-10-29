@@ -1,16 +1,24 @@
-/* jasmine-node Q_API_TEST_TopInfluencersDetails_spec.js
+/* jasmine-node POST_Articles_topInfluencersDetails_spec.js
    ARTSA-4995
    Updated on April 20, 2015 */
 
 var frisby = require('frisby')
 var moment = require('moment');
 var fs, configurationFile;
-	configurationFile = 'Q_configuration.json';
+	configurationFile = 'configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var sd = moment().subtract(14, 'days');
+
+var fs, configurationFile;
+	configurationFile = 'credentials.json';
+	fs = require('fs'); 
+var credentials = JSON.parse(
+    fs.readFileSync(configurationFile)
+	);	
+
+var sd = moment().subtract(714, 'days');
 var sm = moment.unix(sd);
 var ed = moment().add(14, 'days');
 var em = moment.unix(ed);
@@ -18,11 +26,11 @@ var START_DT = sm.unix()
 var END_DT = em.unix()
 var LIMIT = 10
 var xURL = configuration.xURL;
-var restQuery = configuration.restQuery;
-var topic = configuration.autoLongRunTopicID;
+var restArticles = configuration.restArticles;
+var topic = credentials.LongRunTopicID;
 
-	frisby.create('Top Influencers Details')
-		.post(xURL + restQuery + '/details',
+	frisby.create('POST Top Influencers Details')
+		.post(xURL + restArticles + 'query/details',
 		{ topicIDs:[topic], 
 		 limit:LIMIT,
          selectedFields:[
@@ -45,5 +53,5 @@ var topic = configuration.autoLongRunTopicID;
 		timeSlice:'HOUR'})
 		.expectStatus(200)
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of Top Influencers Details<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of POST Top Influencers Details<<<<<=====')})
 		.toss();

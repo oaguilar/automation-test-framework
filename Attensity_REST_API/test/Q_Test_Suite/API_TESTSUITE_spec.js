@@ -111,8 +111,9 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Alerts/GET_Alerts_accountUser_spec.js'); */
 
 	//Article Query//
-	//require('./Q_API_TEST_EntitySentiment_spec.js');
-/* 	require('./Article_Query/POST_Articles_streamDetails_spec.js');
+/*	require('./Article_Query/POST_Articles_entitySentiment_spec.js');
+	require('./Article_Query/POST_Articles_topInfluencersDetails_spec.js');
+ 	require('./Article_Query/POST_Articles_streamDetails_spec.js');
  	require('./Article_Query/POST_Articles_filtersGenderExample_spec.js');
 	require('./Article_Query/GET_Articles_topicMetrics_spec.js');
 	require('./Article_Query/POST_Articles_timeSeries_spec.js');
@@ -137,23 +138,21 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Article_Query/POST_Articles_overviewBubbleChart_spec.js'); */
 	
 	//Dashboards//
-/* 	require('./Dashboards/Q_API_TEST_Dashboards_spec.js');
-	require('./Dashboards/Q_API_TEST_DashboardsIncludeWidgets_spec.js');
-	require('./Dashboards/Q_API_TEST_DashboardId_spec.js');  */
-	//require('./Dashboards/Q_API_TEST_Dashboard_spec.js'); //Sub-Test Scripts: Q_API_TEST_DashboardDelete_spec.js//
-/* 	require('./Dashboards/Templates/Q_API_TEST_GET_DashboardTemplates_spec.js');
-	require('./Dashboards/Templates/Q_API_TEST_POST_DashboardTemplates_spec.js'); */
-/* 	require('./Dashboards/Q_API_TEST_TopicDashboards_spec.js');
-	require('./Dashboards/Q_API_TEST_POST_TopicDashboard_spec.js'); */
-
- 
+/*  	require('./Dashboards/GET_Dashboard_dashboards_spec.js');
+	require('./Dashboards/GET_Dashboard_dashboardsIncludeWidgets_spec.js');
+	require('./Dashboards/POST_Dashboard_createDashboard_spec'); //Sub-Test Scripts: GET_Dashboard_dashboardId_spec.js; DELETE_dashboard_spec.js//
+	require('./Dashboards/GET_Dashboard_dashboardTemplates_spec.js');
+ 	require('./Dashboards/POST_Dashboard_dashboardTemplates_spec.js'); //Sub-Test Scripts: DELETE_Dashboard_dashboardTemplate_spec.js//
+ 	require('./Dashboards/GET_Dashboard_topicDashboardId_spec.js');
+	require('./Dashboards/POST_Dashboard_dashboardId_spec.js');
+	require('./Dashboards/DELETE_Dashboard_dashboardId_spec.js'); */
+	
 	//Internal//
 	//require('./Internal/Q_API_TEST_InternalTopicStatus_spec.js');
-	
 	 
 	 
 	//Topic_Manager//
-    require('./Topic_Manager/GET_Topic_articleQuery_spec.js');
+/*  require('./Topic_Manager/GET_Topic_articleQuery_spec.js');
 	require('./Topic_Manager/GET_Topic_topicReport_spec.js');
 	require('./Topic_Manager/POST_Topic_updateTopicAlert_spec.js');
 	require('./Topic_Manager/GET_Topic_topicId_spec.js');
@@ -165,26 +164,27 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Topic_Manager/GET_Topic_topicAuditTrail_spec.js'); 
 	require('./Topic_Manager/GET_Topic_topicDataSource_spec.js');
 	require('./Topic_Manager/GET_Topic_dataSourceUI_spec.js');
-	require('./Topic_Manager/POST_Topic_createDatasource_spec.js');  //Sub-Test Scripts: GET_Topic_topicDataSourceId_spec.js; DELETE_Topic_dataSource_spec.js//
-	
-	//require('./Topic_Manager/Q_API_TEST_Get_TOPICDataSourceID_spec.js');
-	require('./Topic_Manager/DELETE_topicId_spec.js');
+	require('./Topic_Manager/POST_Topic_createDatasource_spec.js');  //Sub-Test Scripts: GET_Topic_topicDataSourceId_spec.js; DELETE_Topic_dataSource_spec.js// */
+	require('./Topic_Manager/DELETE_topicId_spec.js'); 
 	//require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
 	
 	//User_Manager//
-	//require('./User_Manager/Q_API_TEST_POST_UserProfile_spec.js');
-	//require('./User_Manager/Q_API_TEST_PUT_UserProfileID_spec.js');
-	//require('./User_Manager/Q_API_TEST_POST_UserProfilePassword_spec.js');
-	//require('./User_Manager/Q_API_TEST_POST_UserProfilePasswordx_spec.js'); //reverse is back to previous password//
-	//require('./User_Manager/Q_API_TEST_GET_User_spec.js');
-	//require('./User_Manager/Q_API_TEST_GET_UserID_spec.js');
-/* 	require('./User_Manager/Q_API_TEST_UserUniqueFALSE_spec.js');
-	require('./User_Manager/Q_API_TEST_UserUniqueTRUE_spec.js');
-	require('./User_Manager/Q_API_TEST_UsernameInvalid_spec.js');*/
-	//require('./User_Manager/Q_API_TEST_UserAuth_spec.js'); //Sub-Test Scripts: Q_API_TEST_GET_UserAuthID_spec.js//
-	//require('./User_Manager/Q_API_TEST_GET_UserAuthID_spec.js');
-	//require('./User_Manager/Q_API_TEST_GET_UserAuth_spec.js');
-	//require('./User_Manager/Q_API_TEST_DELETE_UserAuthID_spec.js');
+	require('./User_Manager/POST_User_userProfile_spec.js');
+	require('./User_Manager/PUT_User_userProfileID_spec.js');
+	require('./User_Manager/POST_User_userProfilePassword_spec.js');
+	require('./User_Manager/POST_User_userProfilePasswordx_spec.js'); //reverses the password back to its previous password//
+	require('./User_Manager/GET_User_user_spec.js');
+	require('./User_Manager/GET_User_userId_spec.js');
+ 	require('./User_Manager/POST_User_userUniqueFALSE_spec.js');
+	require('./User_Manager/POST_User_userUniqueTRUE_spec.js');
+	require('./User_Manager/POST_User_usernameInvalid_spec.js');
+	require('./User_Manager/POST_User_userAuth_spec.js');
+	require('./User_Manager/GET_User_userAuthId_spec.js');
+	require('./User_Manager/GET_User_userAuth_spec.js');
+	require('./User_Manager/DELETE_User_userAuthId_spec.js');
+	require('./User_Manager/POST_User_invalidUserAuth_spec.js');
+	require('./User_Manager/POST_User_invalidUserPassword_spec.js');
+	require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
 	
 
 	

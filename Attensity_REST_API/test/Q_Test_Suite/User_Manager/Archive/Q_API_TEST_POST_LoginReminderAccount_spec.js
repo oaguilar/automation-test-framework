@@ -5,7 +5,7 @@
 var frisby = require('frisby')
 
 var fs, configurationFile;
-	configurationFile = './configuration.json';
+	configurationFile = '../Q_configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
