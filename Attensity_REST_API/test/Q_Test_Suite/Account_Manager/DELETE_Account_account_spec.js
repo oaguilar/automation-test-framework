@@ -1,23 +1,23 @@
-/* jasmine-node BO_API_TEST_DeleteAccount_spec.js */
+/* jasmine-node DELETE_Account_account_spec.js */
 //This test creates an edits an account repeatedly, testing all supported accountType, accountLanguage, maxTopicLimit, and maxTopicVolume values.
 
 var frisby = require('frisby');
 var moment = require('moment');
 var fs, configurationFile;
-	configurationFile = 'BO_configuration.json';
+	configurationFile = 'configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
 	
-var BackofficeQA = configuration.BackofficeQA;
-var accountService = configuration.accountService;
-require('./BCKOFFC_API_TESTSUITE_spec.js');
+var xBO_AUTH_URL = configuration.xBO_AUTH_URL;
+var restAccount = configuration.restAccount;
+require('../BO_API_TESTSUITE_spec.js');
 var id = json.id
 
-frisby.create('Delete Account')
+frisby.create('DELETE Account')
 //Deletes account created during test
-	.delete(BackofficeQA + accountService + '/' + json.id)
+	.delete(xBO_AUTH_URL + restAccount + 'account/' + json.id)
 	.expectStatus(200)
-	.after(function() {console.log('=====>>>>>End Of Delete Account<<<<<=====')})
+	.after(function() {console.log('=====>>>>>End Of DELETE Account<<<<<=====')})
 	.toss();

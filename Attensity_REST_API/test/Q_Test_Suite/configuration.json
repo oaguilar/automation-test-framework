@@ -2,7 +2,7 @@
 	 "xURL" : "https://stage-q.attensity.com",
 	 "xURL_AUTH" : "http://stage-q-admin.attensity.com",
 	 "xBO_URL"  : "http://stage-q01.attensity.stg:8080",
-	 "xBO_AUTH_URL": "http://stage-q-admin.attensity.com/",
+	 "xBO_AUTH_URL": "http://stage-q-admin.attensity.com",
 	 "restAccount" : "/sidekick-account/rest/",
 	 "restAlerts" : "/sidekick-alerts/rest/",
 	 "restArticles" : "/sidekick-articles-qx/rest/",
