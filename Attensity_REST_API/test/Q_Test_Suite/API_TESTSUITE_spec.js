@@ -166,12 +166,21 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./Topic_Manager/GET_Topic_topicAuditTrail_spec.js'); 
 	require('./Topic_Manager/GET_Topic_topicDataSource_spec.js');
 	require('./Topic_Manager/GET_Topic_dataSourceUI_spec.js');
+<<<<<<< HEAD
 	require('./Topic_Manager/POST_Topic_createDatasource_spec.js');  //Sub-Test Scripts: GET_Topic_topicDataSourceId_spec.js; DELETE_Topic_dataSource_spec.js//
+=======
+	require('./Topic_Manager/POST_Topic_createDatasource_spec.js');  //Sub-Test Scripts: GET_Topic_topicDataSourceId_spec.js; DELETE_Topic_dataSource_spec.js// */
+	//require('./Topic_Manager/GET_Topic_topicCustomDSId_spec.js');
+>>>>>>> origin/master
 	require('./Topic_Manager/DELETE_topicId_spec.js'); 
 	//require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
 	
 	//User_Manager//
+<<<<<<< HEAD
     require('./User_Manager/POST_User_userProfile_spec.js');
+=======
+/* 	require('./User_Manager/POST_User_userProfile_spec.js');
+>>>>>>> origin/master
 	require('./User_Manager/PUT_User_userProfileID_spec.js');
 	require('./User_Manager/POST_User_userProfilePassword_spec.js');
 	require('./User_Manager/POST_User_userProfilePasswordx_spec.js'); //reverses the password back to its previous password//
@@ -185,7 +194,13 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	require('./User_Manager/GET_User_userAuth_spec.js');
 	//require('./User_Manager/DELETE_User_userAuthId_spec.js');
 	require('./User_Manager/POST_User_invalidUserAuth_spec.js');
+<<<<<<< HEAD
 	require('./User_Manager/POST_User_invalidUserPassword_spec.js');
+=======
+	require('./User_Manager/POST_User_invalidUserPassword_spec.js'); */
+	//require('./User_Manager/Q_API_TEST_POST_LoginReminderAccount_spec.js');
+	
+>>>>>>> origin/master
 
 	
 	}).toss();
