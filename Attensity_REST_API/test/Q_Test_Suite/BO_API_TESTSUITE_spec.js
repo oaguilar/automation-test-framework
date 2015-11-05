@@ -111,7 +111,7 @@ var boPassword = credentials.boPassword;
 	//require('./BO_API_TEST_UserUpdatePassword_spec.js'); */
 
 	//Account//
-	require('./Account_Manager/GET_Account_accountList_spec.js');
+	//require('./Account_Manager/GET_Account_accountList_spec.js');
 	/* require('./BO_API_TEST_GetAccountReport_spec.js');
 	require('./BO_API_TEST_GetAccountType_spec.js');
 	require('./BO_API_TEST_GetAccountBrandList_spec.js');
@@ -145,10 +145,15 @@ var boPassword = credentials.boPassword;
 	require('./BO_API_TEST_EditAccountPostMax80_spec.js');
 	require('./BO_API_TEST_EditAccountPostMax90_spec.js');
 	require('./BO_API_TEST_EditAccountPostMax100_spec.js');
-	require('./DELETE_Account_account_spec.js');
+	require('./DELETE_Account_account_spec.js');*/
+	
+	//Internal//
+	require('./Internal/POST_Internal_topicStatus_spec.js');
+	require('./Internal/GET_Internal_topicStatusId_spec.js');
+	require('./Internal/POST_Internal_redisRest_spec.js');
 	
 	//Account Termination//
-	require('./BO_API_TEST_AccountTermination_spec.js');*/
+	//require('./BO_API_TEST_AccountTermination_spec.js');
 	require('./Account_Manager/DELETE_Account_account_spec.js');
 	
 	}).toss();
