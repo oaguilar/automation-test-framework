@@ -111,34 +111,26 @@ var boPassword = credentials.boPassword;
 	//require('./BO_API_TEST_UserUpdatePassword_spec.js'); */
 
 	//Account//
-	require('./Account_Manager/PUT_Account_accountUser_spec.js');
-	require('./Account_Manager/POST_Account_accountUser_spec.js');  //Sub Test Script: Account_Manager/DELETE_Account_accountUser_spec.js);
-	
-	//require('./Account_Manager/POST_Account_accountUserUnique_spec.js');
-	//require('./Account_Manager/POST_Account_accountEdit_spec.js');
-	//require('./Account_Manager/PUT_Account_accountEditId_spec.js');
 	//require('./Account_Manager/GET_Account_accountList_spec.js');
-	//require('./Account_Manager/GET_Account_accountReport_spec.js');
-	//require('./Account_Manager/GET_Account_accountType_spec.js');
-	//require('./Account_Manager/POST_Account_accountUniqueFALSE_spec.js');
-	//require('./Account_Manager/GET_Account_accountBrandList_spec.js');
-	//require('./Account_Manager/POST_Account_accountBrandEdit_spec.js');
-	//require('./Account_Manager/GET_Account_averageAndMonthlyVolume_spec.js');
-	//require('./Account_Manager/PUT_Account_accountEdit_spec.js');
-	//require('./Account_Manager/GET_Account_accountUsers_spec.js'); 
+	require('./Account_Manager/GET_Account_accountReport_spec.js');
+	require('./Account_Manager/GET_Account_accountType_spec.js');
+	require('./Account_Manager/GET_Account_accountBrandList_spec.js');
+	//require('./BO_API_TEST_AverageAndMonthlyVolume_spec.js');
+	//require('./BO_API_TEST_EditAccountPut_spec.js');
+	require('./Account_Manager/GET_Account_accountUsers_spec.js');
  
 	//Account Authentication Integrity//
 	//require('./BO_API_TEST_AccountUsernameInvalid_spec.js');
 	//require('./BO_API_TEST_AccountAuthInvalidAccountName_spec.js');
 	//require('./BO_API_TEST_AccountPasswordInvalid_spec.js');
 	//require('./BO_API_TEST_AccountLoginValid_spec.js');
-	//require('./Account_Manager/GET_Account_accountAuthSession_spec.js');
-	
-	//Account Users//
-	//require('./BO_API_TEST_AccountAuthEditor_spec.js');
-	//require('./BO_API_TEST_AccountAuthReadyOnly_spec.js');
-	//require('./Account_Manager/POST_Account_accountValidationLogin_spec.js');
+	require('./Account_Manager/GET_Account_accountAuthSession_spec.js');
 /*	
+	//Account Users//
+	require('./BO_API_TEST_AccountAuthEditor_spec.js');
+	require('./BO_API_TEST_AccountAuthReadyOnly_spec.js');
+	require('./BO_API_TEST_AccountAuthLogin_spec.js');
+	
 	//Account PARAM//
 	require('./BO_API_TEST_EditAccountPost_spec.js');
 	require('./BO_API_TEST_EditAccountPostLang_spec.js');
@@ -156,9 +148,9 @@ var boPassword = credentials.boPassword;
 	require('./DELETE_Account_account_spec.js');*/
 	
 	//Internal//
-	//require('./Internal/POST_Internal_topicStatus_spec.js');
-	//require('./Internal/GET_Internal_topicStatusId_spec.js');
-	//require('./Internal/POST_Internal_redisRest_spec.js');
+	require('./Internal/POST_Internal_topicStatus_spec.js');
+	require('./Internal/GET_Internal_topicStatusId_spec.js');
+	require('./Internal/POST_Internal_redisRest_spec.js');
 	
 	//Account Termination//
 	//require('./BO_API_TEST_AccountTermination_spec.js');

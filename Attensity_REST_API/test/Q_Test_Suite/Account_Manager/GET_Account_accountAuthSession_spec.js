@@ -1,21 +1,22 @@
-/* jasmine-node BO_API_TEST_GetAccountAuthSession_spec.js */
+/* jasmine-node GET_Account_accountAuthSession_spec.js */
 
 var frisby = require('frisby');
 var fs, configurationFile;
-	configurationFile = 'BO_configuration.json';
+	configurationFile = 'configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var BackofficeQA = configuration.BackofficeQA;
-var accountAuthService = configuration.accountAuthService;
+	
+var xBO_AUTH_URL = configuration.xBO_AUTH_URL;
+var restAccount = configuration.restAccount;
 
-	frisby.create('Get Account Auth Session')
-	.get(BackofficeQA + '/' + accountAuthService)
+	frisby.create('GET Account Auth Session')
+	.get(xBO_AUTH_URL + restAccount + 'account')
 		.expectStatus(200)
 		.expectHeader('Content-Type', 'application/json')
 		.expectJSONTypes({
-			username: String,
+/* 			username: String,
 			account: Number,
 			enabled: Boolean,
 			accountAdminUser: Boolean,
@@ -24,8 +25,8 @@ var accountAuthService = configuration.accountAuthService;
 			authkey: String,
 			accountType: Number,
 			expirationDate: Number,
-			maxTopicLimit: Number
+			maxTopicLimit: Number */
 		})
 		.inspectJSON()
-		.after(function() {console.log('=====>>>>>End Of Get Account Auth Session<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of GET Account Auth Session<<<<<=====')})
 		.toss();

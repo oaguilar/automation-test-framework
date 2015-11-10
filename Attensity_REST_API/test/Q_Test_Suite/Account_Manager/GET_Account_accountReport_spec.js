@@ -1,20 +1,19 @@
-/* jasmine-node BO_API_TEST_GetAccountReport_spec.js */
+/* jasmine-node GET_Account_accountReport_spec.js */
 
 var frisby = require('frisby');
 var moment = require('moment');
 var fs, configurationFile;
-	configurationFile = 'BO_configuration.json';
+	configurationFile = 'configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-	
-var BackofficeQA = configuration.BackofficeQA;
-var accountService = configuration.accountService;
+var xBO_AUTH_URL = configuration.xBO_AUTH_URL;
+var restAccount = configuration.restAccount;
 
-frisby.create('GetAccountReport')
+frisby.create('GET AccountReport')
 //Retrieves Account Management Report
-	.get(BackofficeQA + accountService  + '/' + "accountreport")
+	.get(xBO_AUTH_URL + restAccount + 'account/accountreport')
 		.expectStatus(200)
 		.expectHeaderContains('Content-Type', 'application/json')
 		.expectJSONTypes([{
@@ -36,5 +35,5 @@ frisby.create('GetAccountReport')
 			status: String
 		}])
 	.inspectJSON()
-	.after(function() {console.log('=====>>>>>End Of Get Account Report<<<<<=====')})
+	.after(function() {console.log('=====>>>>>End Of GET Account Report<<<<<=====')})
 	.toss();

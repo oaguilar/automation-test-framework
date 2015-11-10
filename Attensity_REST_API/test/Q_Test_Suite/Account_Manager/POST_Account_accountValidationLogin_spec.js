@@ -1,31 +1,29 @@
-/* jasmine-node BO_API_TEST_AccountAuthLogin_spec.js */
+/* jasmine-node POST_Account_accountValidationLogin_spec.js */
 /* https://jira.attensity.com/browse/CO-42 */
 
 var frisby = require('frisby')
 var fs, configurationFile;
-	configurationFile = 'BO_configuration.json';
+	configurationFile = 'configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var BackofficeQA = configuration.BackofficeQA;
-var accountAuthService = configuration.accountAuthService;
-var userAccount = configuration.userAccount;
-var passwordAccount = configuration.passwordAccount;
-var automationAccountID = configuration.automationAccountID;
-var autoPassword = configuration.autoPassword;
-var autoAccountName = configuration.autoAccountName;
+	
+var fs, configurationFile;
+	configurationFile = 'credentials.json';
+	fs = require('fs'); 
+var credentials = JSON.parse(
+    fs.readFileSync(configurationFile)
+	);
+	
+var xBO_AUTH_URL = configuration.xBO_AUTH_URL;
 var restAccount = configuration.restAccount;
-var QQA = configuration.QQA;
-var restUser = configuration.restUser;
-var autoUsername = configuration.autoUsername;
-var autoPassword = configuration.autoPassword;
-var autoAccountName = configuration.autoAccountName;
-
+var userAccount = credentials.userAccount;
+var passwordAccount = credentials.passwordAccount;
 
 //Verifies Username is invalid; Login Failed = true// 
 	    frisby.create('Account Username Invalid')
-		.post(BackofficeQA + accountAuthService,
+		.post(xBO_AUTH_URL + restAccount + 'accountauth',
 		{
 		  username:'InvalidUsername',
 		  password: passwordAccount
@@ -38,7 +36,7 @@ var autoAccountName = configuration.autoAccountName;
 		
 //Verifies Password is invalid; Login Failed = true// 
 	    frisby.create('Account Password Invalid')
-		.post(BackofficeQA + accountAuthService,
+		.post(xBO_AUTH_URL + restAccount + 'accountauth',
 		{
 		  username: userAccount,
 		  password:'InvalidPassword'
@@ -51,7 +49,7 @@ var autoAccountName = configuration.autoAccountName;
 		
 //Verifies Back Office Username & Password is valid; Login Failed = false// 
 	    frisby.create('Account Login Valid')
-		.post(BackofficeQA + accountAuthService,
+		.post(xBO_AUTH_URL + restAccount + 'accountauth',
 		{
 		  username: userAccount,
 		  password: passwordAccount

@@ -1,22 +1,31 @@
-/* jasmine-node BO_API_TEST_GetAccountUsers_spec.js */
+/* jasmine-node GET_Account_accountUsers_spec.js */
 
 var frisby = require('frisby');
-var moment = require('moment');
+
 var fs, configurationFile;
-	configurationFile = 'BO_configuration.json';
+	configurationFile = 'configuration.json';
 	fs = require('fs'); 
 var configuration = JSON.parse(
     fs.readFileSync(configurationFile)
 	);
-var BackofficeQA = configuration.BackofficeQA;
-var accountUserService = configuration.accountUserService;
-var automationAccountID = configuration.automationAccountID;
 
-frisby.create('GetAccountUsers')
+var fs, configurationFile;
+	configurationFile = 'credentials.json';
+	fs = require('fs'); 
+var credentials = JSON.parse(
+    fs.readFileSync(configurationFile)
+	);
+	
+var xBO_AUTH_URL = configuration.xBO_AUTH_URL;
+var restAccount = configuration.restAccount;
+var AccountID = credentials.AccountID;
+
+frisby.create('GET AccountUsers')
 //Retrieves list of users for a specified account
-	.get(BackofficeQA + accountUserService + '/' + automationAccountID)
+	.get(xBO_AUTH_URL + restAccount + 'account/' + AccountID)
 	.expectStatus(200)
-	.expectJSONTypes([{
+	.expectJSONTypes(
+/* 	[{
 		username: String,
 		email: String,
 		apikey: String,
@@ -38,8 +47,8 @@ frisby.create('GetAccountUsers')
 			userPermissions: Array
 		},
 		maxTopicLimit: Number
-	}]
+	}] */
 )
 	.inspectJSON()
-	.after(function() {console.log('=====>>>>>End Of Get Account Users<<<<<=====')})
+	.after(function() {console.log('=====>>>>>End Of GET Account Users<<<<<=====')})
 	.toss();
