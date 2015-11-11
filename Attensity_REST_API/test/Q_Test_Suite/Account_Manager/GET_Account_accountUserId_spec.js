@@ -1,5 +1,5 @@
-/* jasmine-node POST_Account_accountUserUnique_spec.js 
-	ARTSA-5169
+/* jasmine-node GET_Account_accountUserId_spec.js 
+	ARTSA-5176
 */
 
 var frisby = require('frisby');
@@ -20,14 +20,11 @@ var credentials = JSON.parse(
 	
 var xBO_AUTH_URL = configuration.xBO_AUTH_URL;
 var restAccount = configuration.restAccount;
+var AccountID =  credentials.AccountID
 
-frisby.create('POST Account User Unique')
-	.post(xBO_AUTH_URL + restAccount + 'user/unique',
-	{
-		username: 'myunqiuename'
-	})
+frisby.create('GET Account User ID')
+	.get(xBO_AUTH_URL + restAccount + 'user/account/' + AccountID)
 		.expectStatus(200)
 		.inspectJSON()
-		.expectJSON({unique: true})
-		.after(function() {console.log('=====>>>>>End Of POST Account User Unique<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of GET Account User ID<<<<<=====')})
 	.toss();

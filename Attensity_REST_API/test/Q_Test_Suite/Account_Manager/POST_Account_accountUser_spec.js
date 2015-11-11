@@ -1,5 +1,5 @@
 /* jasmine-node POST_Account_accountUser_spec.js 
-	ARTSA-xxx
+	ARTSA-5175
 */
 
 var frisby = require('frisby');
@@ -42,7 +42,7 @@ frisby.create('POST Create User')
 		.inspectJSON()
 		.after(function() {console.log('=====>>>>>End Of POST Create User<<<<<=====')})
 		.afterJSON(function(json) {
-			require('./PUT_Account_accountUser_spec.js');
+			//require('./PUT_Account_accountUser_spec.js');
 			require('./DELETE_Account_accountUser_spec.js');
 		})
 	.toss();

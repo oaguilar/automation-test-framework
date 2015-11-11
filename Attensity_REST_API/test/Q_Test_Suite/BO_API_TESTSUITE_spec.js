@@ -111,8 +111,10 @@ var boPassword = credentials.boPassword;
 	//require('./BO_API_TEST_UserUpdatePassword_spec.js'); */
 
 	//Account//
-	require('./Account_Manager/PUT_Account_accountUser_spec.js');
-	require('./Account_Manager/POST_Account_accountUser_spec.js');  //Sub Test Script: Account_Manager/DELETE_Account_accountUser_spec.js);
+	require('./Account_Manager/GET_Account_accountUserId_spec.js');
+	require('./Account_Manager/POST_Account_accountUnique_spec.js');
+	//require('./Account_Manager/PUT_Account_accountUser_spec.js');
+	//require('./Account_Manager/POST_Account_accountUser_spec.js');  //Sub Test Script: Account_Manager/DELETE_Account_accountUser_spec.js);
 	
 	//require('./Account_Manager/POST_Account_accountUserUnique_spec.js');
 	//require('./Account_Manager/POST_Account_accountEdit_spec.js');
@@ -163,6 +165,7 @@ var boPassword = credentials.boPassword;
 	//Account Termination//
 	//require('./BO_API_TEST_AccountTermination_spec.js');
 	require('./Account_Manager/DELETE_Account_account_spec.js');
+	//require('./Account_Manager/DELETE_Account_accountAuth_spec.js');
 	
 	}).toss();
 }).toss();

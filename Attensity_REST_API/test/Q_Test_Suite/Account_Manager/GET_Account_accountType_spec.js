@@ -1,4 +1,6 @@
-/* jasmine-node GET_Account_accountType_spec.js */
+/* jasmine-node GET_Account_accountType_spec.js
+	 ARTSA-5164
+*/
 
 var frisby = require('frisby');
 

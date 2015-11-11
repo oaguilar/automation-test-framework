@@ -1,5 +1,5 @@
 /* jasmine-node GET_Account_accountBrandList_spec.js 
-	ARTSA-xxx
+	ARTSA-5167
 */
 
 var frisby = require('frisby');

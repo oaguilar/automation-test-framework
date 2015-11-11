@@ -1,5 +1,6 @@
-/* jasmine-node POST_Account_accountValidationLogin_spec.js */
-/* https://jira.attensity.com/browse/CO-42 */
+/*  jasmine-node POST_Account_accountValidationLogin_spec.js 
+	ARTSA-5161												 
+*/
 
 var frisby = require('frisby')
 var fs, configurationFile;

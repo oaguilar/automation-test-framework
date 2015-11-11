@@ -1,4 +1,6 @@
-/* jasmine-node GET_Account_accountAuthSession_spec.js */
+/* jasmine-node GET_Account_accountAuthSession_spec.js
+	ARTSA-5160
+*/
 
 var frisby = require('frisby');
 var fs, configurationFile;

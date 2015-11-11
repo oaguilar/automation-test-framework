@@ -1,7 +1,6 @@
-/* jasmine-node DELETE_Account_account_spec.js
-	ARTSA-5137
+/* jasmine-node DELETE_Account_accountAuth_spec.js
+	ARTSA-5168
 */
-
 
 var frisby = require('frisby');
 var moment = require('moment');
@@ -17,9 +16,8 @@ var restAccount = configuration.restAccount;
 require('../BO_API_TESTSUITE_spec.js');
 var id = json.id
 
-frisby.create('DELETE Account')
-//Deletes account created during test
-	.delete(xBO_AUTH_URL + restAccount + 'account/' + json.id)
+frisby.create('DELETE Account Auth')
+	.delete(xBO_AUTH_URL + restAccount + 'accountauth')
 	.expectStatus(200)
-	.after(function() {console.log('=====>>>>>End Of DELETE Account<<<<<=====')})
+	.after(function() {console.log('=====>>>>>End Of DELETE Account Auth<<<<<=====')})
 	.toss();
