@@ -1,5 +1,5 @@
-/* jasmine-node POST_Dashboard_dashboardId_spec.js
-   ARTSA-3835
+/* jasmine-node POST_Dashboard_topicDashboardId_spec.js
+   ARTSA-5194
    Updated on October 19, 2015 */
 
 var frisby = require('frisby')
@@ -14,12 +14,12 @@ var restDashboard = configuration.restDashboard;
 require('../API_TESTSUITE_spec.js');
 var id = json.id
 
-    frisby.create('POST dashboard ID')
+    frisby.create('POST topic dashboard ID')
 		.post(xURL + restDashboard + 'dashboards/topic-dashboards/' + id,
 	{
     topicId: id,
     jsonDefinition: '[{"id":1700,"name":"tititabonita3","widgets":[{"directive":"overview-bar","attrs":"mini","col":1,"row":1,"size_x":2,"size_y":2},{"directive":"article-stream","col":1,"row":3,"size_x":2,"size_y":10}],"editName":null} ]'
 	})
 		.expectStatus(204)
-		.after(function() {console.log('=====>>>>>End Of POST dashboard ID<<<<<=====')})
+		.after(function() {console.log('=====>>>>>End Of POST topic dashboard ID<<<<<=====')})
 		.toss();

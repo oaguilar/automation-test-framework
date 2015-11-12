@@ -1,5 +1,5 @@
 /* jasmine-node DELETE_Dashboard_dashboardTemplate_spec.js
-   ARTSA-3838
+   ARTSA-5187
    Updated on October 19, 2015 */
 
 var frisby = require('frisby')
