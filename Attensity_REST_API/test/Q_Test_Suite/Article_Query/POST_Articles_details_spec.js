@@ -1,5 +1,6 @@
-/* jasmine-node POST_Articles_details_spec.js */
-/* Updated on April 20, 2015 */
+/* 	jasmine-node POST_Articles_details_spec.js
+	ARTSA-4979
+	Updated on April 20, 2015 */
 
 var frisby = require('frisby')
 var moment = require('moment');

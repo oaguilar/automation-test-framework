@@ -122,6 +122,12 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	
 
 	//Article Query//
+	//require('./Article_Query/GET_Articles_getAllFields_spec.js');
+	//require('./Article_Query/GET_Articles_loadSourceFields_spec.js');
+	//require('./Article_Query/POST_Articles_hideArticle_spec.js');
+	//require('./Article_Query/POST_Articles_getHiddenArticles_spec.js');
+	//require('./Article_Query/POST_Articles_detailsById_spec.js');
+	//require('./Article_Query/POST_Articles_trendsAndStdDev_spec.js');
 /* 	require('./Article_Query/POST_Articles_entitySentiment_spec.js');
 	require('./Article_Query/POST_Articles_topInfluencersDetails_spec.js');
  	require('./Article_Query/POST_Articles_streamDetails_spec.js');
@@ -163,6 +169,7 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	
 	 
 	//Topic_Manager//
+	require('./Topic_Manager/GET_Topic_topicAlertId_spec.js');
 /*	require('./Topic_Manager/GET_Topic_articleQuery_spec.js');
 	require('./Topic_Manager/GET_Topic_topicReport_spec.js');
 	require('./Topic_Manager/POST_Topic_updateTopicAlert_spec.js');
