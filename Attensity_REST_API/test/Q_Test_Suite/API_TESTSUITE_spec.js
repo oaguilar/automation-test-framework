@@ -169,7 +169,7 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 	
 	 
 	//Topic_Manager//
-	require('./Topic_Manager/GET_Topic_topicAlertId_spec.js');
+	//require('./Topic_Manager/GET_Topic_topicAlertId_spec.js');
 /*	require('./Topic_Manager/GET_Topic_articleQuery_spec.js');
 	require('./Topic_Manager/GET_Topic_topicReport_spec.js');
 	require('./Topic_Manager/POST_Topic_updateTopicAlert_spec.js');
