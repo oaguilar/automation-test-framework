@@ -13,8 +13,6 @@ var configuration = JSON.parse(
 
 var xURL = configuration.xURL;
 var restKermit = configuration.restKermit;
-require('../API_TESTSUITE_spec.js');
-var id = json.id
 
     frisby.create('GET entitylists')
 		.get(xURL + restKermit + 'core/entitylists')

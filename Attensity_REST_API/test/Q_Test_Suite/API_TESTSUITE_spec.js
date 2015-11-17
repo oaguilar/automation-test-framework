@@ -158,13 +158,18 @@ var TOPIC_NM = 'Topic Create through API NODE.JS'
 
 	
 	//Kermit//
+	require('./Kermit/GET_Kermit_templateEditor_spec.js');
 	//require('./Kermit/GET_Kermit_stoplist_spec.js');
-/* 	require('./Kermit/GET_Kermit_suggestions_spec.js');
+ 	//require('./Kermit/GET_Kermit_suggestions_spec.js');
 	require('./Kermit/GET_Kermit_entityEditor_spec.js');
-	require('./Kermit/GET_Kermit_directory_spec.js');
-	require('./Kermit/GET_Kermit_eltemplates_spec.js');
-	require('./Kermit/GET_Kermit_projects_spec.js');
-	require('./Kermit/GET_Kermit_entitylists_spec.js'); */
+	//require('./Kermit/GET_Kermit_directory_spec.js');
+	//require('./Kermit/GET_Kermit_eltemplates_spec.js');
+	//require('./Kermit/GET_Kermit_projects_spec.js'); 
+	//require('./Kermit/GET_Kermit_entitylists_spec.js');
+	//require('./Kermit/POST_Kermit_entitylists_spec.js');
+	//require('./Kermit/POST_Kermit_eltemplates_spec.js');  //Sub-Test Scripts: PUT_Kermit_eltemplates_spec.js; GET_Kermit_eltemplatesId_spec.js; DELETE_Kermit_eltemplatesId_spec.js//
+	
+	
 	
 	
 	 

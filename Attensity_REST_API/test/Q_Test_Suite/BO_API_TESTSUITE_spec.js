@@ -111,8 +111,8 @@ var boPassword = credentials.boPassword;
 	//require('./BO_API_TEST_UserUpdatePassword_spec.js'); */
 
 	//Account//
-	require('./Account_Manager/GET_Account_accountUserId_spec.js');
-	require('./Account_Manager/POST_Account_accountUnique_spec.js');
+	//require('./Account_Manager/GET_Account_accountUserId_spec.js');
+	//require('./Account_Manager/POST_Account_accountUnique_spec.js');
 	//require('./Account_Manager/PUT_Account_accountUser_spec.js');
 	//require('./Account_Manager/POST_Account_accountUser_spec.js');  //Sub Test Script: Account_Manager/DELETE_Account_accountUser_spec.js);
 	
@@ -156,6 +156,9 @@ var boPassword = credentials.boPassword;
 	require('./BO_API_TEST_EditAccountPostMax90_spec.js');
 	require('./BO_API_TEST_EditAccountPostMax100_spec.js');
 	require('./DELETE_Account_account_spec.js');*/
+	
+	//Kermit
+	require('./Kermit/GET_Kermit_templateEditor_spec.js');
 	
 	//Internal//
 	//require('./Internal/POST_Internal_topicStatus_spec.js');
